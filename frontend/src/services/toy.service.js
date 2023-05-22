@@ -15,6 +15,8 @@ export const toyService = {
     getEmptyToy,
 }
 
+
+
 function query() {
     return asyncStorageService.query(STORAGE_KEY)
 }
@@ -35,36 +37,42 @@ function save(toy) {
     }
 }
 
-
 function getEmptyToy() {
     return {
-        makeId: utilService.makeId(),
         name: '',
-        price: 123,
+        price: '',
         labels: [],
         createdAt: Date.now(),
         inStock: true,
     }
 }
+
+
+
 //---------------Private Functions---------------//
 
+// const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor', 'Battery Powered']
 function _createToys() {
     const toy = storageService.loadFromStorage(STORAGE_KEY) || []
     if (!toy || toy.length < 1) {
         toy.push(
-            _createToy(),
+            _createToy('Talking Doll', 612, ['Doll', 'Battery Powered', 'Baby'], true),
+            _createToy('Robot Toy', 82, ['Battery Powered', 'Baby'], true),
+            _createToy('YU-GI-OH Cards', 127, ['Art', 'Puzzle', 'Outdoor'], false),
+            _createToy('Lego', 16, ['Art', 'Puzzle', 'Baby'], true),
+            _createToy('Racing Car', 95, ['On wheels', 'Outdoor', 'Baby', 'Battery Powered'], false),
         )
         storageService.saveToStorage(STORAGE_KEY, toy)
     }
 }
 
-function _createToy() {
+function _createToy(name, price, labels, inStock) {
     return {
-        id: 't101',
-        name: 'Talking Doll',
-        price: 123,
-        labels: ['Doll', 'Battery Powered', 'Baby'],
-        createdAt: 1631031801011,
-        inStock: true,
+        id: utilService.makeId(),
+        createdAt: utilService.getRandomPastYearTimestamp(),
+        name,
+        price,
+        labels,
+        inStock,
     }
 }

@@ -6,7 +6,9 @@ export const utilService = {
     padNum,
     getDayName,
     getMonthName,
+    getRandomPastYearTimestamp,
     debounce,
+    formatTime
 }
 
 function makeId(length = 6) {
@@ -62,10 +64,49 @@ function getMonthName(date) {
     return monthNames[date.getMonth()]
 }
 
+function getRandomPastYearTimestamp() {
+    const now = Date.now() // Get the current timestamp
+    const maxOffset = 1000 * 60 * 60 * 24 * 365 // Maximum offset of 1 year (in milliseconds)
+    const randomOffset = Math.floor(Math.random() * maxOffset) // Generate a random offset between 0 and maxOffset
+    const pastTimestamp = now - randomOffset // Add the offset to the current timestamp to get a past timestamp
+    return pastTimestamp
+}
+
 function debounce(func, timeout = 300) {
     let timer
     return (...args) => {
         clearTimeout(timer)
         timer = setTimeout(() => { func.apply(this, args) }, timeout)
     }
+}
+
+function formatTime(time) {
+    let now = Date.now()
+    let diff = now - time
+
+    const SECOND = 1000
+    const MINUTE = SECOND * 60
+    const HOUR = MINUTE * 60
+    const DAY = HOUR * 24
+    const WEEK = DAY * 7
+    const MONTH = DAY * 30
+    const YEAR = DAY * 365
+
+    if (diff < MINUTE) return 'Just now'
+    if (diff < MINUTE * 5) return 'A few minutes ago'
+    if (diff < HOUR) return 'Less than a hour ago'
+    if (diff < HOUR * 3) return 'Couple of hours ago'
+    if (diff < DAY) return 'Today'
+    if (diff < DAY * 2) return 'Yesterday'
+    if (diff < DAY * 3) return '2 days ago'
+    if (diff < WEEK) return 'About a week ago'
+
+    return _getFormattedTime(time)
+}
+
+function _getFormattedTime(t) {
+    var d = new Date(t)
+    var str = 'At ' + d.getDate() + '/' + (d.getMonth() + 1) + '/' +
+        d.getFullYear() + ' Time: ' + d.getHours() + ':' + d.getMinutes()
+    return str
 }
