@@ -1,11 +1,17 @@
-export function ToyPreview({ toy, onToggleIsDone }) {
+
+export function ToyPreview({ toy }) {
+
+    const { name, price, inStock, labels, createdAt } = toy
 
     return (
-        <React.Fragment>
-            <span
-                className={toy.inStock ? 'inStock' : ''}
-                onClick={ev => onToggleIsDone(ev, toy)}
-            >{toy.text}</span>
-        </React.Fragment>
+        <article className="toy-preview">
+            <h2>{name}</h2>
+            <h3>{price}</h3>
+            {labels.map((label, index) => (
+                <p key={index}>{label}</p>
+            ))}
+            {inStock && <p>In stock</p>}
+            {!inStock && <p>Out of stock</p>}
+        </article>
     )
 }
