@@ -38,33 +38,36 @@ function save(toy) {
 
 function getEmptyToy() {
     return {
-        makeId: utilService.makeId(),
         name: '',
-        price: 123,
+        price: '',
         labels: [],
         createdAt: Date.now(),
         inStock: true,
     }
 }
-//---------------Private Functions---------------//
 
+
+//---------------Private Functions---------------//
+// const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor', 'Battery Powered']
 function _createToys() {
     const toy = storageService.loadFromStorage(STORAGE_KEY) || []
     if (!toy || toy.length < 1) {
         toy.push(
-            _createToy(),
+            _createToy('Talking Doll', 123, ['Doll', 'Battery Powered', 'Baby'], true),
+            _createToy('Robot Toy', 123, ['Battery Powered', 'Baby'], true),
+            _createToy('Yu-GI-OH ', 123, ['Battery Powered', 'Baby'], true),
         )
         storageService.saveToStorage(STORAGE_KEY, toy)
     }
 }
 
-function _createToy() {
+function _createToy(name, price, labels, inStock) {
     return {
-        id: 't101',
+        id: utilService.makeId(),
+        createdAt: Date.now(),
         name: 'Talking Doll',
         price: 123,
         labels: ['Doll', 'Battery Powered', 'Baby'],
-        createdAt: 1631031801011,
         inStock: true,
     }
 }
