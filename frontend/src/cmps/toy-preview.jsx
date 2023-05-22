@@ -5,7 +5,7 @@ export function ToyPreview({ toy }) {
     return (
         <article className="toy-preview">
             <h2>{name}</h2>
-            <h3>{price}</h3>
+            <h3>price: {price}$</h3>
             {labels.map((label, index) => (
                 <p key={index}>{label}</p>
             ))}

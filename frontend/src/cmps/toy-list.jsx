@@ -12,22 +12,26 @@ export function ToyList({ toys, onRemoveToy }) {
             {
                 (toys.length > 0) ? (
                     toys.map(toy => (
-                        <section className="toy-preview" key={toy._id}>
-                            <article>
-                                <Link to={`/toy/edit/${toy._id}`}>Edit Toy</Link>
-                            </article>
+                        <section className="toy-card" key={toy._id}>
 
                             <article className="preview-text">
                                 <ToyPreview toy={toy} />
                             </article>
 
-                            <article>
-                                <button onClick={(ev) => onRemoveToy(ev, toy._id)}>Remove</button>
-                            </article>
+                            <section className="card-menu">
+                                <article>
+                                    <Link to={`/toy/details/${toy._id}`}>Details</Link>
+                                </article>
 
-                            <article>
-                                <Link to={`/toy/details/${toy._id}`}>Details</Link>
-                            </article>
+                                <article>
+                                    <Link to={`/toy/edit/${toy._id}`}>Edit Toy</Link>
+                                </article>
+
+                                <article>
+                                    <button onClick={(ev) => onRemoveToy(ev, toy._id)}>Remove</button>
+                                </article>
+                            </section>
+
 
                         </section>
                     ))
