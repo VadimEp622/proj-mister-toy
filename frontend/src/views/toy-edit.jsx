@@ -16,7 +16,7 @@ export function ToyEdit() {
 
 
     useEffect(() => {
-        loadToy()
+        if (toyId) loadToy()
     }, [toyToEdit])
 
     function loadToy() {
