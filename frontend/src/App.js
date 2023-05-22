@@ -1,10 +1,10 @@
 // import logo from './logo.svg';
 
 import { Route, HashRouter as Router, Routes } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import './assets/css/main.css';
+import { Provider } from 'react-redux'
+import './assets/style/main.css'
 
-import { store } from './store/store';
+import { store } from './store/store'
 
 import { About } from './views/about'
 import { Home } from './views/home'
