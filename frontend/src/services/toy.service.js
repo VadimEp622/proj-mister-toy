@@ -13,6 +13,7 @@ export const toyService = {
     save,
     remove,
     getEmptyToy,
+    getDefaultFilter
 }
 
 
@@ -43,7 +44,6 @@ function query(filterBy, sortBy) {
             // }
             return toys
         })
-
 }
 
 function get(toyId) {
@@ -72,8 +72,9 @@ function getEmptyToy() {
     }
 }
 
-
-
+function getDefaultFilter() {
+    return { name: '', maxPrice: '', inStock: '', labels: [] }
+}
 
 //---------------Private Functions---------------//
 

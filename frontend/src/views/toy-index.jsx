@@ -5,19 +5,20 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { toyService } from '../services/toy.service.js'
 import { ToyList } from '../cmps/toy-list.jsx'
+import { ToyFilter } from '../cmps/toy-filter.jsx'
 
 
 export function ToyIndex() {
     const toys = useSelector(state => state.toyModule.toys)
-    // const [filterBy, setFilterBy] = useState(carService.getDefaultFilter())
+    const [filterBy, setFilterBy] = useState(carService.getDefaultFilter())
     const dispatch = useDispatch()
     // const [sortBy, setSortBy] = useState({ type: '', desc: 1 })
 
 
     useEffect(() => {
         // add here sortby, filterby when we get there
-        loadToys()
-    }, [])
+        loadToys(filterBy)
+    }, [filterBy])
 
     function onRemoveToy(toyId) {
         removeToy(toyId)
@@ -29,15 +30,14 @@ export function ToyIndex() {
             })
     }
 
-    // function onSetFilter(filterBy) {
-    //     console.log('FilterBy', filterBy)
-    //     setFilterBy(filterBy)
-    // }
+    function onSetFilter(filterBy) {
+        setFilterBy(filterBy)
+    }
 
     return (
         <section className="toy-index">
             <Link to={`/toy/edit`}>Add Toy</Link>
-            {/* <ToyFilter onSetFilter={onSetFilter} /> */}
+            <ToyFilter onSetFilter={onSetFilter} />
             <ToyList
                 toys={toys}
                 // sortBy={sortBy}
