@@ -24,7 +24,6 @@ export function ToyFilter({ onSetFilter }) {
         const value = (type === 'number') ? (+target.value || '') :
             (type === 'checkbox') ? checked :
                 target.value
-        console.log(target.value)
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 

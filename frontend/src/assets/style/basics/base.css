@@ -49,8 +49,13 @@ img {
 
 .btn:hover {
     background-color: var(--btn-bg-color1);
+    cursor: pointer;
 }
 
 button.btn{
     border: none;
+}
+
+button:hover {
+    cursor: pointer;
 }
