@@ -20,8 +20,11 @@ export function ToyFilter({ onSetFilter }) {
     }, [filterByToEdit])
 
     function handleChange({ target }) {
-        let { value, name: field, type } = target
-        value = (type === 'number') ? +value : value
+        const { name: field, type, checked } = target
+        const value = (type === 'number') ? (+target.value || '') :
+            (type === 'checkbox') ? checked :
+                target.value
+        console.log(target.value)
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 
@@ -64,7 +67,7 @@ export function ToyFilter({ onSetFilter }) {
                 />
 
                 <label htmlFor="inStock">In Stock:</label>
-                <input type="checkbox" name="inStock" id="inStock" onChange={handleChange} checked={inStock} />
+                <input type="checkbox" name="inStock" id="inStock" onChange={handleChange} value={inStock} />
                 <button>Filter</button>
 
                 <LabelSelector labels={labels} onLabelChange={onLabelChange} />
