@@ -28,14 +28,31 @@ export function ToyEdit() {
 
             })
     }
-
+// ONLY ADD WORKS
     function handleChange({ target }) {
         console.log('target.value', target.value)
         const field = target.name
         const value = (target.type === 'number') ? (+target.value || '') :
             (target.type === 'checkbox') ? target.checked :
                 target.value
-        setToyToEdit(prevToyEdit => ({ ...prevToyEdit, [field]: value }))
+        if (field === "labels") {
+            const labelName = target.dataset.labelName
+            if (value)
+                setToyToEdit(prevToyEdit => ({
+                    ...prevToyEdit,
+                    [field]: prevToyEdit[field].includes(labelName) ? prevToyEdit[field] : [...prevToyEdit[field], labelName]
+                }))
+            else
+                setToyToEdit(prevToyEdit => ({
+                    ...prevToyEdit,
+                    [field]: prevToyEdit[field].includes(labelName)
+                        ? prevToyEdit[field].filter(item => item !== labelName)
+                        : [...prevToyEdit[field]]
+                }))
+        }
+        else {
+            setToyToEdit(prevToyEdit => ({ ...prevToyEdit, [field]: value }))
+        }
     }
 
     // function handleCheckboxChange({ target }) {
@@ -61,44 +78,44 @@ export function ToyEdit() {
                 </article>
                 <article>
                     <label>Price:</label>
-                    <input required onChange={handleChange} value={price} type="number" name={price} placeholder="Enter price" />
+                    <input required type="number" name={price} placeholder="Enter price" onChange={handleChange} value={price} />
                 </article>
                 <article>
-                    <input type="checkbox" name="inStock" value={inStock} onChange={handleChange} />
+                    <input type="checkbox" name="inStock" value={inStock} onChange={handleChange} checked={inStock} />
                     <label>Toy In Stock</label>
                 </article>
                 <section className="labels-input">
                     <h4>Labels:</h4>
                     <article>
-                        <input type="checkbox" name="On wheels" value={labels.includes('On wheels')} onChange={handleChange} />
+                        <input type="checkbox" name="labels" data-label-name="On wheels" value={labels.includes('On wheels')} checked={labels.includes('On wheels')} onChange={handleChange} />
                         <label>On wheels</label>
                     </article>
                     <article>
-                        <input type="checkbox" name="Box game" value={labels.includes('Box game')} onChange={handleChange} />
+                        <input type="checkbox" name="labels" data-label-name="Box game" value={labels.includes('Box game')} checked={labels.includes('Box game')} onChange={handleChange} />
                         <label>Box game</label>
                     </article>
                     <article>
-                        <input type="checkbox" name="Art" value={labels.includes('Art')} onChange={handleChange} />
+                        <input type="checkbox" name="labels" data-label-name="Art" value={labels.includes('Art')} checked={labels.includes('Art')} onChange={handleChange} />
                         <label>Art</label>
                     </article>
                     <article>
-                        <input type="checkbox" name="Baby" value={labels.includes('Baby')} onChange={handleChange} />
+                        <input type="checkbox" name="labels" data-label-name="Baby" value={labels.includes('Baby')} checked={labels.includes('Baby')} onChange={handleChange} />
                         <label>Baby</label>
                     </article>
                     <article>
-                        <input type="checkbox" name="Doll" value={labels.includes('Doll')} onChange={handleChange} />
+                        <input type="checkbox" name="labels" data-label-name="Doll" value={labels.includes('Doll')} checked={labels.includes('Doll')} onChange={handleChange} />
                         <label>Doll</label>
                     </article>
                     <article>
-                        <input type="checkbox" name="Puzzle" value={labels.includes('Puzzle')} onChange={handleChange} />
+                        <input type="checkbox" name="labels" data-label-name="Puzzle" value={labels.includes('Puzzle')} checked={labels.includes('Puzzle')} onChange={handleChange} />
                         <label>Puzzle</label>
                     </article>
                     <article>
-                        <input type="checkbox" name="Outdoor" value={labels.includes('Outdoor')} onChange={handleChange} />
+                        <input type="checkbox" name="labels" data-label-name="Outdoor" value={labels.includes('Outdoor')} checked={labels.includes('Outdoor')} onChange={handleChange} />
                         <label>Outdoor</label>
                     </article>
                     <article>
-                        <input type="checkbox" name="Battery Powered" value={labels.includes('Battery Powered')} onChange={handleChange} />
+                        <input type="checkbox" name="labels" data-label-name="Battery Powered" value={labels.includes('Battery Powered')} checked={labels.includes('Battery Powered')} onChange={handleChange} />
                         <label>Battery Powered</label>
                     </article>
                 </section>
