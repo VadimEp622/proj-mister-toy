@@ -19,6 +19,7 @@ export const toyService = {
 
 
 function query(filterBy, sortBy) {
+    console.log('filterBy', filterBy)
     return asyncStorageService.query(STORAGE_KEY)
         .then((toys) => {
             if (filterBy.name) {
@@ -31,7 +32,8 @@ function query(filterBy, sortBy) {
             if (filterBy.maxPrice) {
                 toys = toys.filter(toy => toy.price <= filterBy.maxPrice)
             }
-            if (filterBy.labels) {
+            if (filterBy.labels && filterBy.labels.length > 0) {
+                // console.log('filterBy.labels', filterBy.labels)
                 const labels = filterBy.labels.split(',')
                 toys = toys.filter(toy => labels.every(l => toy.labels.includes(l)))
             }
