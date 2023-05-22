@@ -1,4 +1,4 @@
-import { todoService } from "../services/toy.service.js"
+import { toyService } from "../services/toy.service.js"
 
 import { UPDATE_IS_EDIT } from "../store/todo.reducer.js"
 import { saveTodo } from "../store/todo.actions.js"
@@ -6,7 +6,7 @@ import { saveTodo } from "../store/todo.actions.js"
 const { useState } = React
 
 export function ToyEdit({ dispatch, todoToEditRef }) {
-    const [todoEdit, setTodoEdit] = useState(todoToEditRef.current ? todoToEditRef.current : todoService.getEmptyTodo())
+    const [todoEdit, setTodoEdit] = useState(todoToEditRef.current ? todoToEditRef.current : toyService.getEmptyTodo())
 
 
     function handleChange({ target }) {

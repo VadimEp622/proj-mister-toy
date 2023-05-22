@@ -3,81 +3,68 @@ import { storageService } from './storage.service.js'
 import { utilService } from './util.service.js'
 
 
-const STORAGE_KEY = 'todoDB'
-_createTodos()
+const STORAGE_KEY = 'toyDB'
+_createToys()
 
 
-export const todoService = {
+export const toyService = {
     query,
     get,
     save,
     remove,
-    getEmptyTodo,
-    getProgress,
+    getEmptyToy,
 }
 
 function query() {
     return asyncStorageService.query(STORAGE_KEY)
 }
 
-function get(todoId) {
-    return asyncStorageService.get(STORAGE_KEY, todoId)
+function get(toyId) {
+    return asyncStorageService.get(STORAGE_KEY, toyId)
 }
 
-function remove(todoId) {
-    return asyncStorageService.remove(STORAGE_KEY, todoId)
+function remove(toyId) {
+    return asyncStorageService.remove(STORAGE_KEY, toyId)
 }
 
-// function save(todo) {
-//     if (todo._id) {
-//         return asyncStorageService.put(STORAGE_KEY, toy)
-//     } else {
-//         return asyncStorageService.post(STORAGE_KEY, toy)
-//     }
-// }
-
-
-function getProgress(todos) {
-    const total = todos.length
-    const doneAmount = todos.reduce((acc, todo) => {
-        return todo.isDone ? acc + 1 : acc
-    }, 0)
-    const result = (doneAmount === 0) ? 0 : (doneAmount * 100 / total).toFixed(2)
-    return `${result} %`
-}
-
-
-function getEmptyTodo() {
-    return {
-        text: '',
-        isDone: false,
+function save(toy) {
+    if (toy._id) {
+        return asyncStorageService.put(STORAGE_KEY, toy)
+    } else {
+        return asyncStorageService.post(STORAGE_KEY, toy)
     }
 }
 
 
-
+function getEmptyToy() {
+    return {
+        makeId: utilService.makeId(),
+        name: '',
+        price: 123,
+        labels: [],
+        createdAt: Date.now(),
+        inStock: true,
+    }
+}
 //---------------Private Functions---------------//
 
-function _createTodos() {
-    const todo = storageService.loadFromStorage(STORAGE_KEY) || []
-    if (!todo || todo.length < 1) {
-        todo.push(
-            _createTodo('Clean dishes'),
-            _createTodo('Cook'),
-            _createTodo('Take out trash'),
-            _createTodo('Cry after looking at unfinished code', true),
-            _createTodo('Condition self to stop crying after exactly 10 minutes', true),
-            _createTodo('Have reward ice cream')
+function _createToys() {
+    const toy = storageService.loadFromStorage(STORAGE_KEY) || []
+    if (!toy || toy.length < 1) {
+        toy.push(
+            _createToy(),
         )
-        storageService.saveToStorage(STORAGE_KEY, todo)
+        storageService.saveToStorage(STORAGE_KEY, toy)
     }
 }
 
-function _createTodo(text, isDone = false) {
+function _createToy() {
     return {
-        _id: utilService.makeId(),
-        text,
-        isDone,
-        createdAt: Date.now(),
+        id: 't101',
+        name: 'Talking Doll',
+        price: 123,
+        labels: ['Doll', 'Battery Powered', 'Baby'],
+        createdAt: 1631031801011,
+        inStock: true,
     }
 }
