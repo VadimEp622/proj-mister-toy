@@ -3,8 +3,8 @@ import { store } from './store.js'
 import { SET_TOYS, ADD_TOY, REMOVE_TOY, UPDATE_TOY } from './toy.reducer.js'
 
 
-export function loadToys() {
-    return toyService.query()
+export function loadToys(filterBy) {
+    return toyService.query(filterBy)
         .then(toys => {
             store.dispatch({ type: SET_TOYS, toys })
             return

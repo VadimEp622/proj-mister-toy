@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ToyPreview } from './toy-preview.jsx'
 
 
-export function ToyList({ toys,onRemoveToy }) {
+export function ToyList({ toys, onRemoveToy }) {
     // if (!toys.length) {
     //     return <span className="loading-notice">No toys to show..</span>
     // }
@@ -24,6 +24,11 @@ export function ToyList({ toys,onRemoveToy }) {
                             <article>
                                 <button onClick={(ev) => onRemoveToy(ev, toy._id)}>Remove</button>
                             </article>
+
+                            <article>
+                                <Link to={`/toy/details/${toy._id}`}>Details</Link>
+                            </article>
+
                         </section>
                     ))
                 ) : (<span className="no-toys-notice">No Toys Available</span>)

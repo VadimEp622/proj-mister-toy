@@ -13,12 +13,37 @@ export const toyService = {
     save,
     remove,
     getEmptyToy,
+    getDefaultFilter
 }
 
 
 
-function query() {
+function query(filterBy, sortBy) {
     return asyncStorageService.query(STORAGE_KEY)
+        .then((toys) => {
+            if (filterBy.name) {
+                const regExp = new RegExp(filterBy.name, 'i')
+                toys = toys.filter(toy => regExp.test(toy.name))
+            }
+            if (filterBy.inStock) {
+                toys = toys.filter(toy => toy.inStock === filterBy.inStock)
+            }
+            if (filterBy.maxPrice) {
+                toys = toys.filter(toy => toy.price <= filterBy.maxPrice)
+            }
+            if (filterBy.labels) {
+                toys = toys.filter(toy => toy.labels.every(label => toy.labels.includes(label)))
+            }
+            if (sortBy) _getSortedToys(toys, sortBy)
+            // if (filterBy.pageIdx != undefined) {
+            //     pages = Math.ceil(toys.length / PAGE_SIZE)
+            //     if (filterBy.pageIdx + 1 < pages || filterBy.pageIdx > 0) {
+            //         const startIdx = filterBy.pageIdx * PAGE_SIZE
+            //         toys = toys.slice(startIdx, startIdx + PAGE_SIZE)
+            //     }
+            // }
+            return toys
+        })
 }
 
 function get(toyId) {
@@ -47,8 +72,9 @@ function getEmptyToy() {
     }
 }
 
-
-
+function getDefaultFilter() {
+    return { name: '', maxPrice: '', inStock: '', labels: [] }
+}
 
 //---------------Private Functions---------------//
 
@@ -76,4 +102,17 @@ function _createToy(name, price, labels, inStock) {
         labels,
         inStock,
     }
+}
+
+function _getSortedToys(toysToDisplay, sortBy) {
+    toysToDisplay.sort(
+        (t1, t2) => {
+            const value1 = t1[sortBy.type]
+            const value2 = t2[sortBy.type]
+            return sortBy.desc * (typeof value1 === 'string' && typeof value2 === 'string'
+                ? value2.localeCompare(value1)
+                : value2 - value1
+            )
+        }
+    )
 }
