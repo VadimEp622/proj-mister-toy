@@ -1,30 +1,31 @@
 import { ToyPreview } from './toy-preview.jsx'
 
-export function ToyList({ toys, onToggleIsDone, onEditClick, onRemoveClick, isLoadingRef }) {
-    if (isLoadingRef.current) {
-        return <span className="loading-notice">Loading...</span>
-    }
+
+export function ToyList({ toys }) {
+    // if (!toys.length) {
+    //     return <span className="loading-notice">No toys to show..</span>
+    // }
 
     return (
-        <section className="toy-list">
+        <section className="toys-list">
             {
                 (toys.length > 0) ? (
                     toys.map(toy => (
                         <section className="toy-preview" key={toy._id}>
                             <article>
-                                <button onClick={(ev) => onEditClick(ev, toy)}>Edit</button>
+                                <Link to={`/toy/edit/${toy._id}`}>Edit Toy</Link>
                             </article>
 
                             <article className="preview-text">
-                                <ToyPreview toy={toy} onToggleIsDone={onToggleIsDone} />
+                                <ToyPreview toy={toy} />
                             </article>
 
                             <article>
-                                <button onClick={(ev) => onRemoveClick(ev, toy._id)}>X</button>
+                                <button onClick={(ev) => onRemoveToy(ev, toy._id)}>Remove</button>
                             </article>
                         </section>
                     ))
-                ) : (<span className="no-toys-notice">No Toys</span>)
+                ) : (<span className="no-toys-notice">No Toys Available</span>)
             }
         </section>
     )
