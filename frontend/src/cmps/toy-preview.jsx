@@ -6,11 +6,13 @@ export function ToyPreview({ toy }) {
         <article className="toy-preview">
             <h2>{name}</h2>
             <h3>price: {price}$</h3>
+                {inStock && <h5>In stock</h5>}
+                {!inStock && <h5>Out of stock</h5>}
+            <section className="card-labels">
             {labels.map((label, index) => (
-                <p key={index}>{label}</p>
+                <h4 key={index}>{label}</h4>
             ))}
-            {inStock && <p>In stock</p>}
-            {!inStock && <p>Out of stock</p>}
+            </section>
         </article>
     )
 }
