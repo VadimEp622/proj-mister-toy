@@ -1,0 +1,62 @@
+[
+    {
+      "_id": "ixUbK2",
+      "createdAt": 1660555472260,
+      "name": "Talking Doll",
+      "price": 612,
+      "labels": [
+        "Doll",
+        "Battery Powered",
+        "Baby"
+      ],
+      "inStock": true
+    },
+    {
+      "_id": "p6zw9E",
+      "createdAt": 1670131595809,
+      "name": "Robot Toy",
+      "price": 82,
+      "labels": [
+        "Battery Powered",
+        "Baby"
+      ],
+      "inStock": true
+    },
+    {
+      "_id": "R4Ogql",
+      "createdAt": 1656607560059,
+      "name": "YU-GI-OH Cards",
+      "price": 127,
+      "labels": [
+        "Art",
+        "Puzzle",
+        "Outdoor"
+      ],
+      "inStock": false
+    },
+    {
+      "_id": "CvpcLJ",
+      "createdAt": 1682417599712,
+      "name": "Lego",
+      "price": 16,
+      "labels": [
+        "Art",
+        "Puzzle",
+        "Baby"
+      ],
+      "inStock": true
+    },
+    {
+      "_id": "ZsMKnv",
+      "createdAt": 1672289567235,
+      "name": "Racing Car",
+      "price": 95,
+      "labels": [
+        "On wheels",
+        "Outdoor",
+        "Baby",
+        "Battery Powered"
+      ],
+      "inStock": false
+    }
+  ]
