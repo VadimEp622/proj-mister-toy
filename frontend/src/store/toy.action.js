@@ -18,10 +18,10 @@ export function loadToys(filterBy) {
 export function saveToy(toy) {
     const type = toy._id ? UPDATE_TOY : ADD_TOY
     return toyService.save(toy)
-        .then(savedToy => {
-            console.log('savedToy', savedToy)
-            store.dispatch({ type, toy:savedToy })
-            return savedToy
+        .then(toy => {
+            console.log('toy', toy)
+            store.dispatch({ type, toy })
+            return toy
         })
         .catch(err => {
             console.log('toy action -> cannot save toy', err)
