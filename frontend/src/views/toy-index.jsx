@@ -39,10 +39,9 @@ export function ToyIndex() {
             <ToyFilter onSetFilter={onSetFilter} />
             <ToyList
                 toys={toys}
-                // sortBy={sortBy}
-                // setSortBy={setSortBy}
                 onRemoveToy={onRemoveToy}
             />
+            <ToySort sortBy={sortBy} setSortBy={setSortBy} />
         </section >
     )
 }
