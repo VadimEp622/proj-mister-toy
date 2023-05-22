@@ -39,8 +39,6 @@ img {
     object-fit: cover;
 }
 
-
-
 .btn {
     display: inline-block;
     padding: var(--padding-gap);

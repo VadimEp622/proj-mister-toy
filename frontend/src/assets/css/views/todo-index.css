@@ -1,16 +1,16 @@
-.todo-index {
+.toy-index {
     padding: var(--padding-gap);
 }
 
-.todo-index>* {
+.toy-index>* {
     margin-block: var(--padding-gap);
 }
 
-.todos-container {
+.toy-container {
     background-color: var(--todo-list-color0);
 }
 
-.no-todos-notice,
+.no-toys-notice,
 .loading-notice {
     display: block;
     text-align: center;

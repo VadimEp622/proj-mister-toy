@@ -1,8 +1,7 @@
-/* .user-welcome{} */
-
 .user-welcome h2 {
     font-weight: 100;
 }
-.user-welcome h2 span{
+
+.user-welcome h2 span {
     font-weight: 900;
 }

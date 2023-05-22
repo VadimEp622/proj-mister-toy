@@ -1,13 +1,11 @@
 header {
     background: lightcyan;
-    /* border-bottom: 2px solid white; */
     padding-inline: var(--padding-gap);
 }
 
 .app-header {
     display: flex;
     flex-direction: column;
-    /* padding: 20px 0; */
 }
 
 .logo-container {
@@ -23,8 +21,6 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-
-/* .app-header .user-container{} */
 
 nav a {
     margin: .5em;
