@@ -32,7 +32,8 @@ function query(filterBy, sortBy) {
                 toys = toys.filter(toy => toy.price <= filterBy.maxPrice)
             }
             if (filterBy.labels) {
-                toys = toys.filter(toy => toy.labels.every(label => toy.labels.includes(label)))
+                const labels = filterBy.labels.split(',')
+                toys = toys.filter(toy => labels.every(l => toy.labels.includes(l)))
             }
             if (sortBy) _getSortedToys(toys, sortBy)
             // if (filterBy.pageIdx != undefined) {
@@ -73,7 +74,7 @@ function getEmptyToy() {
 }
 
 function getDefaultFilter() {
-    return { name: '', maxPrice: '', inStock: '', labels: [] }
+    return { name: '', maxPrice: '', inStock: '', labels: '' }
 }
 
 //---------------Private Functions---------------//

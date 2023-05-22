@@ -16,7 +16,6 @@ export function ToyIndex() {
 
 
     useEffect(() => {
-        // add here sortby, filterby when we get there
         loadToys(filterBy)
     }, [filterBy])
 
