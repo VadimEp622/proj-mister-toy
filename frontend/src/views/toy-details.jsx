@@ -10,7 +10,6 @@ export function ToyDetails() {
     const [toy, setToy] = useState(null)
     const { toyId } = useParams()
     const navigate = useNavigate()
-
     useEffect(() => {
         loadToy()
     }, [toyId])
@@ -25,9 +24,11 @@ export function ToyDetails() {
             })
     }
 
-    const inStock = toy.inStock ? "Toy is in stock" : "Toy is out of stock"
 
     if (!toy) return <div>Loading...</div>
+
+    const inStock = toy.inStock ? "Toy is in stock" : "Toy is out of stock"
+
     return <section className="toy-details">
         <h1>Toy name : {toy.name}</h1>
         <h5>{inStock}</h5>

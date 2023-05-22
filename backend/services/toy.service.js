@@ -7,11 +7,16 @@ function query(filterBy = {}) {
         const regExp = new RegExp(filterBy.name, 'i')
         toysToDisplay = toysToDisplay.filter(toy => regExp.test(toy.name))
     }
-
     if (filterBy.maxPrice) {
         toysToDisplay = toysToDisplay.filter(toy => toy.price <= filterBy.maxPrice)
     }
-
+    if (filterBy.inStock) {
+        toysToDisplay = toysToDisplay.filter(toy => toy.inStock === filterBy.inStock)
+    }
+    if (filterBy.labels && filterBy.labels.length > 0) {
+        const labels = Array.isArray(filterBy.labels) ? filterBy.labels : filterBy.labels.split(',')
+        toysToDisplay = toysToDisplay.filter(toy => labels.every(l => toy.labels.includes(l)))
+    }
     return Promise.resolve(toysToDisplay)
 }
 
