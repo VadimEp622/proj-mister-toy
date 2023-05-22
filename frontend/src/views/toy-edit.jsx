@@ -1,7 +1,7 @@
 import { toyService } from "../services/toy.service.js"
 
-import { UPDATE_IS_EDIT } from "../store/toy.reducer.js"
-import { saveToy } from "../store/toy.actions.js"
+// import { UPDATE_IS_EDIT } from "../store/toy.reducer.js"
+// import { saveToy } from "../store/toy.actions.js"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
@@ -9,7 +9,7 @@ import { useNavigate, useParams } from "react-router-dom"
 export function ToyEdit() {
     const [toyToEdit, setToyToEdit] = useState(toyService.getEmptyToy())
     const { toyId } = useParams()
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -22,7 +22,7 @@ export function ToyEdit() {
             .catch((err) => {
                 console.log('Had issues in toy details', err)
                 showErrorMsg('Cannot load toy')
-                navigate('/toy')
+                // navigate('/toy')
             })
     }
 
@@ -38,18 +38,18 @@ export function ToyEdit() {
     //     labels.includes(str)
     // }
 
-    // function handleAddToy(ev) {
-    //     ev.preventDefault()
-    //     saveToy(toyToEdit)
-    // }
+    function handleAddToy(ev) {
+        ev.preventDefault()
+        // saveToy(toyToEdit)
+    }
 
-    const { labels } = toyEdit
+    const { labels, name, price, inStock } = toyToEdit
     return (
         <section className="toy-edit">
             <form action="">
-                <input type="text" name="text" placeholder="Enter toy name" value={toyEdit.name} onChange={handleChange} ></input>
-                <input required onChange={handleChange} value={toyEdit.price} type="number" name={toyEdit.price} placeholder="Enter price" />
-                <input type="checkbox" name={toyEdit.inStock} value={toyEdit.inStock} >in stock</input>
+                <input type="text" name="text" placeholder="Enter toy name" value={name} onChange={handleChange} ></input>
+                <input required onChange={handleChange} value={price} type="number" name={price} placeholder="Enter price" />
+                <input type="checkbox" name={inStock} value={inStock} >in stock</input>
                 <section className="labels-input">
                     <input type="checkbox" name="On wheels" checked={labels.includes('On wheels')} > On wheels</input>
                     <input type="checkbox" name="Box game" checked={labels.includes('Box game')} > Box game</input>
