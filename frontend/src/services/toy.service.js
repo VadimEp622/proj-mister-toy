@@ -33,8 +33,7 @@ function query(filterBy, sortBy) {
                 toys = toys.filter(toy => toy.price <= filterBy.maxPrice)
             }
             if (filterBy.labels && filterBy.labels.length > 0) {
-                // console.log('filterBy.labels', filterBy.labels)
-                const labels = filterBy.labels.split(',')
+                const labels = Array.isArray(filterBy.labels) ? filterBy.labels : filterBy.labels.split(',')
                 toys = toys.filter(toy => labels.every(l => toy.labels.includes(l)))
             }
             if (sortBy) _getSortedToys(toys, sortBy)
