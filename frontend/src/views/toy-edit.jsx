@@ -8,7 +8,6 @@ import { toyService } from "../services/toy.service.js"
 
 
 
-
 export function ToyEdit() {
     const [toyToEdit, setToyToEdit] = useState(toyService.getEmptyToy())
     const { toyId } = useParams()
@@ -17,7 +16,7 @@ export function ToyEdit() {
 
     useEffect(() => {
         if (toyId) loadToy()
-    }, [toyToEdit])
+    }, [toyId])
 
     function loadToy() {
         toyService.get(toyId)
@@ -28,7 +27,7 @@ export function ToyEdit() {
 
             })
     }
-// ONLY ADD WORKS
+    // ONLY ADD WORKS
     function handleChange({ target }) {
         console.log('target.value', target.value)
         const field = target.name
@@ -74,11 +73,11 @@ export function ToyEdit() {
             <form action="">
                 <article>
                     <label>Name:</label>
-                    <input type="text" name="text" placeholder="Enter toy name" value={name} onChange={handleChange} />
+                    <input type="text" name="text" name="name" placeholder="Enter toy name" value={name} onChange={handleChange} />
                 </article>
                 <article>
                     <label>Price:</label>
-                    <input required type="number" name={price} placeholder="Enter price" onChange={handleChange} value={price} />
+                    <input required type="number" name="price" placeholder="Enter price" onChange={handleChange} value={price} />
                 </article>
                 <article>
                     <input type="checkbox" name="inStock" value={inStock} onChange={handleChange} checked={inStock} />
