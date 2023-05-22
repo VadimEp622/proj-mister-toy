@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom'
 import { toyService } from '../services/toy.service.js'
 import { ToyList } from '../cmps/toy-list.jsx'
 import { ToyFilter } from '../cmps/toy-filter.jsx'
+import { ToySort } from '../cmps/toy-sort.jsx'
 
 
 export function ToyIndex() {
     const toys = useSelector(state => state.toyModule.toys)
     const [filterBy, setFilterBy] = useState(toyService.getDefaultFilter())
     const dispatch = useDispatch()
-    // const [sortBy, setSortBy] = useState({ type: '', desc: 1 })
+    const [sortBy, setSortBy] = useState({ type: '', desc: 1 })
 
 
     useEffect(() => {
@@ -37,11 +38,11 @@ export function ToyIndex() {
         <section className="toy-index">
             <Link to={`/toy/edit`}>Add Toy</Link>
             <ToyFilter onSetFilter={onSetFilter} />
+            <ToySort sortBy={sortBy} setSortBy={setSortBy} />
             <ToyList
                 toys={toys}
                 onRemoveToy={onRemoveToy}
             />
-            <ToySort sortBy={sortBy} setSortBy={setSortBy} />
         </section >
     )
 }
