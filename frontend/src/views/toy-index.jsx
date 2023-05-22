@@ -36,9 +36,8 @@ export function ToyIndex() {
 
     return (
         <section className="toy-index">
-            <Link to={`/toy/edit`}>Add Car</Link>
-            {/* <CarFilter onSetFilter={onSetFilter} /> */}
-            {/* {isLoading && <h4>Loading...</h4>} */}
+            <Link to={`/toy/edit`}>Add Toy</Link>
+            {/* <ToyFilter onSetFilter={onSetFilter} /> */}
             <ToyList
                 toys={toys}
                 // sortBy={sortBy}
