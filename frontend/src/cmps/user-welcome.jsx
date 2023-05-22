@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 export function UserWelcome({ dispatch, loggedInUser, onLogout }) {
-    const progress = useSelector(storeState => storeState.todoModule.progress)
+    const progress = useSelector(storeState => storeState.toyModule.progress)
 
     return (
         <section className="user-welcome">

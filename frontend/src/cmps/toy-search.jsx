@@ -1,4 +1,4 @@
-export function TodoSearch({ onSearch }) {
+export function ToySearch({ onSearch }) {
     return (
         <section className="todo-search">
             <label>Search: </label>

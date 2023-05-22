@@ -1,45 +1,45 @@
 import { toyService } from "../services/toy.service.js"
 
-import { UPDATE_IS_EDIT } from "../store/todo.reducer.js"
-import { saveTodo } from "../store/todo.actions.js"
+import { UPDATE_IS_EDIT } from "../store/toy.reducer.js"
+import { saveToy } from "../store/toy.actions.js"
 
 const { useState } = React
 
-export function ToyEdit({ dispatch, todoToEditRef }) {
-    const [todoEdit, setTodoEdit] = useState(todoToEditRef.current ? todoToEditRef.current : toyService.getEmptyTodo())
+export function ToyEdit({ dispatch, toyToEditRef }) {
+    const [toyEdit, setToyEdit] = useState(toyToEditRef.current ? toyToEditRef.current : toyService.getEmptyToy())
 
 
     function handleChange({ target }) {
         console.log('target.value', target.value)
         const field = target.name
         const value = target.type === 'number' ? (+target.value || '') : target.value
-        setTodoEdit(prevTodoEdit => ({ ...prevTodoEdit, [field]: value }))
+        setToyEdit(prevToyEdit => ({ ...prevToyEdit, [field]: value }))
     }
 
-    function handleAddTodo(ev) {
+    function handleAddToy(ev) {
         ev.preventDefault()
-        const todo = {
-            ...todoEdit,
+        const toy = {
+            ...toyEdit,
             createdAt: Date.now(),
         }
-        saveTodo(todo)
+        saveToy(toy)
             .then(() => {
                 dispatch({ type: UPDATE_IS_EDIT, isEdit: false })
-                todoToEditRef.current = null//finish current edit session
+                toyToEditRef.current = null//finish current edit session
             })
     }
 
 
     return (
-        <section className="todo-edit">
+        <section className="toy-edit">
             <input
                 type="text"
                 name="text"
                 placeholder="What needs to be done?"
-                value={todoEdit.text}
+                value={toyEdit.text}
                 onChange={handleChange}
             ></input>
-            <button onClick={(ev) => handleAddTodo(ev)}>Add</button>
+            <button onClick={(ev) => handleAddToy(ev)}>Add</button>
         </section>
     )
 }
