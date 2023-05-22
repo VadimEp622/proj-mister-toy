@@ -98,7 +98,7 @@ function _createToys() {
 
 function _createToy(name, price, labels, inStock) {
     return {
-        id: utilService.makeId(),
+        _id: utilService.makeId(),
         createdAt: utilService.getRandomPastYearTimestamp(),
         name,
         price,
