@@ -15,6 +15,7 @@ import { UserProfile } from './views/user-profile'
 import { AppHeader } from './cmps/app-header'
 import { AppFooter } from './cmps/app-footer'
 import { UserMsg } from './cmps/user-msg'
+import { ToyEdit } from './views/toy-edit'
 
 
 export default function App() {
