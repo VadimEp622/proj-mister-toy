@@ -53,9 +53,11 @@ function _createToys() {
     const toy = storageService.loadFromStorage(STORAGE_KEY) || []
     if (!toy || toy.length < 1) {
         toy.push(
-            _createToy('Talking Doll', 123, ['Doll', 'Battery Powered', 'Baby'], true),
-            _createToy('Robot Toy', 123, ['Battery Powered', 'Baby'], true),
-            _createToy('Yu-GI-OH ', 123, ['Battery Powered', 'Baby'], true),
+            _createToy('Talking Doll', 612, ['Doll', 'Battery Powered', 'Baby'], true),
+            _createToy('Robot Toy', 82, ['Battery Powered', 'Baby'], true),
+            _createToy('YU-GI-OH Cards', 127, ['Art', 'Puzzle', 'Outdoor'], false),
+            _createToy('Lego', 16, ['Art', 'Puzzle', 'Baby'], true),
+            _createToy('Racing Car', 95, ['On wheels', 'Outdoor', 'Baby', 'Battery Powered'], false),
         )
         storageService.saveToStorage(STORAGE_KEY, toy)
     }
@@ -64,10 +66,10 @@ function _createToys() {
 function _createToy(name, price, labels, inStock) {
     return {
         id: utilService.makeId(),
-        createdAt: Date.now(),
-        name: 'Talking Doll',
-        price: 123,
-        labels: ['Doll', 'Battery Powered', 'Baby'],
-        inStock: true,
+        createdAt: utilService.getRandomPastYearTimestamp(),
+        name,
+        price,
+        labels,
+        inStock,
     }
 }

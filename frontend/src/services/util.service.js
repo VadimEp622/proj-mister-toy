@@ -6,6 +6,7 @@ export const utilService = {
     padNum,
     getDayName,
     getMonthName,
+    getRandomPastYearTimestamp,
     debounce,
 }
 
@@ -60,6 +61,14 @@ function getMonthName(date) {
         "July", "August", "September", "October", "November", "December"
     ]
     return monthNames[date.getMonth()]
+}
+
+function getRandomPastYearTimestamp() {
+    const now = Date.now() // Get the current timestamp
+    const maxOffset = 1000 * 60 * 60 * 24 * 365 // Maximum offset of 1 year (in milliseconds)
+    const randomOffset = Math.floor(Math.random() * maxOffset) // Generate a random offset between 0 and maxOffset
+    const pastTimestamp = now - randomOffset // Add the offset to the current timestamp to get a past timestamp
+    return pastTimestamp
 }
 
 function debounce(func, timeout = 300) {
