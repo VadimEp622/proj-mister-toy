@@ -20,10 +20,11 @@ export function ToyFilter({ onSetFilter }) {
     }, [filterByToEdit])
 
     function handleChange({ target }) {
-        const { name: field, type } = target
-        const value = (target.type === 'number') ? (+target.value || '') :
-            (target.type === 'checkbox') ? (target.checked === 'true') :
+        const { name: field, type, checked } = target
+        const value = (type === 'number') ? (+target.value || '') :
+            (type === 'checkbox') ? checked :
                 target.value
+        console.log(target.value)
         setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
     }
 

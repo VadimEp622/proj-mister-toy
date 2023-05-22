@@ -20,7 +20,7 @@ export function ToySort({ sortBy, setSortBy }) {
             <select className="sort-type" name="type" value={sortByToEdit.type} onChange={handleChange}>
                 <option value="name">name</option>
                 <option value="createdAt">Created At</option>
-                <option value="price">Price</option>=
+                <option value="price">Price</option>
             </select>
             <label>
                 <input type="checkbox" name="desc" checked={sortByToEdit.desc > 0} onChange={handleChange} />
