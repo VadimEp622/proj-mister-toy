@@ -17,8 +17,8 @@ export function ToyIndex() {
 
 
     useEffect(() => {
-        loadToys(filterBy)
-    }, [filterBy])
+        loadToys(filterBy, sortBy)
+    }, [filterBy, sortBy])
 
     function onRemoveToy(toyId) {
         removeToy(toyId)

@@ -107,6 +107,7 @@ function _createToy(name, price, labels, inStock) {
 }
 
 function _getSortedToys(toysToDisplay, sortBy) {
+    console.log('entered sorting')
     toysToDisplay.sort(
         (t1, t2) => {
             const value1 = t1[sortBy.type]

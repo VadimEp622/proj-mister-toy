@@ -11,14 +11,8 @@ export function ToySort({ sortBy, setSortBy }) {
     function handleChange({ target }) {
         const field = target.name
         const value = target.type === 'number' ? +target.value : target.value
-        if (field === 'desc') setSortByToEdit(prevSort => ({
-            ...prevSort,
-            desc: -(prevSort.desc)
-        }))
-        else setSortByToEdit((prevSort) => ({
-            ...prevSort,
-            [field]: value,
-        }))
+        if (field === 'desc') setSortByToEdit(prevSort => ({ ...prevSort, desc: -(prevSort.desc) }))
+        else setSortByToEdit((prevSort) => ({ ...prevSort, [field]: value }))
     }
 
     return (

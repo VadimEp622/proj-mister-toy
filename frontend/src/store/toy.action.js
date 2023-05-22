@@ -20,7 +20,7 @@ export function saveToy(toy) {
     return toyService.save(toy)
         .then(savedToy => {
             console.log('savedToy', savedToy)
-            store.dispatch({ type, toy:savedToy })
+            store.dispatch({ type, toy: savedToy })
             return savedToy
         })
         .catch(err => {
