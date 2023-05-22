@@ -1,25 +1,40 @@
 import logo from './logo.svg';
-import './App.css';
+import { Route, HashRouter as Router, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import './assets/style/main.css';
 
-function App() {
+import { store } from './store/store';
+
+import { About } from './views/about'
+import { Home } from './views/home'
+import { ToyDetails } from './views/toy-details'
+import { ToyIndex } from './views/toy-index'
+import { UserProfile } from './views/user-profile'
+
+import { AppHeader } from './cmps/app-header'
+import { AppFooter } from './cmps/app-footer'
+import { UserMsg } from './cmps/user-msg'
+
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={store}>
+      <Router>
+        <section className='app'>
+          <AppHeader />
+          <main>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/toy' element={<ToyIndex />} />
+              <Route path='/toy/details' element={<ToyDetails />} />
+              <Route path='/userProfile/:userId' element={<UserProfile />} />
+            </Routes>
+          </main>
+          <AppFooter />
+          <UserMsg />
+        </section>
+      </Router>
+    </Provider >
+  )
 }
-
-export default App;

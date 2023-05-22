@@ -1,11 +1,11 @@
-const { createStore, combineReducers } = Redux
+import { combineReducers, legacy_createStore as createStore } from 'redux'
 
 
-import { todoReducer } from './todo.reducer.js'
+import { toyReducer } from './toy.reducer.js'
 import { userReducer } from './user.reducer.js'
 
 const rootReducer = combineReducers({
-    todoModule: todoReducer,
+    toyModule: toyReducer,
     userModule: userReducer
 })
 
@@ -13,3 +13,8 @@ const rootReducer = combineReducers({
 
 const middleware = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
 export const store = createStore(rootReducer, middleware)
+
+// For debug
+store.subscribe(() => {
+    // console.log('Current state is:', store.getState())
+})
