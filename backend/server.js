@@ -27,8 +27,9 @@ app.use(express.json()) // for req.body
 // **************** Toys API ****************:
 // List
 app.get('/api/toy', (req, res) => {
-    const { name, maxPrice, inStock } = req.query
-    const filterBy = { name, maxPrice: +maxPrice, inStock }
+    const { name, maxPrice, inStock, labels } = req.query
+    const parsedInStock = inStock === 'true' ? true : inStock === 'false' ? false : undefined;
+    const filterBy = { name, maxPrice: +maxPrice, inStock: parsedInStock, labels }
     toyService.query(filterBy)
         .then(toys => {
             res.send(toys)
@@ -41,16 +42,17 @@ app.get('/api/toy', (req, res) => {
 
 // Add
 app.post('/api/toy', (req, res) => {
-    const loggedinUser = userService.validateToken(req.cookies.loginToken)
-    if (!loggedinUser) return res.status(401).send('Cannot add toy')
-    const { name, inStock, price } = req.body
+    // const loggedinUser = userService.validateToken(req.cookies.loginToken)
+    // if (!loggedinUser) return res.status(401).send('Cannot add toy')
+    const { name, inStock, price, labels } = req.body
 
     const toy = {
         name,
         price: +price,
-        inStock
+        inStock,
+        labels
     }
-    toyService.save(toy, loggedinUser)
+    toyService.save(toy)
         .then((savedToy) => {
             res.send(savedToy)
         })
@@ -63,17 +65,19 @@ app.post('/api/toy', (req, res) => {
 
 // Edit
 app.put('/api/toy', (req, res) => {
-    const loggedinUser = userService.validateToken(req.cookies.loginToken)
-    if (!loggedinUser) return res.status(401).send('Cannot update toy')
+    // const loggedinUser = userService.validateToken(req.cookies.loginToken)
+    // if (!loggedinUser) return res.status(401).send('Cannot update toy')
 
     const { name, price, _id, inStock } = req.body
     const toy = {
         _id,
         name,
         price: +price,
-        inStock
+        inStock,
+        labels
+
     }
-    toyService.save(toy, loggedinUser)
+    toyService.save(toy)
         .then((savedToy) => {
             res.send(savedToy)
         })
@@ -94,11 +98,11 @@ app.get('/api/toy/:toyId', (req, res) => {
 
 // Remove
 app.delete('/api/toy/:toyId', (req, res) => {
-    const loggedinUser = userService.validateToken(req.cookies.loginToken)
-    if (!loggedinUser) return res.status(401).send('Cannot delete toy')
+    // const loggedinUser = userService.validateToken(req.cookies.loginToken)
+    // if (!loggedinUser) return res.status(401).send('Cannot delete toy')
 
     const { toyId } = req.params
-    toyService.remove(toyId, loggedinUser)
+    toyService.remove(toyId)
         .then(msg => {
             res.send({ msg, toyId })
         })

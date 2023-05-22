@@ -12,17 +12,6 @@
     "inStock": true
   },
   {
-    "_id": "p6zw9E",
-    "createdAt": 1670131595809,
-    "name": "Robot Toy",
-    "price": 82,
-    "labels": [
-      "Battery Powered",
-      "Baby"
-    ],
-    "inStock": true
-  },
-  {
     "_id": "R4Ogql",
     "createdAt": 1656607560059,
     "name": "YU-GI-OH Cards",

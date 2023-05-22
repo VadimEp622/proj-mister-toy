@@ -3,6 +3,7 @@ var toys = require('../data/toy.json')
 
 function query(filterBy = {}) {
     let toysToDisplay = toys
+
     if (filterBy.name) {
         const regExp = new RegExp(filterBy.name, 'i')
         toysToDisplay = toysToDisplay.filter(toy => regExp.test(toy.name))
@@ -11,7 +12,10 @@ function query(filterBy = {}) {
         toysToDisplay = toysToDisplay.filter(toy => toy.price <= filterBy.maxPrice)
     }
     if (filterBy.inStock) {
+        console.log(filterBy.inStock);
+        console.log(toysToDisplay);
         toysToDisplay = toysToDisplay.filter(toy => toy.inStock === filterBy.inStock)
+        console.log(toysToDisplay);
     }
     if (filterBy.labels && filterBy.labels.length > 0) {
         const labels = Array.isArray(filterBy.labels) ? filterBy.labels : filterBy.labels.split(',')
@@ -26,26 +30,27 @@ function get(toyId) {
     return Promise.resolve(toy)
 }
 
-function remove(toyId, loggedinUser) {
+function remove(toyId) {
     const idx = toys.findIndex(toy => toy._id === toyId)
     if (idx === -1) return Promise.reject('No Such Toy')
     const toy = toys[idx]
-    if (toy.owner._id !== loggedinUser._id) return Promise.reject('Not your toy')
+    // if (toy.owner._id !== loggedinUser._id) return Promise.reject('Not your toy')
     toys.splice(idx, 1)
     return _saveToysToFile()
 
 }
 
-function save(toy, loggedinUser) {
+function save(toy) {
     if (toy._id) {
-        const toyToUpdate = toys.find(currToy => currToy._id === toy._id)
-        if (toyToUpdate.owner._id !== loggedinUser._id) return Promise.reject('Not your toy')
-        toyToUpdate.vendor = toy.vendor
-        toyToUpdate.speed = toy.speed
+        // const toyToUpdate = toys.find(currToy => currToy._id === toy._id)
+        // if (toyToUpdate.owner._id !== loggedinUser._id) return Promise.reject('Not your toy')
+        toyToUpdate.name = toy.vendor
         toyToUpdate.price = toy.price
+        toyToUpdate.labels = toy.labels
+
     } else {
         toy._id = _makeId()
-        toy.owner = loggedinUser
+        // toy.owner = loggedinUser
         toys.push(toy)
     }
 
