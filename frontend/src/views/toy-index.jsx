@@ -10,7 +10,7 @@ import { ToyFilter } from '../cmps/toy-filter.jsx'
 
 export function ToyIndex() {
     const toys = useSelector(state => state.toyModule.toys)
-    const [filterBy, setFilterBy] = useState(carService.getDefaultFilter())
+    const [filterBy, setFilterBy] = useState(toyService.getDefaultFilter())
     const dispatch = useDispatch()
     // const [sortBy, setSortBy] = useState({ type: '', desc: 1 })
 
