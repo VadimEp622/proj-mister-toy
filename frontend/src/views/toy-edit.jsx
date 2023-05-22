@@ -73,7 +73,7 @@ export function ToyEdit() {
             <form action="">
                 <article>
                     <label>Name:</label>
-                    <input type="text" name="text" name="name" placeholder="Enter toy name" value={name} onChange={handleChange} />
+                    <input type="text" name="name" placeholder="Enter toy name" value={name} onChange={handleChange} />
                 </article>
                 <article>
                     <label>Price:</label>
