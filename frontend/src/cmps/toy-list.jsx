@@ -28,7 +28,7 @@ export function ToyList({ toys, onRemoveToy }) {
                                 </article>
 
                                 <article>
-                                    <button onClick={(ev) => onRemoveToy(ev, toy._id)}>Remove</button>
+                                    <button onClick={() => onRemoveToy(toy._id)}>Remove</button>
                                 </article>
                             </section>
 

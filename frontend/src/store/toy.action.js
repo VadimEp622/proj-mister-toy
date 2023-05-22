@@ -28,11 +28,12 @@ export function saveToy(toy) {
         })
 }
 
-export function removeToy(toy) {
-    return toyService.remove(toy)
+export function removeToy(toyId) {
+    console.log(toyId)
+    return toyService.remove(toyId)
         .then(() => {
-            console.log('toyId from -> toy.actions.js', toy)
-            store.dispatch({ type: REMOVE_TOY, toy })
+            console.log('toyId from -> toy.actions.js', toyId)
+            store.dispatch({ type: REMOVE_TOY, toyId })
         })
         .catch(err => {
             console.log('toy action -> Cannot remove toy', err)
