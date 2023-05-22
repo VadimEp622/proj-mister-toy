@@ -45,13 +45,14 @@ app.post('/api/toy', (req, res) => {
     // const loggedinUser = userService.validateToken(req.cookies.loginToken)
     // if (!loggedinUser) return res.status(401).send('Cannot add toy')
     const { name, inStock, price, labels } = req.body
-
+console.log('hi');
     const toy = {
         name,
         price: +price,
-        inStock,
+        // inStock,
         labels
     }
+    console.log('toy',toy);
     toyService.save(toy)
         .then((savedToy) => {
             res.send(savedToy)
@@ -68,12 +69,12 @@ app.put('/api/toy', (req, res) => {
     // const loggedinUser = userService.validateToken(req.cookies.loginToken)
     // if (!loggedinUser) return res.status(401).send('Cannot update toy')
 
-    const { name, price, _id, inStock } = req.body
+    const { name, price, _id, inStock, labels } = req.body
     const toy = {
         _id,
         name,
         price: +price,
-        inStock,
+        // inStock,
         labels
 
     }
