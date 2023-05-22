@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
 import { ToyPreview } from './toy-preview.jsx'
 
 
-export function ToyList({ toys }) {
+export function ToyList({ toys,onRemoveToy }) {
     // if (!toys.length) {
     //     return <span className="loading-notice">No toys to show..</span>
     // }
