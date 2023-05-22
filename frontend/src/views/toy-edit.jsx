@@ -12,7 +12,7 @@ import { toyService } from "../services/toy.service.js"
 export function ToyEdit() {
     const [toyToEdit, setToyToEdit] = useState(toyService.getEmptyToy())
     const { toyId } = useParams()
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export function ToyEdit() {
             .catch((err) => {
                 console.log('Had issues in toy details', err)
                 showErrorMsg('Cannot load toy')
-                // navigate('/toy')
+
             })
     }
 
@@ -41,6 +41,7 @@ export function ToyEdit() {
     function handleAddToy(ev) {
         ev.preventDefault()
         saveToy(toyToEdit)
+        navigate('/toy')
     }
 
     const { labels, name, price, inStock } = toyToEdit
