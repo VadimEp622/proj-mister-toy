@@ -111,10 +111,7 @@ function _getSortedToys(toysToDisplay, sortBy) {
         (t1, t2) => {
             const value1 = t1[sortBy.type]
             const value2 = t2[sortBy.type]
-            return sortBy.desc * (typeof value1 === 'string' && typeof value2 === 'string'
-                ? value2.localeCompare(value1)
-                : value2 - value1
-            )
+            return sortBy.desc * (typeof value1 === 'string' && typeof value2 === 'string' ? value2.localeCompare(value1) : value2 - value1)
         }
     )
 }
