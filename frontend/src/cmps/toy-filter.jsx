@@ -1,19 +1,19 @@
-export function TodoFilter({ onFilterClick, filterBy }) {
+export function ToyFilter({ onFilterClick, filterBy }) {
 
     return (
-        <section className="todo-filter">
+        <section className="toy-filter">
             <article className="filter-btn-container">
                 <button
-                    className={`${filterBy.todoState === 'all' ? 'active' : ''}`}
-                    onClick={(ev) => onFilterClick(ev, { todoState: 'all' })}
+                    className={`${filterBy.toyState === 'all' ? 'active' : ''}`}
+                    onClick={(ev) => onFilterClick(ev, { toyState: 'all' })}
                 >All</button>
                 <button
-                    className={`${filterBy.todoState === 'active' ? 'active' : ''}`}
-                    onClick={(ev) => onFilterClick(ev, { todoState: 'active' })}
+                    className={`${filterBy.toyState === 'active' ? 'active' : ''}`}
+                    onClick={(ev) => onFilterClick(ev, { toyState: 'active' })}
                 >Active</button>
                 <button
-                    className={`${filterBy.todoState === 'completed' ? 'active' : ''}`}
-                    onClick={(ev) => onFilterClick(ev, { todoState: 'completed' })}
+                    className={`${filterBy.toyState === 'completed' ? 'active' : ''}`}
+                    onClick={(ev) => onFilterClick(ev, { toyState: 'completed' })}
                 >Completed</button>
             </article>
         </section>
