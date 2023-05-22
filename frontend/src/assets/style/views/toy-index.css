@@ -7,7 +7,7 @@
 }
 
 .toy-container {
-    background-color: var(--todo-list-color0);
+    background-color: var(--toy-list-color0);
 }
 
 .no-toys-notice,
