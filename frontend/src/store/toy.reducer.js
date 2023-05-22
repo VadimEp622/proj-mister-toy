@@ -10,12 +10,10 @@ export const REMOVE_TOY = 'REMOVE_TOY'
 
 const initialState = {
     toys: [],
-    filterBy: {
-        text: '',
-        toyState: 'all',
-    },
-    isEdit: false,
-    progress: '',
+    // filterBy: {
+    //     text: '',
+    //     toyState: 'all',
+    // },
 }
 
 
@@ -26,16 +24,8 @@ export function toyReducer(state = initialState, action) {
 
     switch (action.type) {
         case SET_TOYS:
-            toys = action.toys.filter(toy => {
-                switch (state.filterBy.toyState) {
-                    case 'completed':
-                        return toy.isDone ? toy : ''
-                    case 'active':
-                        return toy.isDone ? '' : toy
-                    default:
-                        return toy
-                }
-            }).filter(toy => toy.text.toLowerCase().includes(state.filterBy.text.toLowerCase()))
+            toys = action.toys
+            // .filter(toy => toy.text.toLowerCase().includes(state.filterBy.text.toLowerCase()))
             return { ...state, toys }
         case ADD_TOY:
             toys = [...state.toys, action.toy]
@@ -51,10 +41,6 @@ export function toyReducer(state = initialState, action) {
 
         // case UPDATE_FILTER:
         //     return { ...state, filterBy: action.filterBy }
-        // case UPDATE_IS_EDIT:
-        //     return { ...state, isEdit: action.isEdit }
-        // case UPDATE_TODO_PROGRESS:
-        //     return { ...state, progress: action.progress }
 
 
         default:

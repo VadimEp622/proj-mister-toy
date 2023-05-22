@@ -4,8 +4,8 @@ import { AppLoginSignup } from "./app-login-signup.jsx"
 import { UserWelcome } from "./user-welcome.jsx"
 
 
-const { Link, NavLink, useNavigate } = ReactRouterDOM
-const { useSelector, useDispatch } = ReactRedux
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 
 
 export function AppHeader() {
@@ -28,7 +28,7 @@ export function AppHeader() {
             </Link>
             <nav>
                 <NavLink to="/">Home</NavLink>
-                <NavLink to="/todo">TO-DO</NavLink>
+                <NavLink to="/toy">toy</NavLink>
                 <NavLink to="/about">About</NavLink>
             </nav>
         </section>

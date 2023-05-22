@@ -28,13 +28,13 @@ function remove(todoId) {
     return asyncStorageService.remove(STORAGE_KEY, todoId)
 }
 
-function save(todo) {
-    if (todo._id) {
-        return asyncStorageService.put(STORAGE_KEY, todo)
-    } else {
-        return asyncStorageService.post(STORAGE_KEY, todo)
-    }
-}
+// function save(todo) {
+//     if (todo._id) {
+//         return asyncStorageService.put(STORAGE_KEY, toy)
+//     } else {
+//         return asyncStorageService.post(STORAGE_KEY, toy)
+//     }
+// }
 
 
 function getProgress(todos) {

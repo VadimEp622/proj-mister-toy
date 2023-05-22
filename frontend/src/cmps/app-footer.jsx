@@ -1,12 +1,10 @@
-const { useSelector } = ReactRedux
+import { useSelector } from 'react-redux'
 
 export function AppFooter() {
-    const progress = useSelector(storeState => storeState.todoModule.progress)
 
     return (
         <footer className="app-footer">
-            <h2>Project by Vlad</h2>
-            <p>Completed: {progress}</p>
+            <h2>This is appfooter</h2>
         </footer>
     )
 }

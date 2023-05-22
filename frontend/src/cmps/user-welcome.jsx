@@ -1,5 +1,5 @@
-const { Link } = ReactRouterDOM
-const { useSelector } = ReactRedux
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export function UserWelcome({ dispatch, loggedInUser, onLogout }) {
     const progress = useSelector(storeState => storeState.todoModule.progress)

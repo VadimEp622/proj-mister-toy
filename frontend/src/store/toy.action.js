@@ -1,4 +1,4 @@
-import { todoService as toyService } from "../services/todo.service.js"
+import { toyService } from "../services/toy.service.js"
 import { store } from './store.js'
 import { SET_TOYS, ADD_TOY, REMOVE_TOY, UPDATE_TOY } from './toy.reducer.js'
 
@@ -40,12 +40,4 @@ export function removeToy(toy) {
         })
 }
 
-
-// export function updateTodosProgress() {
-//     return toyService.query()
-//         .then(toys => {
-//             const progress = toyService.getProgress(toys)
-//             store.dispatch({ type: UPDATE_TODO_PROGRESS, progress })
-//         })
-// }
 

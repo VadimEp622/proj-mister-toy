@@ -1,4 +1,4 @@
-import { TodoPreview } from './todo-preview.jsx'
+import { ToyPreview } from './toy-preview.jsx'
 
 export function TodoList({ todos, onToggleIsDone, onEditClick, onRemoveClick, isLoadingRef }) {
     if (isLoadingRef.current) {
@@ -16,7 +16,7 @@ export function TodoList({ todos, onToggleIsDone, onEditClick, onRemoveClick, is
                             </article>
 
                             <article className="preview-text">
-                                <TodoPreview todo={todo} onToggleIsDone={onToggleIsDone} />
+                                <ToyPreview todo={todo} onToggleIsDone={onToggleIsDone} />
                             </article>
 
                             <article>

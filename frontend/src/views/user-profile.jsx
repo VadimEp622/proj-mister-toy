@@ -1,9 +1,9 @@
 import { showSuccessMsg } from "../services/event-bus.service.js"
 import { editUser } from "../store/user.action.js"
 
-const { useState } = React
+import { useState } from 'react'
 
-const { useSelector } = ReactRedux
+import { useSelector } from 'react-redux'
 
 export function UserProfile() {
     const loggedInUser = useSelector(storeState => storeState.userModule.loggedInUser)

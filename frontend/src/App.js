@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import './assets/style/main.css';
+import './assets/css/main.css';
 
 import { store } from './store/store';
 

@@ -1,4 +1,4 @@
-export function TodoPreview({ todo, onToggleIsDone }) {
+export function ToyPreview({ todo, onToggleIsDone }) {
 
     return (
         <React.Fragment>
