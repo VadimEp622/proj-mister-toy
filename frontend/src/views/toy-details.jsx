@@ -32,7 +32,7 @@ export function ToyDetails() {
         <h5>{inStock}</h5>
         <h5>Price: ${toy.price}</h5>
         <h5>{toy.labels.length > 0 && `Labels are: ${toy.labels}`}</h5>
-        <h5>Toy was created at: </h5>
+        <h5>Toy was created: {utilService.formatTime(toy.createdAt)}</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi voluptas cumque tempore, aperiam sed dolorum rem! Nemo quidem, placeat perferendis tempora aspernatur sit, explicabo veritatis corrupti perspiciatis repellat, enim quibusdam!</p>
         <Link to={`/toy/edit/${toy._id}`}>Edit</Link>
     </section>
