@@ -15,6 +15,8 @@ export const toyService = {
     getEmptyToy,
 }
 
+
+
 function query() {
     return asyncStorageService.query(STORAGE_KEY)
 }
@@ -35,7 +37,6 @@ function save(toy) {
     }
 }
 
-
 function getEmptyToy() {
     return {
         name: '',
@@ -47,7 +48,9 @@ function getEmptyToy() {
 }
 
 
+
 //---------------Private Functions---------------//
+
 // const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor', 'Battery Powered']
 function _createToys() {
     const toy = storageService.loadFromStorage(STORAGE_KEY) || []
