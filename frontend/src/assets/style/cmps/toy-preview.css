@@ -9,6 +9,8 @@
    text-align: center;
    margin-bottom: .3em;
    text-decoration: underline;
+    text-align: center;
+    margin-bottom: .5em;
 }
 
 .card-labels {
@@ -17,7 +19,17 @@
     flex-direction: column;
 }
 
-.toy-preview h4{
+.toy-preview h4 {
     text-transform: capitalize;
     color: black;
+}
+
+.green {
+    color: green;
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
 }
