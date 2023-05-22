@@ -40,8 +40,8 @@ export function ToyEdit() {
 
     function handleAddToy(ev) {
         ev.preventDefault()
-        saveToy(toyToEdit)
-        navigate('/toy')
+        saveToy(toyToEdit).then(() => navigate('/toy'))
+
     }
 
     const { labels, name, price, inStock } = toyToEdit
