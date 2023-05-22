@@ -28,17 +28,6 @@ export function ToyIndex() {
             })
     }
 
-    // function onAddToy() {
-    //     const toyToSave = carService.getEmptyToy()
-    //     saveCar(toyToSave)
-    //         .then((savedCar) => {
-    //             showSuccessMsg(`Car added (id: ${savedCar._id})`)
-    //         })
-    //         .catch(err => {
-    //             showErrorMsg('Cannot add car')
-    //         })
-    // }
-
     // function onSetFilter(filterBy) {
     //     console.log('FilterBy', filterBy)
     //     setFilterBy(filterBy)
@@ -46,9 +35,8 @@ export function ToyIndex() {
 
     return (
         <section className="toy-index">
-            <Link to={`/toy/edit`}>Add Car</Link>
-            {/* <CarFilter onSetFilter={onSetFilter} /> */}
-            {isLoading && <h4>Loading...</h4>}
+            <Link to={`/toy/edit`}>Add Toy</Link>
+            {/* <ToyFilter onSetFilter={onSetFilter} /> */}
             <ToyList
                 toys={toys}
                 // sortBy={sortBy}
