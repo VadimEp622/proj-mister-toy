@@ -17,7 +17,7 @@ export function ToyEdit() {
     }, [toyToEdit])
 
     function loadToy() {
-        toyService.getById(toyId)
+        toyService.get(toyId)
             .then((toy) => setToyToEdit(toy))
             .catch((err) => {
                 console.log('Had issues in toy details', err)
@@ -34,17 +34,14 @@ export function ToyEdit() {
         setToyToEdit(prevToyEdit => ({ ...prevToyEdit, [field]: value }))
     }
 
-    function handleAddToy(ev) {
-        ev.preventDefault()
-        const toy = {
-            ...toyToEdit,
-            createdAt: Date.now(),
-        }
-        saveToy(toy)
-            .then(() => {
-                dispatch({ type: UPDATE_IS_EDIT, isEdit: false })
-            })
-    }
+    // function handleCheckBoxChange({ target }, str) {
+    //     labels.includes(str)
+    // }
+
+    // function handleAddToy(ev) {
+    //     ev.preventDefault()
+    //     saveToy(toyToEdit)
+    // }
 
     const { labels } = toyEdit
     return (
@@ -54,14 +51,14 @@ export function ToyEdit() {
                 <input required onChange={handleChange} value={toyEdit.price} type="number" name={toyEdit.price} placeholder="Enter price" />
                 <input type="checkbox" name={toyEdit.inStock} value={toyEdit.inStock} >in stock</input>
                 <section className="labels-input">
-                    <input type="checkbox" name="On wheels" value={toyEdit.inStock} checked={labels.includes('On wheels')} > On wheels</input>
-                    <input type="checkbox" name="Box game" value={toyEdit.inStock} checked={labels.includes('Box game')} > Box game</input>
-                    <input type="checkbox" name="Art" value={toyEdit.inStock} checked={labels.includes('Art')} > Art</input>
-                    <input type="checkbox" name="Baby" value={toyEdit.inStock} checked={labels.includes('Baby')} > Baby</input>
-                    <input type="checkbox" name="Doll" value={toyEdit.inStock} checked={labels.includes('Doll')} > Doll</input>
-                    <input type="checkbox" name="Puzzle" value={toyEdit.inStock} checked={labels.includes('Puzzle')} > Puzzle</input>
-                    <input type="checkbox" name="Outdoor" value={toyEdit.inStock} checked={labels.includes('Outdoor')} > Outdoor</input>
-                    <input type="checkbox" name="Battery Powered" value={toyEdit.inStock} checked={labels.includes('Battery Powered')} > Battery Powered</input>
+                    <input type="checkbox" name="On wheels" checked={labels.includes('On wheels')} > On wheels</input>
+                    <input type="checkbox" name="Box game" checked={labels.includes('Box game')} > Box game</input>
+                    <input type="checkbox" name="Art" checked={labels.includes('Art')} > Art</input>
+                    <input type="checkbox" name="Baby" checked={labels.includes('Baby')} > Baby</input>
+                    <input type="checkbox" name="Doll" checked={labels.includes('Doll')} > Doll</input>
+                    <input type="checkbox" name="Puzzle" checked={labels.includes('Puzzle')} > Puzzle</input>
+                    <input type="checkbox" name="Outdoor" checked={labels.includes('Outdoor')} > Outdoor</input>
+                    <input type="checkbox" name="Battery Powered" checked={labels.includes('Battery Powered')} > Battery Powered</input>
                 </section>
             </form>
             <button onClick={(ev) => handleAddToy(ev)}>Add</button>
