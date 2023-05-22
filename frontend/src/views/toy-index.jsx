@@ -4,6 +4,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { toyService } from '../services/toy.service.js'
+import { ToyList } from '../cmps/toy-list.jsx'
 
 
 export function ToyIndex() {
@@ -48,7 +49,7 @@ export function ToyIndex() {
         <section className="toy-index">
             <Link to={`/toy/edit`}>Add Car</Link>
             {/* <CarFilter onSetFilter={onSetFilter} /> */}
-            {isLoading && <h4>Loading...</h4>}
+            {/* {isLoading && <h4>Loading...</h4>} */}
             <ToyList
                 toys={toys}
                 // sortBy={sortBy}
