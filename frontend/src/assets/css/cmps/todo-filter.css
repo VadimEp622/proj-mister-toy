@@ -1,0 +1,21 @@
+.todo-filter {
+    display: flex;
+    justify-content: center;
+    gap: var(--padding-gap);
+    background-color: var(--todo-list-color0);
+    padding-block: var(--padding-gap);
+}
+
+.filter-btn-container > * {
+    margin-inline: var(--padding-gap);
+    border: none;
+    background-color: inherit;
+}
+
+.filter-btn-container > *:hover{
+    background-color: var(--btn-bg-color1);
+}
+
+.todo-filter .active {
+    border: 1px solid black;
+}

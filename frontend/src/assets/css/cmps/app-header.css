@@ -1,0 +1,41 @@
+header {
+    background: lightcyan;
+    /* border-bottom: 2px solid white; */
+    padding-inline: var(--padding-gap);
+}
+
+.app-header {
+    display: flex;
+    flex-direction: column;
+    /* padding: 20px 0; */
+}
+
+.logo-container {
+    height: 50px;
+}
+
+.app-header>* {
+    padding: 20px 0;
+}
+
+.app-header .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .app-header .user-container{} */
+
+nav a {
+    margin: .5em;
+}
+
+nav a:active {
+    color: purple;
+}
+
+nav a.active {
+    color: darkblue;
+    font-weight: bold;
+    text-decoration: overline;
+}

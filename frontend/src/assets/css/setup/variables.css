@@ -1,0 +1,16 @@
+:root {
+    /*------------COLORS------------*/
+    --main-bg-color: rgb(238, 240, 255);
+
+    --btn-bg-color0: rgb(235, 235, 235);
+    --btn-bg-color1: rgb(228, 228, 228);
+
+    --todo-preview-shadow-color0: #dadce0;
+    --todo-preview-shadow-color1: rgba(60, 64, 67, .3);
+
+    --todo-list-color0:rgb(249, 254, 255);
+
+    
+    /*------------VARS------------*/
+    --padding-gap: 10px;
+}

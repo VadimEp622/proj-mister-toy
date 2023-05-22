@@ -1,0 +1,17 @@
+.todo-index {
+    padding: var(--padding-gap);
+}
+
+.todo-index>* {
+    margin-block: var(--padding-gap);
+}
+
+.todos-container {
+    background-color: var(--todo-list-color0);
+}
+
+.no-todos-notice,
+.loading-notice {
+    display: block;
+    text-align: center;
+}
