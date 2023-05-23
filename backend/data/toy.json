@@ -47,13 +47,5 @@
       "Battery Powered"
     ],
     "inStock": false
-  },
-  {
-    "name": "Roy Boy",
-    "price": 222,
-    "labels": [
-      "Battery Powered"
-    ],
-    "_id": "x0HOh"
   }
 ]
