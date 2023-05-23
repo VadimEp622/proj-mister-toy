@@ -28,10 +28,10 @@ app.use(express.json()) // for req.body
 // List
 app.get('/api/toy', (req, res) => {
     const { name, maxPrice, inStock, labels } = req.query
-    const parsedInStock = inStock === 'true' ? true : inStock === 'false' ? false : undefined;
-    const filterBy = { name, maxPrice: +maxPrice, inStock: parsedInStock, labels }
+    const filterBy = { name, maxPrice: +maxPrice, inStock, labels }
     toyService.query(filterBy)
         .then(toys => {
+            // console.log(toys)
             res.send(toys)
         })
         .catch(err => {
@@ -45,14 +45,14 @@ app.post('/api/toy', (req, res) => {
     // const loggedinUser = userService.validateToken(req.cookies.loginToken)
     // if (!loggedinUser) return res.status(401).send('Cannot add toy')
     const { name, inStock, price, labels } = req.body
-console.log('hi');
+    console.log('hi');
     const toy = {
         name,
         price: +price,
         // inStock,
         labels
     }
-    console.log('toy',toy);
+    console.log('toy', toy);
     toyService.save(toy)
         .then((savedToy) => {
             res.send(savedToy)

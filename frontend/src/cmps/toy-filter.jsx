@@ -67,7 +67,6 @@ export function ToyFilter({ onSetFilter }) {
 
                 <label htmlFor="inStock">In Stock:</label>
                 <input type="checkbox" name="inStock" id="inStock" onChange={handleChange} value={inStock} />
-                <button>Filter</button>
 
                 <LabelSelector labels={labels} onLabelChange={onLabelChange} />
             </form>

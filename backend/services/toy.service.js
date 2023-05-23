@@ -3,7 +3,7 @@ var toys = require('../data/toy.json')
 
 function query(filterBy = {}) {
     let toysToDisplay = toys
-
+    const parsedInStock = (filterBy.inStock !== undefined && filterBy.inStock !== '') ? JSON.parse(filterBy.inStock) : undefined;
     if (filterBy.name) {
         const regExp = new RegExp(filterBy.name, 'i')
         toysToDisplay = toysToDisplay.filter(toy => regExp.test(toy.name))
@@ -11,11 +11,8 @@ function query(filterBy = {}) {
     if (filterBy.maxPrice) {
         toysToDisplay = toysToDisplay.filter(toy => toy.price <= filterBy.maxPrice)
     }
-    if (filterBy.inStock) {
-        console.log(filterBy.inStock);
-        console.log(toysToDisplay);
-        toysToDisplay = toysToDisplay.filter(toy => toy.inStock === filterBy.inStock)
-        console.log(toysToDisplay);
+    if (parsedInStock) {
+        toysToDisplay = toysToDisplay.filter(toy => toy.inStock === parsedInStock)
     }
     if (filterBy.labels && filterBy.labels.length > 0) {
         const labels = Array.isArray(filterBy.labels) ? filterBy.labels : filterBy.labels.split(',')
