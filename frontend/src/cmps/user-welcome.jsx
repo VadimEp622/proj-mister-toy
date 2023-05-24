@@ -10,7 +10,7 @@ export function UserWelcome({ dispatch, loggedInUser, onLogout }) {
                 <h2>Welcome, <span>{loggedInUser.fullname}</span></h2>
             </article>
             <article>
-                <Link className="btn" to={`/userProfile/:${loggedInUser._id}`}>User Profile</Link>
+                <Link className="custom-button" to={`/userProfile/:${loggedInUser._id}`}>User Profile</Link>
             </article>
             <p>Completed: {progress}</p>
             <article>

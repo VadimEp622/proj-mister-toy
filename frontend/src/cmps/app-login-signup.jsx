@@ -73,7 +73,7 @@ export function AppLoginSignup({ dispatch }) {
                 <button>{isNewSignup ? 'Signup' : 'Login'}</button>
             </form>
 
-            <button className="btn" onClick={onToggleSignupState}>
+            <button className="" onClick={onToggleSignupState}>
                 {isNewSignup ? 'Already a member? Login' : 'New user? Signup here'}
             </button >
         </Fragment >

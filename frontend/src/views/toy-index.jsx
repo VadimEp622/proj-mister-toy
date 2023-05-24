@@ -36,7 +36,7 @@ export function ToyIndex() {
 
     return (
         <section className="toy-index">
-            <Link to={`/toy/edit`}>Add Toy</Link>
+            <Link className="custom-button" to={`/toy/edit`}>Add Toy</Link>
             <ToyFilter onSetFilter={onSetFilter} />
             <ToySort sortBy={sortBy} setSortBy={setSortBy} />
             <ToyList

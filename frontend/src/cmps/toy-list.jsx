@@ -19,16 +19,16 @@ export function ToyList({ toys, onRemoveToy }) {
                             </article>
 
                             <section className="card-menu">
-                                <article>
-                                    <Link to={`/toy/details/${toy._id}`}>Details</Link>
+                                <article className="btn-details-container">
+                                    <Link className="custom-button" to={`/toy/details/${toy._id}`}>Details</Link>
                                 </article>
 
-                                <article>
-                                    <Link to={`/toy/edit/${toy._id}`}>Edit Toy</Link>
+                                <article className="btn-edit-container">
+                                    <Link className="custom-button" to={`/toy/edit/${toy._id}`}>Edit Toy</Link>
                                 </article>
 
-                                <article>
-                                    <button onClick={() => onRemoveToy(toy._id)}>Remove</button>
+                                <article className="btn-remove-container">
+                                    <button className="custom-button" onClick={() => onRemoveToy(toy._id)}>Remove</button>
                                 </article>
                             </section>
 

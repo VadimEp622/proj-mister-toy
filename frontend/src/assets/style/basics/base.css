@@ -39,23 +39,6 @@ img {
     object-fit: cover;
 }
 
-.btn {
-    display: inline-block;
-    padding: var(--padding-gap);
-    margin-block: var(--padding-gap);
-    margin-inline: var(--padding-gap);
-    background-color: var(--btn-bg-color0);
-}
-
-.btn:hover {
-    background-color: var(--btn-bg-color1);
-    cursor: pointer;
-}
-
-button.btn{
-    border: none;
-}
-
 button:hover {
     cursor: pointer;
 }

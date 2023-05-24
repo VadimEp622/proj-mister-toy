@@ -30,7 +30,7 @@ export function ToyDetails() {
     const inStock = toy.inStock ? "Toy is in stock" : "Toy is out of stock"
 
     return <section className="toy-details">
-        <Link className='btn' to={`/toy`}>Back</Link>
+        <Link className='custom-button' to={`/toy`}>Back</Link>
         <h1>Toy name : {toy.name}</h1>
         <h5>{inStock}</h5>
         <h5>Price: ${toy.price}</h5>
