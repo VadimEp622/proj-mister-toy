@@ -43,7 +43,7 @@ export function ToyFilter({ onSetFilter }) {
 
     const { name, maxPrice, inStock } = filterByToEdit
     return (
-        <section className="toy-filter full main-layout">
+        <section className="toy-filter">
             <h2>Toys Filter</h2>
             <form onSubmit={onSubmitFilter}>
                 <label htmlFor="name">Name:</label>

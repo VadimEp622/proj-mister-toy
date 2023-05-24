@@ -1,8 +1,9 @@
-// import logo from './logo.svg';
-
 import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux'
-import './assets/style/main.css'
+
+
+import './assets/styles/styles.scss'
+
 
 import { store } from './store/store'
 
@@ -22,7 +23,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <Router>
-        <section className='app'>
+        <section className='app main-layout'>
           <AppHeader />
           <main>
             <Routes>

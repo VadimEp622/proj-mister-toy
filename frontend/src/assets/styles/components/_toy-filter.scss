@@ -1,0 +1,17 @@
+.toy-filter {
+    padding-block-start: $layoutMainPadding;
+
+    &>* {
+        padding-block-end: $layoutMainPadding;
+    }
+
+    form {
+        .label-selector {
+            display: grid;
+            grid-template-columns: 150px 150px 150px 150px;
+            grid-template-rows: 20px 20px;
+            column-gap: $layoutMainPadding;
+            padding-block: $layoutMainPadding;
+        }
+    }
+}

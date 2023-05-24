@@ -1,0 +1,46 @@
+header.app-header-container {
+    background-color: $clr0;
+    // height: max-content;
+    height: $headerFooterHeight;
+    max-height: $headerFooterHeight;
+
+    .app-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+
+            .logo-container {
+                display: flex;
+                align-items: center;
+                img {
+                    height: calc($headerFooterHeight / 2);
+                }
+            }
+
+            nav {
+                display: flex;
+            }
+
+            nav>* {
+                padding: $layoutMainPadding;
+
+                &.active {
+                    background-color: darken($clr0, 20%);
+                }
+
+                &:hover {
+                    background-color: darken($clr0, 10%);
+                }
+            }
+        }
+
+        .user-container {
+            white-space: nowrap;
+        }
+    }
+}

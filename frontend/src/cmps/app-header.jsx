@@ -1,3 +1,6 @@
+// import logo from "./logo.png";
+import logo from "../assets/img/logo/logo.png";
+
 import { logout } from "../store/user.action.js"
 
 import { AppLoginSignup } from "./app-login-signup.jsx"
@@ -20,28 +23,31 @@ export function AppHeader() {
     }
 
 
-    return <header className="app-header">
+    return (
+        <header className="app-header-container full main-layout">
+            <section className="app-header">
+                <section className="nav-container">
+                    <Link className="logo-container" to="/">
+                        <img src={logo} alt="logo" />
+                    </Link>
+                    <nav>
+                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/toy">Toys</NavLink>
+                        <NavLink to="/about">About</NavLink>
+                    </nav>
+                </section>
 
-        <section className="nav-container">
-            <Link className="logo-container" to="/">
-                <img src="/assets/img/logo/logo.png" alt="logo" />
-            </Link>
-            <nav>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/toy">Toys</NavLink>
-                <NavLink to="/about">About</NavLink>
-            </nav>
-        </section>
 
+                <section className="user-container">
+                    {!loggedInUser && <AppLoginSignup dispatch={dispatch} />}
+                    {loggedInUser && <UserWelcome
+                        dispatch={dispatch}
+                        loggedInUser={loggedInUser}
+                        onLogout={onLogout}
+                    />}
+                </section>
 
-        <section className="user-container">
-            {!loggedInUser && <AppLoginSignup dispatch={dispatch} />}
-            {loggedInUser && <UserWelcome
-                dispatch={dispatch}
-                loggedInUser={loggedInUser}
-                onLogout={onLogout}
-            />}
-        </section>
-
-    </header>
+            </section>
+        </header>
+    )
 }

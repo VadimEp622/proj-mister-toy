@@ -8,31 +8,22 @@ export function ToyList({ toys, onRemoveToy }) {
     // }
 
     return (
-        <section className="toys-list">
+        <section className="toy-list">
             {
                 (toys.length > 0) ? (
                     toys.map(toy => (
-                        <section className="toy-card-container">
-                            <section className="toy-card" key={toy._id}>
+                        <section className="toy-preview-container">
+                            <section className="toy-preview" key={toy._id}>
 
-                                <article className="preview-text">
+                                <article className="preview-content">
                                     <ToyPreview toy={toy} />
                                 </article>
 
-                                <section className="card-menu">
-                                    <article className="btn-details-container">
-                                        <Link className="custom-button" to={`/toy/details/${toy._id}`}>Details</Link>
-                                    </article>
-
-                                    <article className="btn-edit-container">
-                                        <Link className="custom-button" to={`/toy/edit/${toy._id}`}>Edit Toy</Link>
-                                    </article>
-
-                                    <article className="btn-remove-container">
-                                        <button className="custom-button" onClick={() => onRemoveToy(toy._id)}>Remove</button>
-                                    </article>
+                                <section className="preview-buttons">
+                                    <Link className="custom-button" to={`/toy/details/${toy._id}`}>Details</Link>
+                                    <Link className="custom-button" to={`/toy/edit/${toy._id}`}>Edit Toy</Link>
+                                    <button className="custom-button" onClick={() => onRemoveToy(toy._id)}>Remove</button>
                                 </section>
-
 
                             </section>
                         </section>

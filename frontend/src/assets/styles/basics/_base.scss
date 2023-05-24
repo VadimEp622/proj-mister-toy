@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: darken($clr3,10%);
+    color: $clr5;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+main {
+    flex: 1 1 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    // height: 100%;
+    // object-fit: cover;
+}
+
+
+.custom-button {
+    background-color: $clr4;
+    padding: $layoutButtonsContainerPadding;
+    border: none;
+    box-shadow: 5px 5px 5px -2px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: darken($clr4, 10%);
+    }
+}

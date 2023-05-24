@@ -119,9 +119,7 @@ export function ToyEdit() {
                     </article>
                 </section>
             </form>
-            <button onClick={(ev) => handleAddToy(ev)}>Add</button>
-            {/* <button>{ToyToEditRef.id ? 'Save' : 'Add'}</button> */}
-
+            <button className="custom-button" onClick={(ev) => handleAddToy(ev)}>{toyId ? 'Edit' : 'Add'}</button>
         </section>
     )
 }
