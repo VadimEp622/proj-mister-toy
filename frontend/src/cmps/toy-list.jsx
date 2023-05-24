@@ -12,27 +12,29 @@ export function ToyList({ toys, onRemoveToy }) {
             {
                 (toys.length > 0) ? (
                     toys.map(toy => (
-                        <section className="toy-card" key={toy._id}>
+                        <section className="toy-card-container">
+                            <section className="toy-card" key={toy._id}>
 
-                            <article className="preview-text">
-                                <ToyPreview toy={toy} />
-                            </article>
-
-                            <section className="card-menu">
-                                <article className="btn-details-container">
-                                    <Link className="custom-button" to={`/toy/details/${toy._id}`}>Details</Link>
+                                <article className="preview-text">
+                                    <ToyPreview toy={toy} />
                                 </article>
 
-                                <article className="btn-edit-container">
-                                    <Link className="custom-button" to={`/toy/edit/${toy._id}`}>Edit Toy</Link>
-                                </article>
+                                <section className="card-menu">
+                                    <article className="btn-details-container">
+                                        <Link className="custom-button" to={`/toy/details/${toy._id}`}>Details</Link>
+                                    </article>
 
-                                <article className="btn-remove-container">
-                                    <button className="custom-button" onClick={() => onRemoveToy(toy._id)}>Remove</button>
-                                </article>
+                                    <article className="btn-edit-container">
+                                        <Link className="custom-button" to={`/toy/edit/${toy._id}`}>Edit Toy</Link>
+                                    </article>
+
+                                    <article className="btn-remove-container">
+                                        <button className="custom-button" onClick={() => onRemoveToy(toy._id)}>Remove</button>
+                                    </article>
+                                </section>
+
+
                             </section>
-
-
                         </section>
                     ))
                 ) : (<span className="no-toys-notice">No Toys Available</span>)
