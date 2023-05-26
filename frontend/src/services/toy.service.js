@@ -15,7 +15,8 @@ export const toyService = {
     save,
     remove,
     getEmptyToy,
-    getDefaultFilter
+    getDefaultFilter,
+    countToysPerLabel,
 }
 
 
@@ -83,6 +84,15 @@ function getEmptyToy() {
 
 function getDefaultFilter() {
     return { name: '', maxPrice: '', inStock: '', labels: '' }
+}
+
+function countToysPerLabel(toys, labels) {
+    const countToysPerLabel = labels.map(label => toys.reduce((acc, toy) => {
+        if (!toy.inStock) return acc
+        return toy.labels.includes(label) ? acc + 1 : acc
+    }, 0))
+    console.log('countToysPerLabel', countToysPerLabel)
+    return countToysPerLabel
 }
 
 //---------------Private Functions---------------//

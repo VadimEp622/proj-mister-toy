@@ -10,7 +10,7 @@ $clr5: #2d2d2d;
 
 // LAYOUT
 $layoutMainPadding: 20px;
-$layoutButtonsContainerPadding: 10px;
+$layoutSmallPadding: 10px;
 
 // LAYOUT BREAKPOINTS
 $break-narrow: 1200px;
@@ -24,4 +24,4 @@ $padded-break-wide: $break-wide + $layoutMainPadding * 2;
 
 
 // SIZE
-$headerFooterHeight: calc(100px + $layoutButtonsContainerPadding);
+$headerFooterHeight: calc(100px + $layoutSmallPadding);

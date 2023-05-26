@@ -12,6 +12,7 @@ import { Home } from './views/home'
 import { ToyDetails } from './views/toy-details'
 import { ToyIndex } from './views/toy-index'
 import { UserProfile } from './views/user-profile'
+import { ToyDashboard } from './views/toy-dashboard';
 
 import { AppHeader } from './cmps/app-header'
 import { AppFooter } from './cmps/app-footer'
@@ -34,6 +35,7 @@ export default function App() {
               <Route path='/toy/edit' element={<ToyEdit />} />
               <Route path='/toy/edit/:toyId' element={<ToyEdit />} />
               <Route path='/userProfile/:userId' element={<UserProfile />} />
+              <Route path='/dashboard' element={<ToyDashboard />} />
             </Routes>
           </main>
           <AppFooter />

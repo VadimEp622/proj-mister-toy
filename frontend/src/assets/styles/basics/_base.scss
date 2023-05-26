@@ -17,6 +17,7 @@ body {
 
 main {
     flex: 1 1 auto;
+    // height: 100%;
 }
 
 h1,
@@ -43,7 +44,7 @@ img {
 
 .custom-button {
     background-color: $clr4;
-    padding: $layoutButtonsContainerPadding;
+    padding: $layoutSmallPadding;
     border: none;
     box-shadow: 5px 5px 5px -2px;
 
