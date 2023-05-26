@@ -47,5 +47,14 @@
       "Battery Powered"
     ],
     "inStock": false
+  },
+  {
+    "name": "Samurai Jack Figurine",
+    "price": 519,
+    "labels": [
+      "Art"
+    ],
+    "_id": "qf1FY",
+    "inStock": true
   }
 ]

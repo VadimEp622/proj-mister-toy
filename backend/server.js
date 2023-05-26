@@ -49,7 +49,7 @@ app.post('/api/toy', (req, res) => {
     const toy = {
         name,
         price: +price,
-        // inStock,
+        inStock,
         labels
     }
     console.log('toy', toy);
@@ -74,7 +74,7 @@ app.put('/api/toy', (req, res) => {
         _id,
         name,
         price: +price,
-        // inStock,
+        inStock,
         labels
 
     }
