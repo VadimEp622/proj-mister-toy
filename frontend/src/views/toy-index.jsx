@@ -1,9 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { loadToys, removeToy, saveToy } from '../store/toy.action.js'
-import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { toyService } from '../services/toy.service.js'
+import { loadToys, removeToy } from '../store/toy.action.js'
+
 import { ToyList } from '../cmps/toy-list.jsx'
 import { ToyFilter } from '../cmps/toy-filter.jsx'
 import { ToySort } from '../cmps/toy-sort.jsx'
@@ -26,6 +28,7 @@ export function ToyIndex() {
                 showSuccessMsg('Toy removed')
             })
             .catch(err => {
+                console.log('Cannot remove toy', err)
                 showErrorMsg('Cannot remove toy')
             })
     }

@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+import { Doughnut } from 'react-chartjs-2'
 
-import { toyService } from '../services/toy.service.js';
-import { loadToys } from '../store/toy.action.js';
+import { toyService } from '../services/toy.service.js'
+import { loadToys } from '../store/toy.action.js'
 
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend)
 
 export function ToyDashboard() {
     const toys = useSelector(state => state.toyModule.toys)

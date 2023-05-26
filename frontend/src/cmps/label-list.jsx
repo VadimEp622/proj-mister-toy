@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react"
 import { useSelector } from 'react-redux'
+
+
 export function LabelList({ labels, handleChange }) {
     const totalLabels = useSelector(state => state.toyModule.totalLabels)
-
-
-
-
     return (
         <section className="labels-input">
             <h4>Labels:</h4>

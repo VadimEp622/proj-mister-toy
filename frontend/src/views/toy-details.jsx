@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 
+import { utilService } from '../services/util.service.js'
 import { toyService } from "../services/toy.service.js"
 import { showErrorMsg } from "../services/event-bus.service.js"
-import { utilService } from '../services/util.service.js'
 
 
 export function ToyDetails() {
