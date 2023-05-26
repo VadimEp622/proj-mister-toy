@@ -10,7 +10,7 @@ export const REMOVE_TOY = 'REMOVE_TOY'
 
 const initialState = {
     toys: [],
-    labels: [
+    totalLabels: [
         'On wheels',
         'Box game',
         'Art',
@@ -18,7 +18,8 @@ const initialState = {
         'Doll',
         'Puzzle',
         'Outdoor',
-        'Battery Powered'
+        'Battery Powered',
+        'Other',
     ],
     
     // filterBy: {

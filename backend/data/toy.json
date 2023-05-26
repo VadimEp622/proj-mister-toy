@@ -56,5 +56,14 @@
     ],
     "_id": "qf1FY",
     "inStock": true
+  },
+  {
+    "name": "gg",
+    "price": 33,
+    "inStock": true,
+    "labels": [
+      "Other"
+    ],
+    "_id": "DfUex"
   }
 ]

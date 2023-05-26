@@ -1,0 +1,21 @@
+.toy-edit {
+
+    form {
+
+        & > *{
+            padding-block:$layoutSmallPadding;
+        }
+        .main-input{
+            display: flex;
+            gap: $layoutSmallPadding;
+        }
+
+        .labels-input .label-selector {
+            display: grid;
+            grid-template-columns: 150px 150px 150px 150px;
+            grid-template-rows: 20px 20px;
+            column-gap: $layoutMainPadding;
+            padding-block: $layoutMainPadding;
+        }
+    }
+}

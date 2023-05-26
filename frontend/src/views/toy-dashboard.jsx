@@ -11,18 +11,18 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export function ToyDashboard() {
     const toys = useSelector(state => state.toyModule.toys)
-    const labels = useSelector(state => state.toyModule.labels)
+    const totalLabels = useSelector(state => state.toyModule.totalLabels)
 
     useEffect(() => {
         loadToys()
     }, [])
 
     const data = {
-        labels: labels,
+        labels: totalLabels,
         datasets: [
             {
                 label: '# of Toys',
-                data: toyService.countToysPerLabel(toys, labels),
+                data: toyService.countToysPerLabel(toys, totalLabels),
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -32,6 +32,7 @@ export function ToyDashboard() {
                     'rgba(255, 159, 64, 0.2)',
                     'rgba(200, 159, 64, 0.2)',
                     'rgba(100, 159, 64, 0.2)',
+                    'rgba(170, 89, 164, 0.5)',
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
@@ -40,8 +41,9 @@ export function ToyDashboard() {
                     'rgba(75, 192, 192, 1)',
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)',
-                    'rgba(200, 159, 64, 0.2)',
-                    'rgba(100, 159, 64, 0.2)',
+                    'rgba(200, 159, 64, 1)',
+                    'rgba(100, 159, 64, 1)',
+                    'rgba(170, 89, 164, 1)',
                 ],
                 borderWidth: 1,
             },

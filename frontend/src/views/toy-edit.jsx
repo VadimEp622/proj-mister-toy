@@ -5,6 +5,8 @@ import { showErrorMsg } from "../services/event-bus.service.js"
 import { saveToy } from "../store/toy.action.js"
 import { toyService } from "../services/toy.service.js"
 
+import { LabelList } from "../cmps/label-list.jsx"
+
 
 
 
@@ -24,7 +26,6 @@ export function ToyEdit() {
             .catch((err) => {
                 console.log('Had issues in toy details', err)
                 showErrorMsg('Cannot load toy')
-
             })
     }
     // ONLY ADD WORKS
@@ -85,7 +86,8 @@ export function ToyEdit() {
                 </article>
                 <section className="labels-input">
                     <h4>Labels:</h4>
-                    <article>
+                    <LabelList labels={labels} handleChange={handleChange} />
+                    {/* <article>
                         <input type="checkbox" name="labels" data-label-name="On wheels" value={labels.includes('On wheels')} checked={labels.includes('On wheels')} onChange={handleChange} />
                         <label>On wheels</label>
                     </article>
@@ -116,7 +118,7 @@ export function ToyEdit() {
                     <article>
                         <input type="checkbox" name="labels" data-label-name="Battery Powered" value={labels.includes('Battery Powered')} checked={labels.includes('Battery Powered')} onChange={handleChange} />
                         <label>Battery Powered</label>
-                    </article>
+                    </article> */}
                 </section>
             </form>
             <button className="custom-button" onClick={(ev) => handleAddToy(ev)}>{toyId ? 'Edit' : 'Add'}</button>
