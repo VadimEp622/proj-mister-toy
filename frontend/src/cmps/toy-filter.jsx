@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react"
 import { toyService } from "../services/toy.service.js"
 import { utilService } from "../services/util.service.js"
-import { LabelSelector } from "./label-select.jsx"
+
+import { LabelList } from "./label-list.jsx"
+
 
 export function ToyFilter({ onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(toyService.getDefaultFilter())
     onSetFilter = useRef(utilService.debounce(onSetFilter))
-    const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle',
-        'Outdoor', 'Battery Powered']
+
 
     const elInputRef = useRef(null)
 
@@ -20,19 +21,36 @@ export function ToyFilter({ onSetFilter }) {
     }, [filterByToEdit])
 
     function handleChange({ target }) {
-        const { name: field, type, checked } = target
-        const value = (type === 'number') ? (+target.value || '') :
-            (type === 'checkbox') ? checked :
-                target.value
-        setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
+        const field = target.name
+        const value = (target.type === 'number')
+            ? (+target.value || '')
+            : (target.type === 'checkbox')//if not number, ask if checkbox
+                ? target.checked
+                : target.value
+
+        if (field === "labels") {
+            const labelName = target.dataset.labelName
+            if (value)
+                setFilterByToEdit(prevFilter => ({
+                    ...prevFilter,
+                    [field]: prevFilter[field].includes(labelName)
+                        ? prevFilter[field]
+                        : [...prevFilter[field], labelName]
+                }))
+            else
+                setFilterByToEdit(prevFilter => ({
+                    ...prevFilter,
+                    [field]: prevFilter[field].includes(labelName)
+                        ? prevFilter[field].filter(item => item !== labelName)
+                        : [...prevFilter[field]]
+                }))
+        }
+        else {
+            setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
+        }
     }
 
-    function onLabelChange(selectedLabels) {
-        setFilterByToEdit((prevFilter) => ({
-            ...prevFilter,
-            labels: selectedLabels,
-        }))
-    }
+
 
 
     function onSubmitFilter(ev) {
@@ -41,34 +59,39 @@ export function ToyFilter({ onSetFilter }) {
         onSetFilter(filterByToEdit)
     }
 
-    const { name, maxPrice, inStock } = filterByToEdit
+    const { name, maxPrice, inStock, labels } = filterByToEdit
     return (
         <section className="toy-filter">
             <h2>Toys Filter</h2>
             <form onSubmit={onSubmitFilter}>
-                <label htmlFor="name">Name:</label>
-                <input type="text"
-                    id="name"
-                    name="name"
-                    placeholder="By name"
-                    value={name}
-                    onChange={handleChange}
-                    ref={elInputRef}
-                />
-
-                <label htmlFor="maxPrice">Max price:</label>
-                <input type="number"
-                    id="maxPrice"
-                    name="maxPrice"
-                    placeholder="By max price"
-                    value={maxPrice}
-                    onChange={handleChange}
-                />
-
-                <label htmlFor="inStock">In Stock:</label>
-                <input type="checkbox" name="inStock" id="inStock" onChange={handleChange} value={inStock} />
-
-                <LabelSelector labels={labels} onLabelChange={onLabelChange} />
+                <section className="main-input">
+                    <article>
+                        <label htmlFor="name">Name: </label>
+                        <input type="text"
+                            id="name"
+                            name="name"
+                            placeholder="By name"
+                            value={name}
+                            onChange={handleChange}
+                            ref={elInputRef}
+                        />
+                    </article>
+                    <article>
+                        <label htmlFor="maxPrice">Max price: </label>
+                        <input type="number"
+                            id="maxPrice"
+                            name="maxPrice"
+                            placeholder="By max price"
+                            value={maxPrice}
+                            onChange={handleChange}
+                        />
+                    </article>
+                    <article>
+                        <label htmlFor="inStock">In Stock: </label>
+                        <input type="checkbox" name="inStock" id="inStock" onChange={handleChange} value={inStock} />
+                    </article>
+                </section >
+                <LabelList labels={labels} handleChange={handleChange} />
             </form>
 
         </section>

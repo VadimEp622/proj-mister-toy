@@ -7,7 +7,7 @@
         }
         .main-input{
             display: flex;
-            gap: $layoutSmallPadding;
+            gap: calc($layoutSmallPadding * 2);
         }
 
         .labels-input .label-selector {

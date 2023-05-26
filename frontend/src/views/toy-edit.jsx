@@ -55,71 +55,33 @@ export function ToyEdit() {
         }
     }
 
-    // function handleCheckboxChange({ target }) {
-    //     const field = target.name
-    //     const value = target.checked === 'true' ? true : target.checked === 'false' ? false : false
-    //     setToyToEdit(prevToyEdit => ({ ...prevToyEdit, [field]: value }))
-    // }
-
 
     function handleAddToy(ev) {
         ev.preventDefault()
         saveToy(toyToEdit).then(() => navigate('/toy'))
-
     }
+
+
 
     const { labels, name, price, inStock } = toyToEdit
     return (
         <section className="toy-edit">
             <form action="">
-                <article>
-                    <label>Name:</label>
-                    <input type="text" name="name" placeholder="Enter toy name" value={name} onChange={handleChange} />
-                </article>
-                <article>
-                    <label>Price:</label>
-                    <input required type="number" name="price" placeholder="Enter price" onChange={handleChange} value={price} />
-                </article>
-                <article>
-                    <input type="checkbox" name="inStock" value={inStock} onChange={handleChange} checked={inStock} />
-                    <label>Toy In Stock</label>
-                </article>
-                <section className="labels-input">
-                    <h4>Labels:</h4>
-                    <LabelList labels={labels} handleChange={handleChange} />
-                    {/* <article>
-                        <input type="checkbox" name="labels" data-label-name="On wheels" value={labels.includes('On wheels')} checked={labels.includes('On wheels')} onChange={handleChange} />
-                        <label>On wheels</label>
+                <section className="main-input">
+                    <article>
+                        <label>Name: </label>
+                        <input type="text" name="name" placeholder="Enter toy name" value={name} onChange={handleChange} />
                     </article>
                     <article>
-                        <input type="checkbox" name="labels" data-label-name="Box game" value={labels.includes('Box game')} checked={labels.includes('Box game')} onChange={handleChange} />
-                        <label>Box game</label>
+                        <label>Price: </label>
+                        <input required type="number" name="price" placeholder="Enter price" onChange={handleChange} value={price} />
                     </article>
                     <article>
-                        <input type="checkbox" name="labels" data-label-name="Art" value={labels.includes('Art')} checked={labels.includes('Art')} onChange={handleChange} />
-                        <label>Art</label>
+                        <label>In Stock: </label>
+                        <input type="checkbox" name="inStock" value={inStock} onChange={handleChange} checked={inStock} />
                     </article>
-                    <article>
-                        <input type="checkbox" name="labels" data-label-name="Baby" value={labels.includes('Baby')} checked={labels.includes('Baby')} onChange={handleChange} />
-                        <label>Baby</label>
-                    </article>
-                    <article>
-                        <input type="checkbox" name="labels" data-label-name="Doll" value={labels.includes('Doll')} checked={labels.includes('Doll')} onChange={handleChange} />
-                        <label>Doll</label>
-                    </article>
-                    <article>
-                        <input type="checkbox" name="labels" data-label-name="Puzzle" value={labels.includes('Puzzle')} checked={labels.includes('Puzzle')} onChange={handleChange} />
-                        <label>Puzzle</label>
-                    </article>
-                    <article>
-                        <input type="checkbox" name="labels" data-label-name="Outdoor" value={labels.includes('Outdoor')} checked={labels.includes('Outdoor')} onChange={handleChange} />
-                        <label>Outdoor</label>
-                    </article>
-                    <article>
-                        <input type="checkbox" name="labels" data-label-name="Battery Powered" value={labels.includes('Battery Powered')} checked={labels.includes('Battery Powered')} onChange={handleChange} />
-                        <label>Battery Powered</label>
-                    </article> */}
                 </section>
+                <LabelList labels={labels} handleChange={handleChange} />
             </form>
             <button className="custom-button" onClick={(ev) => handleAddToy(ev)}>{toyId ? 'Edit' : 'Add'}</button>
         </section>

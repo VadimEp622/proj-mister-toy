@@ -3,7 +3,7 @@
     "_id": "ixUbK2",
     "createdAt": 1660555472260,
     "name": "Talking Doll",
-    "price": 612,
+    "price": 611,
     "labels": [
       "Doll",
       "Battery Powered",
@@ -58,12 +58,12 @@
     "inStock": true
   },
   {
-    "name": "gg",
-    "price": 33,
-    "inStock": true,
+    "name": "Demo Other Toy",
+    "price": 666,
+    "inStock": false,
     "labels": [
       "Other"
     ],
-    "_id": "DfUex"
+    "_id": "rPysz"
   }
 ]

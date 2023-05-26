@@ -83,7 +83,7 @@ function getEmptyToy() {
 }
 
 function getDefaultFilter() {
-    return { name: '', maxPrice: '', inStock: '', labels: '' }
+    return { name: '', maxPrice: '', inStock: '', labels: [] }
 }
 
 function countToysPerLabel(toys, labels) {
