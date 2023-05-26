@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
-import { showErrorMsg } from "../services/event-bus.service.js"
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { toyService } from "../services/toy.service.js"
 import { saveToy } from "../store/toy.action.js"
 
-import { LabelList } from "../cmps/label-list.jsx"
+import { ToyEditForm } from "../cmps/toy-edit-form.jsx"
+
 
 
 
@@ -26,8 +27,9 @@ export function ToyEdit() {
                 console.log('Had issues in toy details', err)
                 showErrorMsg('Cannot load toy')
             })
+        console.log('hi')
     }
-    // ONLY ADD WORKS
+
     function handleChange({ target }) {
         console.log('target.value', target.value)
         const field = target.name
@@ -55,34 +57,32 @@ export function ToyEdit() {
     }
 
 
-    function handleAddToy(ev) {
-        ev.preventDefault()
-        saveToy(toyToEdit).then(() => navigate('/toy'))
+    function onSubmit(events) {
+        console.log('events', events)
+        const newToy = { ...toyToEdit, ...events }
+        console.log('newToy', newToy)
+        saveToy(newToy)
+            .then(() => {
+                showSuccessMsg('Toy Saved')
+                navigate('/toy')
+            })
     }
 
 
-
     const { labels, name, price, inStock } = toyToEdit
+    const formValues = {
+        name,
+        price,
+        inStock
+    }
     return (
         <section className="toy-edit">
-            <form action="">
-                <section className="main-input">
-                    <article>
-                        <label>Name: </label>
-                        <input type="text" name="name" placeholder="Enter toy name" value={name} onChange={handleChange} />
-                    </article>
-                    <article>
-                        <label>Price: </label>
-                        <input required type="number" name="price" placeholder="Enter price" onChange={handleChange} value={price} />
-                    </article>
-                    <article>
-                        <label>In Stock: </label>
-                        <input type="checkbox" name="inStock" value={inStock} onChange={handleChange} checked={inStock} />
-                    </article>
-                </section>
-                <LabelList labels={labels} handleChange={handleChange} />
-            </form>
-            <button className="custom-button" onClick={(ev) => handleAddToy(ev)}>{toyId ? 'Edit' : 'Add'}</button>
+            <ToyEditForm
+                formValues={formValues}
+                onSubmit={onSubmit}
+                toyId={toyId}
+                labels={labels}
+                handleChange={handleChange} />
         </section>
     )
 }

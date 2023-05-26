@@ -131,13 +131,6 @@
     "_id": "zGXaH"
   },
   {
-    "name": "",
-    "price": 0,
-    "inStock": true,
-    "labels": [],
-    "_id": "zWPin"
-  },
-  {
     "name": "Soccer Ball",
     "price": 312,
     "inStock": false,
@@ -145,5 +138,14 @@
       "Outdoor"
     ],
     "_id": "nqGGx"
+  },
+  {
+    "name": "Basketball",
+    "price": 81,
+    "inStock": false,
+    "labels": [
+      "Outdoor"
+    ],
+    "_id": "TaaR6"
   }
 ]

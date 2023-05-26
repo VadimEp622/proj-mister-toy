@@ -1,11 +1,18 @@
 .toy-edit {
 
-    form {
+    .formik {
 
-        & > *{
-            padding-block:$layoutSmallPadding;
+        .aside-required {
+            color: darken(red,20%);
+            font-weight: 600;
+            text-align: center;
         }
-        .main-input{
+
+        &>* {
+            padding-block: $layoutSmallPadding;
+        }
+
+        .main-input {
             display: flex;
             gap: calc($layoutSmallPadding * 2);
         }
