@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { toyService } from "../services/toy.service.js"
@@ -77,6 +77,7 @@ export function ToyEdit() {
     }
     return (
         <section className="toy-edit">
+            <Link className='custom-button' to={`/toy`}>Back</Link>
             <ToyEditForm
                 formValues={formValues}
                 onSubmit={onSubmit}

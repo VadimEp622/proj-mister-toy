@@ -27,9 +27,18 @@ app.use(express.json()) // for req.body
 // **************** Toys API ****************:
 // List
 app.get('/api/toy', (req, res) => {
-    const { name, maxPrice, inStock, labels } = req.query
-    const filterBy = { name, maxPrice: +maxPrice, inStock, labels }
-    toyService.query(filterBy)
+    const { filterBy, sortBy } = req.query
+    // console.log('filterBy before from server', filterBy)
+    // console.log('sortBy before from server', sortBy)
+    if (filterBy) {
+        filterBy.maxPrice = +filterBy.maxPrice
+        console.log('filterBy after from server', filterBy)
+    }
+    if (sortBy) {
+        sortBy.desc = +sortBy.desc
+        console.log('sortBy after from server', sortBy)
+    }
+    toyService.query(filterBy, sortBy)
         .then(toys => {
             // console.log(toys)
             res.send(toys)
@@ -44,13 +53,14 @@ app.get('/api/toy', (req, res) => {
 app.post('/api/toy', (req, res) => {
     // const loggedinUser = userService.validateToken(req.cookies.loginToken)
     // if (!loggedinUser) return res.status(401).send('Cannot add toy')
-    const { name, inStock, price, labels } = req.body
+    const { name, inStock, price, labels, createdAt } = req.body
     console.log('hi');
     const toy = {
         name,
         price: +price,
         inStock,
-        labels
+        labels,
+        createdAt,
     }
     console.log('toy', toy);
     toyService.save(toy)

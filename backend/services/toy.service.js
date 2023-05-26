@@ -1,9 +1,11 @@
 const fs = require('fs')
 var toys = require('../data/toy.json')
 
-function query(filterBy = {}) {
+function query(filterBy = {}, sortBy = {}) {
     let toysToDisplay = toys
     const parsedInStock = (filterBy.inStock !== undefined && filterBy.inStock !== '') ? JSON.parse(filterBy.inStock) : undefined;
+
+
     if (filterBy.name) {
         const regExp = new RegExp(filterBy.name, 'i')
         toysToDisplay = toysToDisplay.filter(toy => regExp.test(toy.name))
@@ -18,6 +20,12 @@ function query(filterBy = {}) {
         const labels = Array.isArray(filterBy.labels) ? filterBy.labels : filterBy.labels.split(',')
         toysToDisplay = toysToDisplay.filter(toy => labels.every(l => toy.labels.includes(l)))
     }
+
+
+    if (sortBy.type === 'name') toysToDisplay.sort((a, b) => (-sortBy.desc) * a.name.localeCompare(b.name))
+    else toysToDisplay.sort((a, b) => (-sortBy.desc) * (a[sortBy.type] - b[sortBy.type]))
+
+
     return Promise.resolve(toysToDisplay)
 }
 

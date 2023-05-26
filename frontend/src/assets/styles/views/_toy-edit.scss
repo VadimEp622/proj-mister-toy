@@ -1,28 +1,67 @@
 .toy-edit {
+    padding-block-start: calc($layoutSmallPadding * 2);
+
+
 
     .formik {
+        padding-block-start: calc($layoutSmallPadding * 2);
 
         .aside-required {
-            color: darken(red,20%);
+            color: darken(red, 20%);
             font-weight: 600;
             text-align: center;
         }
 
         &>* {
             padding-block: $layoutSmallPadding;
+
         }
 
         .main-input {
             display: flex;
             gap: calc($layoutSmallPadding * 2);
+            justify-content: center;
+
+            & :first-child {
+                input {
+                    width: 300px;
+                }
+            }
+            & :nth-child(2){
+                input {
+                    width: 100px;
+                    text-align: center;
+                }
+            }
+
+            &>* {
+                display: flex;
+
+                label {
+                    white-space: nowrap;
+                }
+            }
         }
 
-        .labels-input .label-selector {
-            display: grid;
-            grid-template-columns: 150px 150px 150px 150px;
-            grid-template-rows: 20px 20px;
-            column-gap: $layoutMainPadding;
-            padding-block: $layoutMainPadding;
+        .labels-input {
+            h4 {
+                text-align:center;
+            }
+
+
+            .label-selector {
+                display: grid;
+                grid-template-columns: 150px 150px 150px 150px;
+                grid-template-rows: 20px 20px;
+                column-gap: $layoutMainPadding;
+                padding-block: $layoutMainPadding;
+                justify-content: center;
+            }
+        }
+
+        button {
+            display: block;
+            margin-inline: auto;
         }
     }
 }

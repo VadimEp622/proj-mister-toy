@@ -22,7 +22,8 @@ export const toyService = {
 
 
 function query(filterBy, sortBy) {
-    return httpService.get(BASE_URL, filterBy, sortBy)
+    console.log('sortBy -> toy.service.js', sortBy)
+    return httpService.get(BASE_URL, {filterBy, sortBy})
     // return asyncStorageService.query(STORAGE_KEY)
 }
 // .then((toys) => {

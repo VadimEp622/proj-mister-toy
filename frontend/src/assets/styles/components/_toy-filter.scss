@@ -1,7 +1,7 @@
 .toy-filter {
     padding-block-start: $layoutMainPadding;
 
-    &>* {
+    & > * {
         padding-block-end: $layoutMainPadding;
     }
 
@@ -9,6 +9,7 @@
         .main-input {
             display: flex;
             gap: calc($layoutSmallPadding * 2);
+            padding-block-end: $layoutMainPadding;
         }
 
         .label-selector {

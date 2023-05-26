@@ -18,8 +18,8 @@ export function ToySort({ sortBy, setSortBy }) {
     return (
         <form className="toy-sort">
             <select className="sort-type" name="type" value={sortByToEdit.type} onChange={handleChange}>
-                <option value="name">name</option>
                 <option value="createdAt">Created At</option>
+                <option value="name">name</option>
                 <option value="price">Price</option>
             </select>
             <label>
