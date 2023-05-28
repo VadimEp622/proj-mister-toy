@@ -6,6 +6,7 @@ import { utilService } from './util.service.js'
 
 const STORAGE_KEY = 'toyDB'
 const BASE_URL = 'toy/'
+
 _createToys()
 
 
@@ -24,24 +25,7 @@ export const toyService = {
 function query(filterBy, sortBy) {
     console.log('sortBy -> toy.service.js', sortBy)
     return httpService.get(BASE_URL, {filterBy, sortBy})
-    // return asyncStorageService.query(STORAGE_KEY)
 }
-// .then((toys) => {
-// if (filterBy.name) {
-//     const regExp = new RegExp(filterBy.name, 'i')
-//     toys = toys.filter(toy => regExp.test(toy.name))
-// }
-// if (filterBy.inStock) {
-//     toys = toys.filter(toy => toy.inStock === filterBy.inStock)
-// }
-// if (filterBy.maxPrice) {
-//     toys = toys.filter(toy => toy.price <= filterBy.maxPrice)
-// }
-// if (filterBy.labels && filterBy.labels.length > 0) {
-//     const labels = Array.isArray(filterBy.labels) ? filterBy.labels : filterBy.labels.split(',')
-//     toys = toys.filter(toy => labels.every(l => toy.labels.includes(l)))
-// }
-// if (sortBy) _getSortedToys(toys, sortBy)
 // if (filterBy.pageIdx != undefined) {
 //     pages = Math.ceil(toys.length / PAGE_SIZE)
 //     if (filterBy.pageIdx + 1 < pages || filterBy.pageIdx > 0) {
@@ -54,23 +38,16 @@ function query(filterBy, sortBy) {
 
 
 function get(toyId) {
-    // return asyncStorageService.get(STORAGE_KEY, toyId)
     return httpService.get(BASE_URL + toyId)
 }
 
 function remove(toyId) {
-    // return asyncStorageService.remove(STORAGE_KEY, toyId)
     return httpService.delete(BASE_URL + toyId)
 }
 
 function save(toy) {
     const method = toy._id ? 'put' : 'post'
     return httpService[method](BASE_URL, toy)
-    // if (toy._id) {
-    //     return asyncStorageService.put(STORAGE_KEY, toy)
-    // } else {
-    //     return asyncStorageService.post(STORAGE_KEY, toy)
-    // }
 }
 
 function getEmptyToy() {
