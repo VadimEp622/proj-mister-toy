@@ -4,7 +4,7 @@ import { SET_USER } from './user.reducer.js'
 
 export function login(credentials) {
     console.log('credentials', credentials)
-    return userService.logIn(credentials)
+    return userService.login(credentials)
         .then(user => {
             store.dispatch({ type: SET_USER, user })
             return user
@@ -16,7 +16,7 @@ export function login(credentials) {
 }
 
 export function signup(credentials) {
-    return userService.signUp(credentials)
+    return userService.signup(credentials)
         .then(user => {
             store.dispatch({ type: SET_USER, user })
             return user
@@ -28,7 +28,7 @@ export function signup(credentials) {
 }
 
 export function logout() {
-    return userService.logOut()
+    return userService.logout()
         .then(() => {
             store.dispatch({ type: SET_USER, user: null })
         })

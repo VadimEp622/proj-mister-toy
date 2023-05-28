@@ -47,7 +47,7 @@ async function query(filterBy = { name: '', maxPrice: '', inStock: '', labels: [
 async function getById(toyId) {
     try {
         const collection = await dbService.getCollection('toy')
-        const toy = collection.findOne({ _id: ObjectId(toyId) })
+        const toy = collection.findOne({ _id: new ObjectId(toyId) })
         return toy
     } catch (err) {
         logger.error(`while finding toy ${toyId}`, err)
@@ -58,7 +58,7 @@ async function getById(toyId) {
 async function remove(toyId) {
     try {
         const collection = await dbService.getCollection('toy')
-        await collection.deleteOne({ _id: ObjectId(toyId) })
+        await collection.deleteOne({ _id: new ObjectId(toyId) })
     } catch (err) {
         logger.error(`cannot remove toy ${toyId}`, err)
         throw err
@@ -83,7 +83,7 @@ async function update(toy) {
             price: toy.price,
         }
         const collection = await dbService.getCollection('toy')
-        await collection.updateOne({ _id: ObjectId(toy._id) }, { $set: toyToSave })
+        await collection.updateOne({ _id: new ObjectId(toy._id) }, { $set: toyToSave })
         return toy
     } catch (err) {
         logger.error(`cannot update toy ${toy._id}`, err)
@@ -96,7 +96,7 @@ async function addToyMsg(toyId, msg) {
         msg.id = utilService.makeId()
         const collection = await dbService.getCollection('toy')
         await collection.updateOne(
-            { _id: ObjectId(toyId) },
+            { _id: new ObjectId(toyId) },
             { $push: { msgs: msg } }
         )
         return msg
@@ -110,7 +110,7 @@ async function removeToyMsg(toyId, msgId) {
     try {
         const collection = await dbService.getCollection('toy')
         await collection.updateOne(
-            { _id: ObjectId(toyId) },
+            { _id: new ObjectId(toyId) },
             { $pull: { msgs: { id: msgId } } }
         )
         return msgId

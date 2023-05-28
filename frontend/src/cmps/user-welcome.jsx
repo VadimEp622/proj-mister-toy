@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 export function UserWelcome({ dispatch, loggedInUser, onLogout }) {
-    const progress = useSelector(storeState => storeState.toyModule.progress)
 
     return (
         <section className="user-welcome">
@@ -12,9 +11,8 @@ export function UserWelcome({ dispatch, loggedInUser, onLogout }) {
             <article>
                 <Link className="custom-button" to={`/userProfile/:${loggedInUser._id}`}>User Profile</Link>
             </article>
-            <p>Completed: {progress}</p>
             <article>
-                <button onClick={(ev) => onLogout(ev)}>Logout</button>
+                <button className="custom-button" onClick={(ev) => onLogout(ev)}>Logout</button>
             </article>
         </section>
     )

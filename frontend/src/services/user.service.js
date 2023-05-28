@@ -3,71 +3,75 @@ import { httpService } from './http.service.js'
 import { storageService } from './storage.service.js'
 import { utilService } from './util.service.js'
 
-const STORAGE_KEY = 'userDB'
+// const STORAGE_KEY = 'userDB'
 const STORAGE_KEY_LOGGED_IN = 'loggedInUser'
 
-const BASE_URL = 'user/'
+const BASE_URL = 'auth/'
 
-_createUsers()
+// _createUsers()
 
 export const userService = {
-    logIn,
-    logOut,
-    signUp,
+    login,
+    logout,
+    signup,
     getLoggedInUser,
-    getUserById,
+    // getUserById,
     // addActivity,
     getEmptyCredentials,
-    editUser,
+    // editUser,
 }
 
 
-function logIn({ username, password }) {
+function login({ username, password }) {
     // return asyncStorageService.query(STORAGE_KEY)
     //     .then(users => {
     //         const user = users.find(user => user.username === username)
     //         if (user) return _setLoggedInUser(user)
     //         else return Promise.reject('Invalid login')
     //     })
-    return httpService.query(BASE_URL)
-}
-
-function signUp({ username, password, fullname }) {
-    const user = { username, password, fullname, balance: 10000 }
-    return asyncStorageService.post(STORAGE_KEY, user)
+    const user = { username, password }
+    console.log('user login from FRONTEND', user)
+    return httpService.post(BASE_URL + 'login', user)
         .then(_setLoggedInUser)
 }
 
-function logOut() {
+function signup({ username, password, fullname }) {
+    const user = { username, password, fullname, balance: 10000 }
+    console.log('user signup from FRONTEND', user)
+    return httpService.post(BASE_URL + 'signup', user)
+        .then(_setLoggedInUser)
+}
+
+function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGED_IN)
-    return Promise.resolve()
+    // return Promise.resolve()
+    return httpService.post(BASE_URL + 'logout')
 }
 
 function getLoggedInUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGED_IN))
 }
 
-function getUserById(userId) {
-    return asyncStorageService.get(STORAGE_KEY, userId)
-}
+// function getUserById(userId) {
+//     return asyncStorageService.get(STORAGE_KEY, userId)
+// }
 
-function editUser(newUser) {
-    return userService.getUserById(getLoggedInUser()._id)
-        .then(user => {
-            if (!user._id) return Promise.reject('Not logged in')
-            // user.fullname = newUser.fullname
-            user = { ...user, ...newUser }
-            return asyncStorageService.put(STORAGE_KEY, user)
-                .then((user) => {
-                    _setLoggedInUser(user)
-                    return user
-                })
-                .catch(err => console.log('Could not save user -> user.service.js', err))
-            // .catch(err => {throw err})
-        })
-        .catch(err => console.log('Could not get user -> user.service.js', err))
-
-}
+// function editUser(newUser) {
+//     return userService.getUserById(getLoggedInUser()._id)
+//         .then(user => {
+//             if (!user._id) return Promise.reject('Not logged in')
+//             // user.fullname = newUser.fullname
+//             user = { ...user, ...newUser }
+//             return asyncStorageService.put(STORAGE_KEY, user)
+//                 .then((user) => {
+//                     _setLoggedInUser(user)
+//                     return user
+//                 })
+//                 .catch(err => console.log('Could not save user -> user.service.js', err))
+//             // .catch(err => {throw err})
+//         })
+//         .catch(err => console.log('Could not get user -> user.service.js', err))
+// }
 
 
 function getEmptyCredentials() {
@@ -86,17 +90,17 @@ function _setLoggedInUser(user) {
     return userToSave
 }
 
-function _createUsers() {
-    const users = storageService.loadFromStorage(STORAGE_KEY) || []
-    if (!users || users.length < 1) {
-        users.push(
-            _createUser('puki', 'puki1', 'Puki Ja'),
-            _createUser('muki', 'muki1', 'Muki pa'),
-        )
+// function _createUsers() {
+//     const users = storageService.loadFromStorage(STORAGE_KEY) || []
+//     if (!users || users.length < 1) {
+//         users.push(
+//             _createUser('puki', 'puki1', 'Puki Ja'),
+//             _createUser('muki', 'muki1', 'Muki pa'),
+//         )
 
-        storageService.saveToStorage(STORAGE_KEY, users)
-    }
-}
+//         storageService.saveToStorage(STORAGE_KEY, users)
+//     }
+// }
 
 function _createUser(username, password, fullname, balance = 10000) {
     return {

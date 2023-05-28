@@ -29,6 +29,7 @@ async function getToys(req, res) {
 async function getToyById(req, res) {
     try {
         const toyId = req.params.id
+
         const toy = await toyService.getById(toyId)
         res.json(toy)
     } catch (err) {
