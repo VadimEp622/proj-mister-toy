@@ -18,20 +18,22 @@ const logger = require('./services/logger.service')
 
 
 // **************** App Configuration ****************:
-if (process.env.NODE_ENV === 'production') {
+// if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'public')))
-} else {
+// } else {
     const corsOptions = {
         origin: [
             'http://127.0.0.1:8080',
             'http://localhost:8080',
+            'http://127.0.0.1:3030',
+            'http://localhost:3030',
             'http://127.0.0.1:3000',
             'http://localhost:3000'
         ],
         credentials: true
     }
     app.use(cors(corsOptions))
-}
+// }
 
 app.use(cookieParser()) // for res.cookies
 app.use(express.json()) // for req.body
