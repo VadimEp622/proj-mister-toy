@@ -1,9 +1,12 @@
 import { asyncStorageService } from './async-storage.service.js'
+import { httpService } from './http.service.js'
 import { storageService } from './storage.service.js'
 import { utilService } from './util.service.js'
 
 const STORAGE_KEY = 'userDB'
 const STORAGE_KEY_LOGGED_IN = 'loggedInUser'
+
+const BASE_URL = 'user/'
 
 _createUsers()
 
@@ -20,12 +23,13 @@ export const userService = {
 
 
 function logIn({ username, password }) {
-    return asyncStorageService.query(STORAGE_KEY)
-        .then(users => {
-            const user = users.find(user => user.username === username)
-            if (user) return _setLoggedInUser(user)
-            else return Promise.reject('Invalid login')
-        })
+    // return asyncStorageService.query(STORAGE_KEY)
+    //     .then(users => {
+    //         const user = users.find(user => user.username === username)
+    //         if (user) return _setLoggedInUser(user)
+    //         else return Promise.reject('Invalid login')
+    //     })
+    return httpService.query(BASE_URL)
 }
 
 function signUp({ username, password, fullname }) {

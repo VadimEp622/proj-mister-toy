@@ -22,9 +22,14 @@ export const toyService = {
 
 
 
-function query(filterBy, sortBy) {
+function query(filter, sortBy) {
+    const filterBy = {
+        ...filter
+        // labels: JSON.stringify(filter.labels)
+    }
     console.log('sortBy -> toy.service.js', sortBy)
-    return httpService.get(BASE_URL, {filterBy, sortBy})
+    console.log('filterBy -> toy.service.js', filterBy)
+    return httpService.get(BASE_URL, { filterBy, sortBy })
 }
 // if (filterBy.pageIdx != undefined) {
 //     pages = Math.ceil(toys.length / PAGE_SIZE)

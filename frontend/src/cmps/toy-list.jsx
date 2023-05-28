@@ -4,17 +4,14 @@ import { ToyPreview } from './toy-preview.jsx'
 
 
 export function ToyList({ toys, onRemoveToy }) {
-    // if (!toys.length) {
-    //     return <span className="loading-notice">No toys to show..</span>
-    // }
-
     return (
         <section className="toy-list">
             {
                 (toys.length > 0) ? (
                     toys.map(toy => (
-                        <section className="toy-preview-container">
-                            <section className="toy-preview" key={toy._id}>
+                        <section className="toy-preview-container" key={toy._id}>
+                            {console.log('toy in toy-list', toy._id)}
+                            <section className="toy-preview">
 
                                 <article className="preview-content">
                                     <ToyPreview toy={toy} />
