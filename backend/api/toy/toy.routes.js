@@ -16,7 +16,7 @@ router.get('/', log, getToys)
 router.get('/:id', getToyById)
 router.post('/', log, requireAuth, addToy)
 router.put('/:id', requireAuth, updateToy)
-router.delete('/:id', requireAuth, removeToy)
+// router.delete('/:id', requireAuth, removeToy)
 router.delete('/:id', requireAuth, requireAdmin, removeToy)
 
 router.post('/:id/msg', requireAuth, addToyMsg)

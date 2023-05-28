@@ -12,7 +12,7 @@ import { UserWelcome } from "./user-welcome.jsx"
 
 export function AppHeader() {
     const dispatch = useDispatch()
-    const loggedInUser = useSelector(storeState => storeState.userModule.loggedInUser)
+    const loggedinUser = useSelector(storeState => storeState.userModule.loggedinUser)
     const navigate = useNavigate()
 
     function onLogout(ev) {
@@ -39,10 +39,10 @@ export function AppHeader() {
 
 
                 <section className="user-container">
-                    {!loggedInUser && <AppLoginSignup dispatch={dispatch} />}
-                    {loggedInUser && <UserWelcome
+                    {!loggedinUser && <AppLoginSignup dispatch={dispatch} />}
+                    {loggedinUser && <UserWelcome
                         dispatch={dispatch}
-                        loggedInUser={loggedInUser}
+                        loggedinUser={loggedinUser}
                         onLogout={onLogout}
                     />}
                 </section>

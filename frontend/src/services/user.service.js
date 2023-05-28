@@ -4,7 +4,7 @@ import { storageService } from './storage.service.js'
 import { utilService } from './util.service.js'
 
 // const STORAGE_KEY = 'userDB'
-const STORAGE_KEY_LOGGED_IN = 'loggedInUser'
+const STORAGE_KEY_LOGGED_IN = 'loggedinUser'
 
 const BASE_URL = 'auth/'
 
@@ -14,7 +14,7 @@ export const userService = {
     login,
     logout,
     signup,
-    getLoggedInUser,
+    getLoggedinUser,
     // getUserById,
     // addActivity,
     getEmptyCredentials,
@@ -48,7 +48,7 @@ function logout() {
     return httpService.post(BASE_URL + 'logout')
 }
 
-function getLoggedInUser() {
+function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGED_IN))
 }
 
@@ -57,7 +57,7 @@ function getLoggedInUser() {
 // }
 
 // function editUser(newUser) {
-//     return userService.getUserById(getLoggedInUser()._id)
+//     return userService.getUserById(getLoggedinUser()._id)
 //         .then(user => {
 //             if (!user._id) return Promise.reject('Not logged in')
 //             // user.fullname = newUser.fullname
@@ -78,7 +78,7 @@ function getEmptyCredentials() {
     return {
         fullname: '',
         username: '',
-        password: '',
+        password: ''
     }
 }
 
@@ -86,6 +86,7 @@ function getEmptyCredentials() {
 
 function _setLoggedInUser(user) {
     const userToSave = { _id: user._id, fullname: user.fullname, balance: user.balance, prefs: user.prefs }
+    if (user.isAdmin) userToSave['isAdmin'] = true
     sessionStorage.setItem(STORAGE_KEY_LOGGED_IN, JSON.stringify(userToSave))
     return userToSave
 }

@@ -10,7 +10,6 @@ export function ToyList({ toys, onRemoveToy }) {
                 (toys.length > 0) ? (
                     toys.map(toy => (
                         <section className="toy-preview-container" key={toy._id}>
-                            {console.log('toy in toy-list', toy._id)}
                             <section className="toy-preview">
 
                                 <article className="preview-content">

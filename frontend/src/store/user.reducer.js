@@ -5,20 +5,20 @@ export const UPDATE_USER_PREFS = 'UPDATE_USER_PREFS'
 
 
 const initialState = {
-    loggedInUser: userService.getLoggedInUser(),
+    loggedinUser: userService.getLoggedinUser(),
 }
 
 
 export function userReducer(state = initialState, action) {
     console.log('action -> user.reducer.js', action)
-    let loggedInUser
+    let loggedinUser
 
     switch (action.type) {
         case SET_USER:
-            return { ...state, loggedInUser: action.user }
+            return { ...state, loggedinUser: action.user }
         case UPDATE_USER_PREFS:
-            loggedInUser = { ...state.loggedInUser, prefs:action.prefs }
-            return { ...state, loggedInUser }
+            loggedinUser = { ...state.loggedinUser, prefs:action.prefs }
+            return { ...state, loggedinUser }
 
 
 

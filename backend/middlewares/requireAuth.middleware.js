@@ -18,12 +18,11 @@ async function requireAuth(req, res, next) {
 }
 
 async function requireAdmin(req, res, next) {
-    if(!req.loggedinUser) return res.status(401).send('Not Authenticated')
-
-    if (!loggedinUser.isAdmin) {
+    if (!req.loggedinUser) return res.status(401).send('Not Authenticated')
+    console.log('req.loggedinUser', req.loggedinUser)
+    if (!req.loggedinUser.isAdmin) {
         logger.warn(loggedinUser.fullname + 'attempted to perform admin action')
-        res.status(403).end('Not Authorized')
-        return
+        return res.status(403).end('Not Authorized')
     }
     next()
 }

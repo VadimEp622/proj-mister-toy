@@ -6,8 +6,8 @@ import { editUser } from "../store/user.action.js"
 
 
 export function UserProfile() {
-    const loggedInUser = useSelector(storeState => storeState.userModule.loggedInUser)
-    const [userEdit, setUserEdit] = useState(loggedInUser)
+    const loggedinUser = useSelector(storeState => storeState.userModule.loggedinUser)
+    const [userEdit, setUserEdit] = useState(loggedinUser)
 
 
     function handleChange({ target }) {
@@ -32,13 +32,13 @@ export function UserProfile() {
         editUser(userEdit)
     }
 
-    if (!loggedInUser) return
+    if (!loggedinUser) return
     const { color, bgColor } = userEdit.prefs
     return (
         <section className="user-profile" style={{ color, backgroundColor: bgColor }}>
             <article className="user-greeting">
                 <p>Hello: </p>
-                <h2>{loggedInUser.fullname}</h2>
+                <h2>{loggedinUser.fullname}</h2>
             </article>
             <article>
                 <h2>Edit User Settings:</h2>
