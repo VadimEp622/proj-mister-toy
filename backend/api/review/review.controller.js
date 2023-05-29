@@ -1,8 +1,8 @@
 // const { socketService } = require('../../services/socket.service.js')
 const { logger } = require('../../services/logger.service')
-const { userService } = require('../user/user.service')
-const { authService } = require('../auth/auth.service')
-const { reviewService } = require('./review.service')
+const userService = require('../user/user.service')
+const authService = require('../auth/auth.service')
+const reviewService = require('./review.service')
 
 module.exports = {
     getReviews,
@@ -15,6 +15,7 @@ async function getReviews(req, res) {
         const reviews = await reviewService.query(req.query)
         res.send(reviews)
     } catch (err) {
+        console.log('err', err)
         logger.error('Cannot get reviews', err)
         res.status(400).send({ err: 'Failed to get reviews' })
     }

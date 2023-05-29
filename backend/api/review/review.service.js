@@ -9,14 +9,13 @@ module.exports = {
     add
 }
 
-query()
 
-// filterBy= { byUserId: ObjectId(user._id) }
+
+// filterBy= { toyId: new ObjectId(user._id) }
 async function query(filterBy = {}) {
     try {
-        // criteria = {byUserId: ObjectId(user._id) }
-        // const criteria = _buildCriteria(filterBy)
-        const filter = { toyId: new ObjectId("6474d415f95d7817fdf59971") }
+        const filter = { toyId: new ObjectId(filterBy.toyId) }
+        // const filter = { toyId: new ObjectId("6474d415f95d7817fdf59971") }
         const criteria = _buildCriteria(filter)
         const collection = await dbService.getCollection('review')
         var reviews = await collection.aggregate([
@@ -61,6 +60,7 @@ async function query(filterBy = {}) {
 
         return reviews
     } catch (err) {
+        
         logger.error('cannot find reviews', err)
         throw err
     }

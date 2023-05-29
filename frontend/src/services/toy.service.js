@@ -107,8 +107,6 @@ function getEmptyMsg() {
 
 
 
-
-
 //---------------Private Functions---------------//
 
 // const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor', 'Battery Powered']

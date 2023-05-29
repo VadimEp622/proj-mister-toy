@@ -15,18 +15,20 @@ export function ToyDetails() {
     const [toy, setToy] = useState(null)
     const { toyId } = useParams()
     const [msg, setMsg] = useState(toyService.getEmptyMsg())
-    const [review,setReview]
+
     const navigate = useNavigate()
 
 
     useEffect(() => {
-        loadToy()
+        if(!toy) loadToy()
     }, [toy, msg])
 
 
     function loadToy() {
         toyService.get(toyId)
-            .then((toy) => setToy(toy))
+            .then((toy) => {
+                setToy(toy)
+            })
             .catch((err) => {
                 console.log('Had issues in toy details', err)
                 showErrorMsg('Cannot load toy')
@@ -64,6 +66,8 @@ export function ToyDetails() {
             showErrorMsg('Cannot delete message', err)
         }
     }
+
+
 
 
 
