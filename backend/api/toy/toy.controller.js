@@ -85,7 +85,7 @@ async function addToyMsg(req, res) {
     try {
         const toyId = req.params.id
         const msg = {
-            txt: req.body.txt,
+            txt: req.body.msg.txt,
             by: loggedinUser,
         }
         const savedMsg = await toyService.addToyMsg(toyId, msg)
@@ -97,6 +97,7 @@ async function addToyMsg(req, res) {
 }
 
 async function removeToyMsg(req, res) {
+    //TODO: can only delete comments made by yourself, cannot delete comments made by others.
     const { loggedinUser } = req
 
     try {

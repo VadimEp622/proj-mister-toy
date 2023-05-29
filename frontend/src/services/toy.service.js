@@ -1,7 +1,8 @@
 // import { asyncStorageService } from './async-storage.service.js'
 import { httpService } from './http.service.js'
+import { utilService } from './util.service.js'
 // import { storageService } from './storage.service.js'
-// import { utilService } from './util.service.js'
+
 
 
 // const STORAGE_KEY = 'toyDB'
@@ -18,6 +19,9 @@ export const toyService = {
     getEmptyToy,
     getDefaultFilter,
     countToysPerLabel,
+    addToyMsg,
+    removeToyMsg,
+    getEmptyMsg,
 }
 
 
@@ -46,8 +50,8 @@ function remove(toyId) {
 
 function save(toy) {
     const method = toy._id ? 'put' : 'post'
-    return httpService[method](BASE_URL, toy)
-    // return httpService[method](BASE_URL + (toy._id) ? toy._id : '', toy)
+    // return httpService[method](BASE_URL, toy)
+    return httpService[method](BASE_URL + ((toy._id) ? toy._id : ''), toy)
 }
 
 function getEmptyToy() {
@@ -72,6 +76,38 @@ function countToysPerLabel(toys, labels) {
     console.log('countToysPerLabel', countToysPerLabel)
     return countToysPerLabel
 }
+
+
+
+async function addToyMsg(toyId, msg) {
+    try {
+        const savedMsg = await httpService.post(`toy/${toyId}/msg`, { msg })
+        return savedMsg
+    } catch (err) {
+        console.log('couldnt add toy msg:', err)
+    }
+}
+
+async function removeToyMsg(toyId, msgId) {
+    try {
+        const savedMsg = await httpService.delete(`toy/${toyId}/msg/${msgId}`)
+        return savedMsg
+    } catch (err) {
+        console.log('couldnt remove toy msg:', err)
+    }
+}
+function getEmptyMsg() {
+    return {
+        id: utilService.makeId(),
+        txt: ''
+    }
+}
+
+
+
+
+
+
 
 //---------------Private Functions---------------//
 

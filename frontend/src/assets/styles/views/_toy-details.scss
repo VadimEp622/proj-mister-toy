@@ -1,0 +1,10 @@
+.toy-details {
+
+    .toy-comments {
+        padding-block: $layoutMainPadding;
+
+        &>* {
+            padding-block: $layoutMainPadding;
+        }
+    }
+}
