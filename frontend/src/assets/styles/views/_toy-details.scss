@@ -1,7 +1,34 @@
 .toy-details {
 
-    .toy-comments {
+    &>* {
         padding-block: $layoutMainPadding;
+    }
+
+    .custom-button {
+        margin-block: $layoutMainPadding;
+    }
+
+    .details {
+        &>* {
+            padding-block: $layoutSmallPadding;
+        }
+
+        .is-stock {
+            font-size: 2rem;
+
+            &.in-stock {
+                color: rgb(126, 226, 27);
+            }
+
+            &.not-in-stock {
+                color: red;
+            }
+        }
+    }
+
+
+    .toy-comments {
+        // padding-block: $layoutMainPadding;
 
         &>* {
             padding-block: $layoutMainPadding;
