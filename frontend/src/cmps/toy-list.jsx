@@ -1,9 +1,10 @@
+import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 
 import { ToyPreview } from './toy-preview.jsx'
 
 
-export function ToyList({ toys, onRemoveToy }) {
+export function ToyList({ toys, onRemoveToy, loggedinUser }) {
     return (
         <section className="toy-list">
             {
@@ -18,8 +19,22 @@ export function ToyList({ toys, onRemoveToy }) {
 
                                 <section className="preview-buttons">
                                     <Link className="custom-button" to={`/toy/details/${toy._id}`}>Details</Link>
-                                    <Link className="custom-button" to={`/toy/edit/${toy._id}`}>Edit Toy</Link>
-                                    <button className="custom-button" onClick={() => onRemoveToy(toy._id)}>Remove</button>
+                                    {
+                                        loggedinUser && loggedinUser.isAdmin && (
+                                            <Fragment>
+                                                <Link className="custom-button" to={`/toy/edit/${toy._id}`}>
+                                                    Edit Toy
+                                                </Link>
+                                                <button
+                                                    className="custom-button"
+                                                    onClick={() => onRemoveToy(toy._id)}
+                                                >
+                                                    Remove
+                                                </button>
+                                            </Fragment>
+                                        )
+                                    }
+
                                 </section>
 
                             </section>

@@ -18,7 +18,7 @@ export function AppHeader() {
     function onLogout(ev) {
         ev.preventDefault()
         logout()
-        navigate('/')
+        // navigate('/')
     }
 
 

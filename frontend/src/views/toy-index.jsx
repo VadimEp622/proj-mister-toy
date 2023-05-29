@@ -12,9 +12,10 @@ import { ToySort } from '../cmps/toy-sort.jsx'
 
 
 export function ToyIndex() {
+    const loggedinUser = useSelector(storeState => storeState.userModule.loggedinUser)
     const toys = useSelector(state => state.toyModule.toys)
     const [filterBy, setFilterBy] = useState(toyService.getDefaultFilter())
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const [sortBy, setSortBy] = useState({ type: 'createdAt', desc: 1 })
 
 
@@ -22,16 +23,6 @@ export function ToyIndex() {
         console.log('reeeee')
         loadToys(filterBy, sortBy)
     }, [filterBy, sortBy])
-
-    // useEffect(() => {
-    //     console.log('reeeee')
-    //     loadToys(filterBy, sortBy)
-    // }, [])
-
-    // useEffect(() => {
-    //     console.log('meeeee')
-    // }, [filterBy, sortBy])
-
 
 
     function onRemoveToy(toyId) {
@@ -51,12 +42,16 @@ export function ToyIndex() {
 
     return (
         <section className="toy-index">
-            <Link className="custom-button" to={`/toy/edit`}>Add Toy</Link>
+            {
+                loggedinUser && loggedinUser.isAdmin &&
+                <Link className="custom-button" to={`/toy/edit`}>Add Toy</Link>
+            }
             <ToyFilter onSetFilter={onSetFilter} />
             <ToySort sortBy={sortBy} setSortBy={setSortBy} />
             <ToyList
                 toys={toys}
                 onRemoveToy={onRemoveToy}
+                loggedinUser={loggedinUser}
             />
         </section >
     )
