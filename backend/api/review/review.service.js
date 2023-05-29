@@ -1,4 +1,4 @@
-const { dbService } = require('../../services/db.service')
+const dbService = require('../../services/db.service')
 const { logger } = require('../../services/logger.service')
 const { asyncLocalStorage } = require('../../services/als.service')
 const { ObjectId } = require('mongodb')
@@ -9,23 +9,27 @@ module.exports = {
     add
 }
 
+query()
 
+// filterBy= { byUserId: ObjectId(user._id) }
 async function query(filterBy = {}) {
     try {
-        const criteria = _buildCriteria(filterBy)
+        // criteria = {byUserId: ObjectId(user._id) }
+        // const criteria = _buildCriteria(filterBy)
+        const filter = { userId: new ObjectId("6473b03515e04ba8246afc26") }
+        const criteria = _buildCriteria(filter)
         const collection = await dbService.getCollection('review')
-        // const reviews = await collection.find(criteria).toArray()
         var reviews = await collection.aggregate([
             {
-                $match: criteria
+                $match: criteria//{byUserId: ObjectId(user._id) }
             },
             {
                 $lookup:
                 {
-                    localField: 'byUserId',
-                    from: 'user',
-                    foreignField: '_id',
-                    as: 'byUser'
+                    from: 'user',//<collection to join>
+                    localField: 'userId',//<field from the input documents> ----> is a key inside a toy object
+                    foreignField: '_id',//<field from the documents of the "from" collection>
+                    as: 'byUser'//<output array field>
                 }
             },
             {
@@ -34,23 +38,26 @@ async function query(filterBy = {}) {
             {
                 $lookup:
                 {
-                    localField: 'aboutUserId',
-                    from: 'user',
-                    foreignField: '_id',
-                    as: 'aboutUser'
+                    from: 'toy',//<collection to join>
+                    localField: 'toyId',//<field from the input documents> ----> is a key inside a toy object
+                    foreignField: '_id',//<field from the documents of the "from" collection>
+                    as: 'aboutToy'//<output array field>
                 }
             },
             {
-                $unwind: '$aboutUser'
+                $unwind: '$aboutToy'
             }
         ]).toArray()
+        // console.log('reviews', reviews)
         reviews = reviews.map(review => {
-            review.byUser = { _id: review.byUser._id, fullname: review.byUser.fullname }
-            review.aboutUser = { _id: review.aboutUser._id, fullname: review.aboutUser.fullname }
-            delete review.byUserId
-            delete review.aboutUserId
+            review._id = review._id.toString()
+            review.byUser = { _id: review.byUser._id.toString(), fullname: review.byUser.fullname }
+            review.aboutToy = { _id: review.aboutToy._id.toString(), name: review.aboutToy.name, price: review.aboutToy.price }
+            delete review.userId
+            delete review.toyId
             return review
         })
+        console.log('reviews', reviews)
 
         return reviews
     } catch (err) {
@@ -95,7 +102,7 @@ async function add(review) {
 
 function _buildCriteria(filterBy) {
     const criteria = {}
-    if (filterBy.byUserId) criteria.byUserId = filterBy.byUserId
+    if (filterBy.userId) criteria.userId = filterBy.userId
     return criteria
 }
 

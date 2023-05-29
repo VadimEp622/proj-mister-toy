@@ -1,4 +1,4 @@
-export function ToyReview() {
+export function ToyReview({ toy }) {
 
     return (
         <section className="toy-review">

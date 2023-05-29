@@ -15,6 +15,7 @@ export function ToyDetails() {
     const [toy, setToy] = useState(null)
     const { toyId } = useParams()
     const [msg, setMsg] = useState(toyService.getEmptyMsg())
+    const [review,setReview]
     const navigate = useNavigate()
 
 
@@ -92,7 +93,9 @@ export function ToyDetails() {
                 handleChange={handleChange}
             />
 
-            <ToyReview />
+            <ToyReview
+                toy={toy}
+            />
 
         </section >
     )
