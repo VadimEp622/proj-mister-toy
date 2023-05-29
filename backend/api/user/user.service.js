@@ -18,9 +18,9 @@ async function query(filterBy = {}) {
     try {
         const collection = await dbService.getCollection('user')
         var users = await collection
-                            .find(criteria)
-                            .sort({nickname: -1})
-                            .toArray()
+            .find(criteria)
+            .sort({ nickname: -1 })
+            .toArray()
 
         users = users.map(user => {
             delete user.password
@@ -36,7 +36,7 @@ async function query(filterBy = {}) {
 async function getById(userId) {
     try {
         const collection = await dbService.getCollection('user')
-        const user = await collection.findOne({ _id: ObjectId(userId) })
+        const user = await collection.findOne({ _id: new ObjectId(userId) })
 
         delete user.password
         return user
@@ -59,7 +59,7 @@ async function getByUsername(username) {
 async function remove(userId) {
     try {
         const collection = await dbService.getCollection('user')
-        await collection.deleteOne({ _id: ObjectId(userId) })
+        await collection.deleteOne({ _id: new ObjectId(userId) })
     } catch (err) {
         logger.error(`cannot remove user ${userId}`, err)
         throw err
@@ -70,7 +70,7 @@ async function update(user) {
     try {
         // peek only updatable fields!
         const userToSave = {
-            _id: ObjectId(user._id),
+            _id: new ObjectId(user._id),
             username: user.username,
             fullname: user.fullname,
             score: user.score
@@ -127,12 +127,12 @@ function _buildCriteria(filterBy) {
 
 {
     // Hard coded filterBy data
-    const filterBy = { txt: 'uk', minBalance: 100 } 
+    const filterBy = { txt: 'uk', minBalance: 100 }
 
     const criteria = {
         balance: { $gte: filterBy.minBalance },
-        $or: [ 
-            { username: { $regex: filterBy.txt, $options: 'i' } }, 
+        $or: [
+            { username: { $regex: filterBy.txt, $options: 'i' } },
             { fullname: { $regex: filterBy.txt, $options: 'i' } }
         ],
     }

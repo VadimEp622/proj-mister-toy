@@ -1,5 +1,5 @@
 // const { socketService } = require('../../services/socket.service.js')
-const { logger } = require('../../services/logger.service')
+const  logger  = require('../../services/logger.service')
 const userService = require('../user/user.service')
 const authService = require('../auth/auth.service')
 const reviewService = require('./review.service')
@@ -39,29 +39,31 @@ async function deleteReview(req, res) {
 async function addReview(req, res) {
 
     var { loggedinUser } = req
+    console.log('loggedinUser', loggedinUser)
 
     try {
         var review = req.body
-        review.byUserId = loggedinUser._id
+        review.userId = loggedinUser._id
+        // console.log('hi!')
         review = await reviewService.add(review)
-
         // prepare the updated review for sending out
-        review.aboutUser = await userService.getById(review.aboutUserId)
-
+        review.byUser = await userService.getById(review.userId)
+        
         // Give the user credit for adding a review
         // var user = await userService.getById(review.byUserId)
         // user.score += 10
         loggedinUser.score += 10
-
+        
         loggedinUser = await userService.update(loggedinUser)
         review.byUser = loggedinUser
-
+        
         // User info is saved also in the login-token, update it
         const loginToken = authService.getLoginToken(loggedinUser)
         res.cookie('loginToken', loginToken)
-
-        delete review.aboutUserId
-        delete review.byUserId
+        
+        console.log('review ---> review.controller.js', review)
+        delete review.userId
+        delete review.toyId
 
         // socketService.broadcast({ type: 'review-added', data: review, userId: loggedinUser._id })
         // socketService.emitToUser({ type: 'review-about-you', data: review, userId: review.aboutUser._id })

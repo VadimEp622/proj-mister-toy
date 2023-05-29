@@ -53,3 +53,7 @@ img {
         background-color: darken($clr4, 10%);
     }
 }
+
+button[disabled]:hover {
+    cursor: not-allowed;
+}

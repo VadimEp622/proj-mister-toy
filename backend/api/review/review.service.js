@@ -1,7 +1,10 @@
 const dbService = require('../../services/db.service')
-const { logger } = require('../../services/logger.service')
-const { asyncLocalStorage } = require('../../services/als.service')
+const logger = require('../../services/logger.service')
+// const asyncLocalStorage = require('../../services/als.service')
 const { ObjectId } = require('mongodb')
+
+
+
 
 module.exports = {
     query,
@@ -28,11 +31,11 @@ async function query(filterBy = {}) {
                     from: 'toy',//<collection to join>
                     localField: 'toyId',//<field from the input documents> ----> is a key inside a toy object
                     foreignField: '_id',//<field from the documents of the "from" collection>
-                    as: 'byToy'//<output array field>
+                    as: 'aboutToy'//<output array field>
                 }
             },
             {
-                $unwind: '$byToy'
+                $unwind: '$aboutToy'
             },
             {
                 $lookup:
@@ -40,18 +43,18 @@ async function query(filterBy = {}) {
                     from: 'user',//<collection to join>
                     localField: 'userId',//<field from the input documents> ----> is a key inside a toy object
                     foreignField: '_id',//<field from the documents of the "from" collection>
-                    as: 'aboutUser'//<output array field>
+                    as: 'byUser'//<output array field>
                 }
             },
             {
-                $unwind: '$aboutUser'
+                $unwind: '$byUser'
             }
         ]).toArray()
         // console.log('reviews', reviews)
         reviews = reviews.map(review => {
             review._id = review._id.toString()
-            review.byToy = { _id: review.byToy._id.toString(), name: review.byToy.name, price: review.byToy.price }
-            review.aboutUser = { _id: review.aboutUser._id.toString(), fullname: review.aboutUser.fullname }
+            review.aboutToy = { _id: review.aboutToy._id.toString(), name: review.aboutToy.name, price: review.aboutToy.price }
+            review.byUser = { _id: review.byUser._id.toString(), fullname: review.byUser.fullname }
             delete review.userId
             delete review.toyId
             return review
@@ -60,7 +63,7 @@ async function query(filterBy = {}) {
 
         return reviews
     } catch (err) {
-        
+
         logger.error('cannot find reviews', err)
         throw err
     }
@@ -70,6 +73,7 @@ async function query(filterBy = {}) {
 async function remove(reviewId) {
     try {
         const store = asyncLocalStorage.getStore()
+        console.log('store', store)
         const { loggedinUser } = store
         const collection = await dbService.getCollection('review')
         // remove only if user is owner/admin
@@ -87,8 +91,8 @@ async function remove(reviewId) {
 async function add(review) {
     try {
         const reviewToAdd = {
-            byUserId: ObjectId(review.byUserId),
-            aboutUserId: ObjectId(review.aboutUserId),
+            userId: new ObjectId(review.userId),
+            toyId: new ObjectId(review.toyId),
             txt: review.txt
         }
         const collection = await dbService.getCollection('review')

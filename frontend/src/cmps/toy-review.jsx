@@ -14,6 +14,10 @@ export function ToyReview({ toy }) {
         if (toy) loadReviews()
     }, [toy])
 
+    useEffect(() => {
+        loadReviews()
+    }, [reviewToEdit])
+
 
     function loadReviews() {
         const filterBy = { toyId: toy._id }
@@ -46,19 +50,19 @@ export function ToyReview({ toy }) {
 
     async function onRemoveReview(ev, reviewId) {
         ev.preventDefault()
-        try {
-            await reviewService.remove(reviewId)
-            showSuccessMsg('Review removed')
+        // try {
+        //     await reviewService.remove(reviewId)
+        //     showSuccessMsg('Review removed')
 
-        } catch (err) {
-            console.log('err', err)
-            showErrorMsg('Cannot remove review')
-        }
+        // } catch (err) {
+        //     console.log('err', err)
+        //     showErrorMsg('Cannot remove review')
+        // }
     }
 
     function onNewReview(ev) {
         ev.preventDefault()
-        setReviewToEdit({ txt: '' })
+        setReviewToEdit({ txt: '', toyId: toy._id })
     }
 
     if (!reviews) return <span></span>
@@ -70,13 +74,10 @@ export function ToyReview({ toy }) {
                     <ul className="toy-review">
                         {reviews.map(review => (
                             <li key={review._id}>
-                                <h2>{review.txt}</h2>
+                                <h2><button onClick={(ev) => onRemoveReview(ev, review._id)} disabled={true}>X</button>   {review.txt}</h2>
                                 <span>
-                                    Review was written by: {review.aboutUser.fullname}
+                                    Review was written by: {review.byUser.fullname}
                                 </span>
-                                {toy.isAdmin && (
-                                    <button onClick={ev => onRemoveReview(ev, review._id)}>Remove</button>
-                                )}
                             </li>
                         ))}
                     </ul>
