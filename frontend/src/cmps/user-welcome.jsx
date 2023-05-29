@@ -8,9 +8,9 @@ export function UserWelcome({ dispatch, loggedinUser, onLogout }) {
             <article>
                 <h2>Welcome, <span>{loggedinUser.fullname}</span></h2>
             </article>
-            <article>
+            {/* <article>
                 <Link className="custom-button" to={`/userProfile/:${loggedinUser._id}`}>User Profile</Link>
-            </article>
+            </article> */}
             <article>
                 <button className="custom-button" onClick={(ev) => onLogout(ev)}>Logout</button>
             </article>
