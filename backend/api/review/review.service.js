@@ -16,7 +16,7 @@ async function query(filterBy = {}) {
     try {
         // criteria = {byUserId: ObjectId(user._id) }
         // const criteria = _buildCriteria(filterBy)
-        const filter = { userId: new ObjectId("6473b03515e04ba8246afc26") }
+        const filter = { toyId: new ObjectId("6474d415f95d7817fdf59971") }
         const criteria = _buildCriteria(filter)
         const collection = await dbService.getCollection('review')
         var reviews = await collection.aggregate([
@@ -26,33 +26,33 @@ async function query(filterBy = {}) {
             {
                 $lookup:
                 {
-                    from: 'user',//<collection to join>
-                    localField: 'userId',//<field from the input documents> ----> is a key inside a toy object
+                    from: 'toy',//<collection to join>
+                    localField: 'toyId',//<field from the input documents> ----> is a key inside a toy object
                     foreignField: '_id',//<field from the documents of the "from" collection>
-                    as: 'byUser'//<output array field>
+                    as: 'byToy'//<output array field>
                 }
             },
             {
-                $unwind: '$byUser'
+                $unwind: '$byToy'
             },
             {
                 $lookup:
                 {
-                    from: 'toy',//<collection to join>
-                    localField: 'toyId',//<field from the input documents> ----> is a key inside a toy object
+                    from: 'user',//<collection to join>
+                    localField: 'userId',//<field from the input documents> ----> is a key inside a toy object
                     foreignField: '_id',//<field from the documents of the "from" collection>
-                    as: 'aboutToy'//<output array field>
+                    as: 'aboutUser'//<output array field>
                 }
             },
             {
-                $unwind: '$aboutToy'
+                $unwind: '$aboutUser'
             }
         ]).toArray()
         // console.log('reviews', reviews)
         reviews = reviews.map(review => {
             review._id = review._id.toString()
-            review.byUser = { _id: review.byUser._id.toString(), fullname: review.byUser.fullname }
-            review.aboutToy = { _id: review.aboutToy._id.toString(), name: review.aboutToy.name, price: review.aboutToy.price }
+            review.byToy = { _id: review.byToy._id.toString(), name: review.byToy.name, price: review.byToy.price }
+            review.aboutUser = { _id: review.aboutUser._id.toString(), fullname: review.aboutUser.fullname }
             delete review.userId
             delete review.toyId
             return review
@@ -102,7 +102,7 @@ async function add(review) {
 
 function _buildCriteria(filterBy) {
     const criteria = {}
-    if (filterBy.userId) criteria.userId = filterBy.userId
+    if (filterBy.toyId) criteria.toyId = filterBy.toyId
     return criteria
 }
 
