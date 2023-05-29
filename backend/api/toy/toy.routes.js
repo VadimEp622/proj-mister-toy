@@ -19,6 +19,6 @@ router.put('/:id', requireAuth, requireAdmin, updateToy)
 router.delete('/:id', requireAuth, requireAdmin, removeToy)
 
 router.post('/:id/msg', requireAuth, addToyMsg)
-router.delete('/:id/msg/:msgId', requireAuth, removeToyMsg)
+router.delete('/:id/msg/:msgId', requireAuth, requireAdmin, removeToyMsg)
 
 module.exports = router
