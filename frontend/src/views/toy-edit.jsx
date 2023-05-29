@@ -66,6 +66,11 @@ export function ToyEdit() {
                 showSuccessMsg('Toy Saved')
                 navigate('/toy')
             })
+            .catch((err) => {
+                console.log('Cannot Save', err)
+                showErrorMsg('Cannot Save')
+            })
+            .finally(navigate('/toy'))
     }
 
 

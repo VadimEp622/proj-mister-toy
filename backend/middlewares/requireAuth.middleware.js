@@ -7,14 +7,19 @@ module.exports = {
 }
 
 async function requireAuth(req, res, next) {
-    if (!req?.cookies?.loginToken) {
-        return res.status(401).send('Not Authenticated')
-    }
-    const loggedinUser = authService.validateToken(req.cookies.loginToken)
-    if (!loggedinUser) return res.status(401).send('Not Authenticated')
+    try {
 
-    req.loggedinUser = loggedinUser
-    next()
+        // if (!req?.cookies?.loginToken) {
+        //     return res.status(401).send('Not Authenticated')
+        // }
+        const loggedinUser = authService.validateToken(req.cookies.loginToken)
+        // if (!loggedinUser) return res.status(401).send('Not Authenticated')
+
+        req.loggedinUser = loggedinUser
+        next()
+    } catch {
+        res.status(401).send('Not Authenticated')
+    }
 }
 
 async function requireAdmin(req, res, next) {

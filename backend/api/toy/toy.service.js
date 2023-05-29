@@ -14,28 +14,17 @@ module.exports = {
     removeToyMsg,
 }
 
-async function query(filterBy = { name: '', maxPrice: '', inStock: '', labels: [''] }, sortBy = { type: 'createdAt', desc: 1 }) {
+async function query(filterBy, sortBy) {
     try {
-        console.log('filterBy.labels', filterBy.labels)
-        const criteria = {
-            $and: [
-                { name: { $regex: filterBy.name, $options: 'i' } },
-                { price: !filterBy.maxPrice ? { $gte: 0 } : { $lte: +filterBy.maxPrice } },
-                { inStock: filterBy.inStock === 'true' ? { $eq: true } : { $exists: true } },
-            ]
-        }
-        if (filterBy.labels && filterBy.labels.length > 0) {
-            criteria.labels = { $all: filterBy.labels }
-        }
-
+        // console.log('filterBy', filterBy)
+        // console.log('sortBy', sortBy)
+        const criteria = _setCriteria(filterBy)
 
         const collection = await dbService.getCollection('toy')
         let toys = await collection.find(criteria).toArray()
 
-
         if (sortBy.type === 'name') toys.sort((a, b) => (-sortBy.desc) * a.name.localeCompare(b.name))
         else toys.sort((a, b) => (-sortBy.desc) * (a[sortBy.type] - b[sortBy.type]))
-
 
         return toys
     } catch (err) {
@@ -122,6 +111,22 @@ async function removeToyMsg(toyId, msgId) {
 
 
 
+// ***************** PRIVATE FUNCTIONS ***************** 
+function _setCriteria(filterBy) {
+    const criteria = {}
+    if (filterBy.name)
+        criteria.name = { $regex: filterBy.name, $options: 'i' }
+    if (filterBy.maxPrice)
+        criteria.price = { $lte: filterBy.maxPrice }
+    if (filterBy.inStock)
+        criteria.inStock = true
+    if (filterBy.labels)
+        criteria.labels = { $all: filterBy.labels }
+    return criteria
+}
+
+
+
 
 
 
@@ -133,39 +138,12 @@ async function removeToyMsg(toyId, msgId) {
 // var toys = require('../data/toy.json')
 
 // module.exports = {
-// query,
 // get,
 // remove,
 // save
 // }
 
-// function query(filterBy = {}, sortBy = {}) {
-//     let toysToDisplay = toys
-//     const parsedInStock = (filterBy.inStock !== undefined && filterBy.inStock !== '') ? JSON.parse(filterBy.inStock) : undefined;
 
-
-//     if (filterBy.name) {
-//         const regExp = new RegExp(filterBy.name, 'i')
-//         toysToDisplay = toysToDisplay.filter(toy => regExp.test(toy.name))
-//     }
-//     if (filterBy.maxPrice) {
-//         toysToDisplay = toysToDisplay.filter(toy => toy.price <= filterBy.maxPrice)
-//     }
-//     if (parsedInStock) {
-//         toysToDisplay = toysToDisplay.filter(toy => toy.inStock === parsedInStock)
-//     }
-//     if (filterBy.labels && filterBy.labels.length > 0) {
-//         const labels = Array.isArray(filterBy.labels) ? filterBy.labels : filterBy.labels.split(',')
-//         toysToDisplay = toysToDisplay.filter(toy => labels.every(l => toy.labels.includes(l)))
-//     }
-
-
-//     if (sortBy.type === 'name') toysToDisplay.sort((a, b) => (-sortBy.desc) * a.name.localeCompare(b.name))
-//     else toysToDisplay.sort((a, b) => (-sortBy.desc) * (a[sortBy.type] - b[sortBy.type]))
-
-
-//     return Promise.resolve(toysToDisplay)
-// }
 
 // function get(toyId) {
 //     const toy = toys.find(toy => toy._id === toyId)

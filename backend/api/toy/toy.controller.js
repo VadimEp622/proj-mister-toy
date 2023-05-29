@@ -14,9 +14,14 @@ module.exports = {
 async function getToys(req, res) {
     try {
         const filterBy = { ...req.query.filterBy || '' }
-        // filterBy.labels = JSON.parse(filterBy.labels)
-        console.log('filterBy ----> toy.controller.js', filterBy)
+        if (filterBy.maxPrice) filterBy.maxPrice = +filterBy.maxPrice
+        if (filterBy.inStock) filterBy.inStock = (filterBy.inStock === 'true') ? true : false
+        // console.log('filterBy ----> toy.controller.js', filterBy)
+
         const sortBy = { ...req.query.sortBy || '' }
+        if (sortBy.desc) sortBy.desc = +sortBy.desc
+        // console.log('sortBy ----> toy.controller.js', filterBy)
+
         logger.debug('Getting Toys', filterBy, sortBy)
         const toys = await toyService.query(filterBy, sortBy)
         res.json(toys)

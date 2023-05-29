@@ -1,0 +1,44 @@
+.user-msg {
+    // display: flex;
+    // flex-direction: column;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    inset-inline: 50%;
+
+    button {
+        // width: fit-content;
+        // margin-inline-end: 0;
+        // align-self: end;
+        right: 0;
+        position: absolute;
+        z-index: 1;
+    }
+
+    &.success {
+        background-color: greenyellow;
+    }
+
+    &.error {
+        background-color: red;
+    }
+
+    & .msg-container {
+
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        span {
+            position: absolute;
+            width: fit-content;
+            height: fit-content;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: hidden;
+            text-align: center;
+            inset: 50% 50%;
+            Transform: translate(-50%, -50%)
+        }
+    }
+}
