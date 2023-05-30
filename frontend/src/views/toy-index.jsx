@@ -22,6 +22,10 @@ export function ToyIndex() {
 
     useEffect(() => {
         loadToys(filterBy, sortBy)
+
+        // return {
+
+        // }
     }, [filterBy, sortBy])
 
 

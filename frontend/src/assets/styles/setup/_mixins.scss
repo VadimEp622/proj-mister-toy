@@ -31,9 +31,8 @@
 
 // 750px width, mq for labels in toy-index
 
-@mixin custom-btn {
-
-  background-color: $clr4;
+@mixin custom-button($color) {
+  background-color: $color;
   padding: $layoutSmallPadding;
   border: none;
   box-shadow: 5px 5px 5px -2px;

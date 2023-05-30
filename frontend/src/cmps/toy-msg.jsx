@@ -1,31 +1,31 @@
 export function ToyMsg({ toy, loggedinUser, msg, onSaveMsg, onRemoveMsg, handleChange }) {
 
     return (
-        <section className='toy-comments'>
-            {
-                loggedinUser &&
-                <form className="add-comment" onSubmit={onSaveMsg} >
-                    <label htmlFor="addMsg">Comment: </label>
-                    <input id="addMsg"
-                        type="text"
-                        name="txt"
-                        value={msg.txt}
-                        onChange={handleChange}
-                    />
-                    <button>Add</button>
-                </form>
-            }
-            <section className='list-comment'>
-                <h2>Comments:</h2>
+        <section className='toy-msg-container'>
+            <section className='list-msg'>
+                <h2>Messages:</h2>
+                {
+                    loggedinUser &&
+                    <form className="add-msg" onSubmit={onSaveMsg} >
+                        {/* <label htmlFor="addMsg">Message: </label> */}
+                        <input id="addMsg"
+                            type="text"
+                            name="txt"
+                            value={msg.txt}
+                            onChange={handleChange}
+                        />
+                        <button>Add</button>
+                    </form>
+                }
                 {toy.msgs?.length > 0 && <ul>
                     {toy.msgs.map((msg, index) =>
 
-                        <li key={index} className="">
+                        <li key={index} className="msg-preview">
                             {
                                 loggedinUser && loggedinUser.isAdmin &&
-                                <button onClick={(ev) => onRemoveMsg(ev, msg.id)}>X</button>
+                                <button className="custom-button-remove" onClick={(ev) => onRemoveMsg(ev, msg.id)}>X</button>
                             }
-                            <span>{msg.by.fullname} : {msg.txt}</span>
+                            <h2><span>{msg.by.fullname}: </span>  {msg.txt}</h2>
                         </li>
 
                     )}

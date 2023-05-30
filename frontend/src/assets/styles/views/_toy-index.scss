@@ -1,5 +1,8 @@
-.toy-index{
-    &:first-child{
-        padding-block:$layoutSmallPadding;
+.toy-index {
+    margin-block: $layoutMainPadding;
+
+    & .custom-button {
+        margin-block: $layoutSmallPadding;
+        @include custom-button($clr4);
     }
 }

@@ -1,7 +1,9 @@
 .toy-edit {
     padding-block-start: calc($layoutSmallPadding * 2);
 
-
+    & .custom-button{
+        @include custom-button($clr4);
+    }            
 
     .formik {
         padding-block-start: calc($layoutSmallPadding * 2);
@@ -27,7 +29,8 @@
                     width: 300px;
                 }
             }
-            & :nth-child(2){
+
+            & :nth-child(2) {
                 input {
                     width: 100px;
                     text-align: center;
@@ -45,7 +48,7 @@
 
         .labels-input {
             h4 {
-                text-align:center;
+                text-align: center;
             }
 
 
@@ -59,9 +62,10 @@
             }
         }
 
-        button {
+        .custom-button {
             display: block;
             margin-inline: auto;
+            @include custom-button($clr4);
         }
     }
 }

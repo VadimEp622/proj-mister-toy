@@ -5,9 +5,9 @@
     }
 
 
-    .custom-button  {
+    .custom-button {
         margin-block: $layoutMainPadding;
-        @include custom-btn;
+        @include custom-button($clr4);
         // font-size: 200%;
     }
 

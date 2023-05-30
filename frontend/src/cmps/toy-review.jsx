@@ -10,7 +10,6 @@ export function ToyReview({ toy, loggedinUser }) {
 
 
     useEffect(() => {
-
         if (toy) loadReviews()
     }, [toy])
 
@@ -62,11 +61,12 @@ export function ToyReview({ toy, loggedinUser }) {
 
     function onNewReview(ev) {
         ev.preventDefault()
-        setReviewToEdit({ txt: '', toyId: toy._id })
+        if (!reviewToEdit) setReviewToEdit({ txt: '', toyId: toy._id })
+        else setReviewToEdit(null)
     }
 
-    if (!reviews) return <span></span>
 
+    if (!reviews) return <span></span>
     return (
         <section className="toy-review">
             <h2>Reviews:</h2>
@@ -93,14 +93,12 @@ export function ToyReview({ toy, loggedinUser }) {
                 reviews.length > 0 && (
                     <ul>
                         {reviews.map(review => (
-                            <li key={review._id}>
+                            <li className="review-preview" key={review._id}>
                                 <h2><button
+                                    className="custom-button-remove"
                                     onClick={(ev) => onRemoveReview(ev, review._id)}
-                                // disabled={true}
-                                >X</button>   {review.txt}</h2>
-                                <span>
-                                    Review was written by: {review.byUser.fullname}
-                                </span>
+                                >X</button><span>{review.byUser.fullname}: </span>   {review.txt}</h2>
+
                             </li>
                         ))}
                     </ul>

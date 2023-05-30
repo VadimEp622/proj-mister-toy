@@ -20,6 +20,7 @@
             &.green {
                 color: lawngreen
             }
+
             &.red {
                 color: red
             }
@@ -28,6 +29,10 @@
         .preview-buttons {
             display: flex;
             justify-content: space-evenly;
+
+            .custom-button {
+                @include custom-button($clr4);
+            }
         }
     }
 }

@@ -1,21 +1,19 @@
-.toy-review {
-    padding-block: $layoutMainPadding;
+.toy-msg-container {
 
-    .review-preview {
-        display: list-item;
+    .msg-preview {
+
+        display: flex;
         align-items: center;
-        gap: $layoutMainPadding;
         padding-block-end: $layoutMainPadding;
 
         .custom-button-remove {
             @include custom-button($clr6);
-            margin-inline-end: $layoutMainPadding;
         }
 
         span {
+            padding-inline: $layoutMainPadding;
             font-weight: 100;
             font-size: 0.7em;
-            margin-inline-end: $layoutMainPadding;
         }
     }
 }
