@@ -42,17 +42,17 @@ img {
 }
 
 
-.custom-button {
-    background-color: $clr4;
-    padding: $layoutSmallPadding;
-    border: none;
-    box-shadow: 5px 5px 5px -2px;
+// .custom-button {
+//     background-color: $clr4;
+//     padding: $layoutSmallPadding;
+//     border: none;
+//     box-shadow: 5px 5px 5px -2px;
 
-    &:hover {
-        cursor: pointer;
-        background-color: darken($clr4, 10%);
-    }
-}
+//     &:hover {
+//         cursor: pointer;
+//         background-color: darken($clr4, 10%);
+//     }
+// }
 
 button[disabled]:hover {
     cursor: not-allowed;

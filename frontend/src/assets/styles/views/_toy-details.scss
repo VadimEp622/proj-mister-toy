@@ -4,8 +4,11 @@
         padding-block: $layoutMainPadding;
     }
 
-    .custom-button {
+
+    .custom-button  {
         margin-block: $layoutMainPadding;
+        @include custom-btn;
+        // font-size: 200%;
     }
 
     .details {

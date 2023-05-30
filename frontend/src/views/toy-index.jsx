@@ -12,16 +12,19 @@ import { ToySort } from '../cmps/toy-sort.jsx'
 
 
 export function ToyIndex() {
+    // const dispatch = useDispatch()
     const loggedinUser = useSelector(storeState => storeState.userModule.loggedinUser)
     const toys = useSelector(state => state.toyModule.toys)
-    const [filterBy, setFilterBy] = useState(toyService.getDefaultFilter())
-    // const dispatch = useDispatch()
+    const [filterBy, setFilterBy] = useState({ ...toyService.getDefaultFilter() })
     const [sortBy, setSortBy] = useState({ type: 'createdAt', desc: 1 })
+
 
 
     useEffect(() => {
         loadToys(filterBy, sortBy)
     }, [filterBy, sortBy])
+
+
 
 
     function onRemoveToy(toyId) {
@@ -36,7 +39,7 @@ export function ToyIndex() {
     }
 
     function onSetFilter(filterBy) {
-        setFilterBy(filterBy)
+        setFilterBy({ ...filterBy })
     }
 
     return (
@@ -45,7 +48,10 @@ export function ToyIndex() {
                 loggedinUser && loggedinUser.isAdmin &&
                 <Link className="custom-button" to={`/toy/edit`}>Add Toy</Link>
             }
-            <ToyFilter onSetFilter={onSetFilter} />
+            <ToyFilter
+                filterBy={filterBy}
+                onSetFilter={onSetFilter}
+            />
             <ToySort sortBy={sortBy} setSortBy={setSortBy} />
             <ToyList
                 toys={toys}

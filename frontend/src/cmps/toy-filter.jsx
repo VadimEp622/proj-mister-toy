@@ -6,8 +6,8 @@ import { utilService } from "../services/util.service.js"
 import { LabelList } from "./label-list.jsx"
 
 
-export function ToyFilter({ onSetFilter }) {
-    const [filterByToEdit, setFilterByToEdit] = useState(toyService.getDefaultFilter())
+export function ToyFilter({ onSetFilter, filterBy }) {
+    const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
     onSetFilter = useRef(utilService.debounce(onSetFilter))
 
 
@@ -18,6 +18,7 @@ export function ToyFilter({ onSetFilter }) {
     }, [])
 
     useEffect(() => {
+        //TODO: put here an if, that is not activated if filterByToEdit is not changed by handle change
         onSetFilter.current(filterByToEdit)
     }, [filterByToEdit])
 
@@ -57,7 +58,7 @@ export function ToyFilter({ onSetFilter }) {
     function onSubmitFilter(ev) {
         // update father cmp that filters change on submit
         ev.preventDefault()
-        onSetFilter(filterByToEdit)
+        // onSetFilter(filterByToEdit)
     }
 
     const { name, maxPrice, inStock, labels } = filterByToEdit

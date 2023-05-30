@@ -30,14 +30,13 @@ const initialState = {
 
 
 export function toyReducer(state = initialState, action) {
-    console.log('action -> toy.reducer.js', action)
+    // console.log('action -> toy.reducer.js', action)
     // console.log('state.filterBy -> todo.reducer.js', state.filterBy)
     let toys
 
     switch (action.type) {
         case SET_TOYS:
             toys = action.toys
-            // .filter(toy => toy.text.toLowerCase().includes(state.filterBy.text.toLowerCase()))
             return { ...state, toys }
         case ADD_TOY:
             toys = [...state.toys, action.toy]

@@ -1,34 +1,46 @@
 /* Media queries Breakpoint mixins */
 
 @mixin for-mobile-layout {
-    @media (max-width: $break-narrow) {
-      @content;
-    }
+  @media (max-width: $break-narrow) {
+    @content;
   }
-  
-  @mixin for-narrow-layout {
-    @media (min-width: $break-narrow) {
-      @content;
-    }
+}
+
+@mixin for-narrow-layout {
+  @media (min-width: $break-narrow) {
+    @content;
   }
-  
-  @mixin for-normal-layout {
-    @media (min-width: $break-normal) {
-      @content;
-    }
+}
+
+@mixin for-normal-layout {
+  @media (min-width: $break-normal) {
+    @content;
   }
-  
-  @mixin for-wide-layout {
-    @media (min-width: $break-wide) {
-      @content;
-    }
+}
+
+@mixin for-wide-layout {
+  @media (min-width: $break-wide) {
+    @content;
   }
-  
-  @mixin layoutGTC($max) {
-    grid-template-columns:
-      minmax($layoutMainPadding, 1fr)
-      minmax(auto, $max)
-      minmax($layoutMainPadding, 1fr);
+}
+
+@mixin layoutGTC($max) {
+  grid-template-columns:
+    minmax($layoutMainPadding, 1fr) minmax(auto, $max) minmax($layoutMainPadding, 1fr);
+}
+
+// 750px width, mq for labels in toy-index
+
+@mixin custom-btn {
+
+  background-color: $clr4;
+  padding: $layoutSmallPadding;
+  border: none;
+  box-shadow: 5px 5px 5px -2px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken($clr4, 10%);
   }
 
-  // 750px width, mq for labels in toy-index
+}

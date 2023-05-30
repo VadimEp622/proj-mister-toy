@@ -10,7 +10,7 @@ const initialState = {
 
 
 export function userReducer(state = initialState, action) {
-    console.log('action -> user.reducer.js', action)
+    // console.log('action -> user.reducer.js', action)
     let loggedinUser
 
     switch (action.type) {

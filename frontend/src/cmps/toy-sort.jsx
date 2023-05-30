@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 
 export function ToySort({ sortBy, setSortBy }) {
-
     const [sortByToEdit, setSortByToEdit] = useState({ ...sortBy })
+
 
     useEffect(() => {
         setSortBy(sortByToEdit)
     }, [sortByToEdit])
+
 
     function handleChange({ target }) {
         const field = target.name
