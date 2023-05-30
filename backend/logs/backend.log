@@ -9169,3 +9169,12 @@
 30.5.2023, 22:39:50 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
 30.5.2023, 22:39:50 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
 30.5.2023, 22:39:50 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:42:52 - INFO - New connected socket [id: wuDkDCMKSyzTCV91AAAB] 
+30.5.2023, 22:44:10 - INFO - Socket disconnected [id: undefined] 
+30.5.2023, 22:44:10 - INFO - New connected socket [id: RNfWr9CWRwHUwMfIAAAD] 
+30.5.2023, 22:44:11 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:44:11 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:44:11 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:44:11 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:44:11 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:44:11 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
