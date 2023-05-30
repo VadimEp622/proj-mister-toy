@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
+import { useSelector } from "react-redux"
 
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { toyService } from "../services/toy.service.js"
@@ -11,6 +12,7 @@ import { ToyEditForm } from "../cmps/toy-edit-form.jsx"
 
 
 export function ToyEdit() {
+    const loggedinUser = useSelector(storeState => storeState.userModule.loggedinUser)
     const [toyToEdit, setToyToEdit] = useState(toyService.getEmptyToy())
     const { toyId } = useParams()
     const navigate = useNavigate()
@@ -88,7 +90,9 @@ export function ToyEdit() {
                 onSubmit={onSubmit}
                 toyId={toyId}
                 labels={labels}
-                handleChange={handleChange} />
+                handleChange={handleChange} 
+                loggedinUser={loggedinUser}
+                />
         </section>
     )
 }

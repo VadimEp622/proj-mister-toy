@@ -24,7 +24,7 @@ const SignupSchema = Yup.object().shape({
 // }
 
 
-export function ToyEditForm({ formValues, onSubmit, toyId, labels, handleChange }) {
+export function ToyEditForm({ formValues, onSubmit, toyId, labels, handleChange, loggedinUser }) {
 
     return (
         <Formik
@@ -57,13 +57,14 @@ export function ToyEditForm({ formValues, onSubmit, toyId, labels, handleChange 
                     </section>
                     <LabelList labels={labels} handleChange={handleChange} />
 
-
-                    <button
-                        type="submit"
-                        className="custom-button"
-                    // onClick={(ev) => handleAddToy(ev)}
-                    >{toyId ? 'Edit' : 'Add'}</button>
-
+                    {
+                        loggedinUser && loggedinUser.isAdmin &&
+                        <button
+                            type="submit"
+                            className="custom-button"
+                        // onClick={(ev) => handleAddToy(ev)}
+                        >{toyId ? 'Edit' : 'Add'}</button>
+                    }
                 </Form>
             )}
         </Formik>

@@ -8067,3 +8067,75 @@
 30.5.2023, 17:30:09 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":true} | {"type":"createdAt","desc":1} 
 30.5.2023, 17:30:10 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":"false"},"sortBy":{"type":"createdAt","desc":"1"}} 
 30.5.2023, 17:30:10 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":false} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:56:33 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:56:33 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:56:34 - INFO - Req was made | /api/toy | {} | {} 
+30.5.2023, 17:56:34 - DEBUG - Getting Toys | {} | {} 
+30.5.2023, 17:56:34 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:56:34 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:56:35 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:56:35 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:56:35 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:56:35 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:56:35 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:56:35 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:56:36 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:56:36 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:57:00 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:57:00 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:57:00 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:57:00 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:57:01 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:57:01 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:58:07 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:58:07 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:58:07 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:58:07 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:58:07 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:58:07 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:58:08 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:58:08 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:58:08 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:58:08 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:58:09 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:58:09 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:58:09 - INFO - Req was made | /api/toy | {} | {} 
+30.5.2023, 17:58:09 - DEBUG - Getting Toys | {} | {} 
+30.5.2023, 17:58:10 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:58:10 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:58:10 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:58:10 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:58:10 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:58:10 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:59:39 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:59:39 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:59:41 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:59:41 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:59:41 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:59:41 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:59:41 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:59:41 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:59:45 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:59:45 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:59:45 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:59:45 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:59:45 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:59:45 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:59:52 - DEBUG - auth.service - login with username: 123 
+30.5.2023, 17:59:53 - INFO - User login:  | {"_id":"6475ee8352959abef430c06e","username":"123","fullname":"123"} 
+30.5.2023, 17:59:56 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:59:56 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:59:57 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:59:57 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:59:57 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 17:59:57 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 17:59:57 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883f"} 
+30.5.2023, 17:59:58 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883f"} 
+30.5.2023, 17:59:58 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883f"} 
+30.5.2023, 18:00:01 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883f"} 
+30.5.2023, 18:00:01 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883f"} 
+30.5.2023, 18:00:01 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883f"} 
+30.5.2023, 18:00:02 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883f"} 
+30.5.2023, 18:01:59 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883f"} 
+30.5.2023, 18:01:59 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883f"} 
+30.5.2023, 18:01:59 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883f"} 
