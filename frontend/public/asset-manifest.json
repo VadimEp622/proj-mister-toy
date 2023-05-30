@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.19ed7bc8.css",
+    "main.js": "/static/js/main.cc16316b.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/bahnschrift.ttf": "/static/media/bahnschrift.23b347dac5478c8b4500.ttf",
+    "static/media/Montserrat-Black.ttf": "/static/media/Montserrat-Black.46e8b3d6aad654578958.ttf",
+    "static/media/OpenSans-Bold.ttf": "/static/media/OpenSans-Bold.dbb97fd982ce1b96b6de.ttf",
+    "static/media/GreatVibes-Regular.ttf": "/static/media/GreatVibes-Regular.e45e6e2ddb17d288adcb.ttf",
+    "static/media/Lato-Black.ttf": "/static/media/Lato-Black.57dee8aface5572f9101.ttf",
+    "static/media/logo.png": "/static/media/logo.c1109097602ed3d34892.png",
+    "index.html": "/index.html",
+    "main.19ed7bc8.css.map": "/static/css/main.19ed7bc8.css.map",
+    "main.cc16316b.js.map": "/static/js/main.cc16316b.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19ed7bc8.css",
+    "static/js/main.cc16316b.js"
+  ]
+}
