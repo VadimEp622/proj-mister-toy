@@ -9095,3 +9095,29 @@
 30.5.2023, 22:03:17 - INFO - New chat msg from socket [id: LJU6V__cyA1FdO8UAAA1], emitting to topic 6474d415f95d7817fdf59971 
 30.5.2023, 22:03:18 - INFO - New chat msg from socket [id: T_Ls9inPj-0MhqWNAAA3], emitting to topic 6474d415f95d7817fdf59971 
 30.5.2023, 22:03:21 - INFO - New chat msg from socket [id: T_Ls9inPj-0MhqWNAAA3], emitting to topic 6474d415f95d7817fdf59971 
+30.5.2023, 22:26:03 - INFO - New connected socket [id: 1EEh4hondgjYUZxsAAAC] 
+30.5.2023, 22:26:03 - INFO - New connected socket [id: Atn3h2ZGCkPDEp4YAAAD] 
+30.5.2023, 22:26:05 - INFO - New connected socket [id: LXAyA3IThwtb7eg5AAAF] 
+30.5.2023, 22:26:05 - INFO - New connected socket [id: t-oL27qXC0THmAXbAAAH] 
+30.5.2023, 22:26:10 - INFO - Socket disconnected [id: undefined] 
+30.5.2023, 22:26:11 - INFO - Socket disconnected [id: undefined] 
+30.5.2023, 22:26:12 - INFO - Socket disconnected [id: undefined] 
+30.5.2023, 22:26:16 - INFO - Socket disconnected [id: undefined] 
+30.5.2023, 22:26:19 - INFO - New connected socket [id: knpEJROea9uWavIdAAAJ] 
+30.5.2023, 22:26:20 - INFO - Socket disconnected [id: undefined] 
+30.5.2023, 22:26:20 - INFO - New connected socket [id: JhkDU7EYeCSg-6HoAAAL] 
+30.5.2023, 22:26:21 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:26:21 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:26:22 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:26:22 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:26:22 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:26:22 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:26:25 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
+30.5.2023, 22:26:26 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
+30.5.2023, 22:26:26 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
+30.5.2023, 22:26:29 - INFO - New chat msg from socket [id: JhkDU7EYeCSg-6HoAAAL], emitting to topic 6476071852959abef449883e 
+30.5.2023, 22:26:35 - INFO - Socket disconnected [id: undefined] 
+30.5.2023, 22:26:35 - INFO - New connected socket [id: -R4jXW69BnPJY616AAAN] 
+30.5.2023, 22:26:35 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
+30.5.2023, 22:26:35 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
+30.5.2023, 22:26:35 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
