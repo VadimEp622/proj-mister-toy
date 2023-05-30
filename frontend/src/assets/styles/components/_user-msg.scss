@@ -1,10 +1,11 @@
 .user-msg {
     // display: flex;
     // flex-direction: column;
-    position: absolute;
+    position: fixed;
     height: 100px;
     width: 100px;
     inset-inline: 50%;
+    top: 1em;
 
     button {
         // width: fit-content;

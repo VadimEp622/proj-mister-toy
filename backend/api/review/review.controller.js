@@ -39,7 +39,7 @@ async function deleteReview(req, res) {
 async function addReview(req, res) {
 
     var { loggedinUser } = req
-    console.log('loggedinUser', loggedinUser)
+    // console.log('loggedinUser', loggedinUser)
 
     try {
         var review = req.body

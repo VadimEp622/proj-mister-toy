@@ -15,7 +15,7 @@ export function ToyReview({ toy, loggedinUser }) {
     }, [toy])
 
     useEffect(() => {
-        loadReviews()
+        if (!reviewToEdit) loadReviews()
     }, [reviewToEdit])
 
 
@@ -50,14 +50,14 @@ export function ToyReview({ toy, loggedinUser }) {
 
     async function onRemoveReview(ev, reviewId) {
         ev.preventDefault()
-        // try {
-        //     await reviewService.remove(reviewId)
-        //     showSuccessMsg('Review removed')
+        try {
+            await reviewService.remove(reviewId)
+            showSuccessMsg('Review removed')
 
-        // } catch (err) {
-        //     console.log('err', err)
-        //     showErrorMsg('Cannot remove review')
-        // }
+        } catch (err) {
+            console.log('err', err)
+            showErrorMsg('Cannot remove review')
+        }
     }
 
     function onNewReview(ev) {
@@ -94,7 +94,10 @@ export function ToyReview({ toy, loggedinUser }) {
                     <ul>
                         {reviews.map(review => (
                             <li key={review._id}>
-                                <h2><button onClick={(ev) => onRemoveReview(ev, review._id)} disabled={true}>X</button>   {review.txt}</h2>
+                                <h2><button
+                                    onClick={(ev) => onRemoveReview(ev, review._id)}
+                                // disabled={true}
+                                >X</button>   {review.txt}</h2>
                                 <span>
                                     Review was written by: {review.byUser.fullname}
                                 </span>

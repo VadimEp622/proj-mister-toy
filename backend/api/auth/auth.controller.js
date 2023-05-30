@@ -13,6 +13,7 @@ async function login(req, res) {
 
     try {
         const user = await authService.login(username, password)
+        console.log('user --> auth.controller.js', user)
         const loginToken = authService.getLoginToken(user)
 
         logger.info('User login: ', user)

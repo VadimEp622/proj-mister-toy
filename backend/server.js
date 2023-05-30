@@ -42,6 +42,9 @@ app.use(express.json()) // for req.body
 
 // **************** Toys API ****************:
 
+const { setupAsyncLocalStorage } = require('./middlewares/setupAls.middleware')
+app.all('*', setupAsyncLocalStorage)
+
 const authRoutes = require('./api/auth/auth.routes')
 app.use('/api/auth', authRoutes)
 

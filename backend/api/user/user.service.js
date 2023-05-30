@@ -75,6 +75,7 @@ async function update(user) {
             fullname: user.fullname,
             score: user.score
         }
+        if (user.isAdmin) userToSave.isAdmin = true
         const collection = await dbService.getCollection('user')
         await collection.updateOne({ _id: userToSave._id }, { $set: userToSave })
         return userToSave

@@ -1,8 +1,7 @@
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
-// const asyncLocalStorage = require('../../services/als.service')
+const { asyncLocalStorage } = require('../../services/als.service')
 const { ObjectId } = require('mongodb')
-
 
 
 
@@ -73,12 +72,12 @@ async function query(filterBy = {}) {
 async function remove(reviewId) {
     try {
         const store = asyncLocalStorage.getStore()
-        console.log('store', store)
         const { loggedinUser } = store
+        console.log('loggedinUser', loggedinUser)
         const collection = await dbService.getCollection('review')
         // remove only if user is owner/admin
-        const criteria = { _id: ObjectId(reviewId) }
-        if (!loggedinUser.isAdmin) criteria.byUserId = ObjectId(loggedinUser._id)
+        const criteria = { _id: new ObjectId(reviewId) }
+        if (!loggedinUser.isAdmin) criteria.byUserId = new ObjectId(loggedinUser._id)
         const { deletedCount } = await collection.deleteOne(criteria)
         return deletedCount
     } catch (err) {

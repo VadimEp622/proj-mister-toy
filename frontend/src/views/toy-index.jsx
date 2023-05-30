@@ -20,7 +20,6 @@ export function ToyIndex() {
 
 
     useEffect(() => {
-        console.log('reeeee')
         loadToys(filterBy, sortBy)
     }, [filterBy, sortBy])
 
