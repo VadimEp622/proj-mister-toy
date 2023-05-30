@@ -96,7 +96,7 @@ function formatTime(time) {
     if (diff < MINUTE * 5) return 'A few minutes ago'
     if (diff < HOUR) return 'Less than a hour ago'
     if (diff < HOUR * 3) return 'Couple of hours ago'
-    if (diff < DAY) return 'Today'
+    if (diff < DAY) return 'Earlier Today'
     if (diff < DAY * 2) return 'Yesterday'
     if (diff < DAY * 3) return '2 days ago'
     if (diff < WEEK) return 'About a week ago'

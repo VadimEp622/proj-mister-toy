@@ -20,8 +20,12 @@ export function ToyDetails() {
 
 
     useEffect(() => {
-        if(!toy) loadToy()
+        if (!toy) loadToy()
     }, [toy, msg])
+
+    useEffect(() => {
+        loadToy()
+    }, [msg])
 
 
     function loadToy() {
@@ -36,6 +40,10 @@ export function ToyDetails() {
             })
     }
 
+    function handleChange({ target }) {
+        let { value, name: field, } = target
+        setMsg((prevMsg) => ({ ...prevMsg, [field]: value }))
+    }
 
     async function onSaveMsg(ev) {
         ev.preventDefault()
@@ -49,11 +57,6 @@ export function ToyDetails() {
             console.log('Cannot save Msg', err)
             showErrorMsg('Cannot save Msg')
         }
-    }
-
-    function handleChange({ target }) {
-        let { value, name: field, } = target
-        setMsg((prevMsg) => ({ ...prevMsg, [field]: value }))
     }
 
     async function onRemoveMsg(ev, msgId) {
@@ -70,11 +73,7 @@ export function ToyDetails() {
 
 
 
-
     if (!toy) return <div>Loading...</div>
-
-    // const inStock = toy.inStock ? "Toy is in stock" : "Toy is out of stock"
-
     return (
         <section className="toy-details">
             <Link className='custom-button' to={`/toy`}>Back</Link>
@@ -99,6 +98,7 @@ export function ToyDetails() {
 
             <ToyReview
                 toy={toy}
+                loggedinUser={loggedinUser}
             />
 
         </section >

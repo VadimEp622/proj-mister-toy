@@ -2,18 +2,21 @@ export function ToyMsg({ toy, loggedinUser, msg, onSaveMsg, onRemoveMsg, handleC
 
     return (
         <section className='toy-comments'>
-            <form className="add-comment" onSubmit={onSaveMsg} >
-                <label htmlFor="addMsg">AddMsg</label>
-                <input id="addMsg"
-                    type="text"
-                    name="txt"
-                    value={msg.txt}
-                    onChange={handleChange}
-                />
-                <button>Add Msg</button>
-            </form>
+            {
+                loggedinUser &&
+                <form className="add-comment" onSubmit={onSaveMsg} >
+                    <label htmlFor="addMsg">Comment: </label>
+                    <input id="addMsg"
+                        type="text"
+                        name="txt"
+                        value={msg.txt}
+                        onChange={handleChange}
+                    />
+                    <button>Add</button>
+                </form>
+            }
             <section className='list-comment'>
-                <h3>Comments</h3>
+                <h2>Comments:</h2>
                 {toy.msgs?.length > 0 && <ul>
                     {toy.msgs.map((msg, index) =>
 

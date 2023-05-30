@@ -4,7 +4,7 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 
 
 
-export function ToyReview({ toy }) {
+export function ToyReview({ toy, loggedinUser }) {
     const [reviews, setReviews] = useState(null)
     const [reviewToEdit, setReviewToEdit] = useState(null)
 
@@ -68,22 +68,12 @@ export function ToyReview({ toy }) {
     if (!reviews) return <span></span>
 
     return (
-        <section>
+        <section className="toy-review">
+            <h2>Reviews:</h2>
             {
-                reviews.length > 0 && (
-                    <ul className="toy-review">
-                        {reviews.map(review => (
-                            <li key={review._id}>
-                                <h2><button onClick={(ev) => onRemoveReview(ev, review._id)} disabled={true}>X</button>   {review.txt}</h2>
-                                <span>
-                                    Review was written by: {review.byUser.fullname}
-                                </span>
-                            </li>
-                        ))}
-                    </ul>
-                )
+                loggedinUser && loggedinUser.isAdmin &&
+                <button onClick={(ev) => onNewReview(ev)}>{reviewToEdit ? 'Cancel Review' : 'Add a new Review'}</button>
             }
-            <button onClick={(ev) => onNewReview(ev)}>Add a new Review</button>
             {reviewToEdit && (
                 <section>
                     Please add text for your review:
@@ -99,6 +89,20 @@ export function ToyReview({ toy }) {
                     </form>
                 </section>
             )}
+            {
+                reviews.length > 0 && (
+                    <ul>
+                        {reviews.map(review => (
+                            <li key={review._id}>
+                                <h2><button onClick={(ev) => onRemoveReview(ev, review._id)} disabled={true}>X</button>   {review.txt}</h2>
+                                <span>
+                                    Review was written by: {review.byUser.fullname}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                )
+            }
         </section>
     )
 }
