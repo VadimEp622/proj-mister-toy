@@ -63,5 +63,8 @@ const port = process.env.PORT || 3030
 // Listen will always be the last line in our server!
 http.listen(port, () => {
     console.log(`App listening on port ${port}!`)
-    console.log('Hello render.com')
+    if (process.env.NODE_ENV === 'production') {
+        console.log('Hello render.com')
+    }
+    else console.log('Hello World!')
 })

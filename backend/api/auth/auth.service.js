@@ -37,17 +37,17 @@ async function signup(username, password, fullname) {
 }
 
 function getLoginToken(user) {
-    return cryptr.encrypt(JSON.stringify(user))    
+    return cryptr.encrypt(JSON.stringify(user))
 }
 
 function validateToken(loginToken) {
     try {
         const json = cryptr.decrypt(loginToken)
-        
+
         const loggedinUser = JSON.parse(json)
         return loggedinUser
-    } catch(err) {
-        console.log('Invalid login token')
+    } catch (err) {
+        logger.error(`auth.service - Invalid login token`)
     }
     return null
 }
