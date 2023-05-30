@@ -9121,3 +9121,51 @@
 30.5.2023, 22:26:35 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
 30.5.2023, 22:26:35 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
 30.5.2023, 22:26:35 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
+30.5.2023, 22:27:24 - INFO - Socket disconnected [id: undefined] 
+30.5.2023, 22:27:24 - INFO - New connected socket [id: 0Z0VZperggfJLnD_AAAP] 
+30.5.2023, 22:27:25 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:27:25 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:27:25 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:27:25 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:27:25 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:27:25 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:27:26 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
+30.5.2023, 22:27:26 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
+30.5.2023, 22:27:26 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
+30.5.2023, 22:27:31 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:27:31 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:27:31 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:27:31 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:27:31 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:27:31 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:27:32 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
+30.5.2023, 22:27:33 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
+30.5.2023, 22:27:33 - INFO - Req was made | /api/review | {} | {"toyId":"6476071852959abef449883e"} 
+30.5.2023, 22:27:35 - INFO - New chat msg from socket [id: 0Z0VZperggfJLnD_AAAP], emitting to topic 6476071852959abef449883e 
+30.5.2023, 22:27:39 - DEBUG - auth.service - login with username: admin 
+30.5.2023, 22:27:39 - INFO - User login:  | {"_id":"6475ee8352959abef430c06f","username":"admin","fullname":"Admin","isAdmin":"true"} 
+30.5.2023, 22:27:46 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:27:46 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:27:46 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:27:46 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:27:46 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:27:46 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:27:49 - INFO - Socket disconnected [id: undefined] 
+30.5.2023, 22:27:49 - INFO - New connected socket [id: 2323nyUD06ddxcPAAAAR] 
+30.5.2023, 22:27:49 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:27:49 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:27:49 - INFO - Setting socket.userId = 6475ee8352959abef430c06f for socket [id: 2323nyUD06ddxcPAAAAR] 
+30.5.2023, 22:27:50 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:27:50 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:27:50 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:27:50 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:27:53 - INFO - Socket disconnected [id: undefined] 
+30.5.2023, 22:39:48 - INFO - New connected socket [id: q7gaRNpg8VtH8OURAAAB] 
+30.5.2023, 22:39:49 - INFO - Socket disconnected [id: undefined] 
+30.5.2023, 22:39:49 - INFO - New connected socket [id: w78yGsogCUpVbMLHAAAD] 
+30.5.2023, 22:39:50 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:39:50 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:39:50 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:39:50 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
+30.5.2023, 22:39:50 - INFO - Req was made | /api/toy | {} | {"filterBy":{"name":"","maxPrice":"","inStock":""},"sortBy":{"type":"createdAt","desc":"1"}} 
+30.5.2023, 22:39:50 - DEBUG - Getting Toys | {"name":"","maxPrice":"","inStock":""} | {"type":"createdAt","desc":1} 
