@@ -8,6 +8,7 @@ import { toyService } from "../services/toy.service.js"
 
 import { ToyMsg } from '../cmps/toy-msg.jsx'
 import { ToyReview } from '../cmps/toy-review.jsx'
+import { ToyChat } from '../cmps/toy-chat.jsx'
 
 
 export function ToyDetails() {
@@ -97,6 +98,11 @@ export function ToyDetails() {
             />
 
             <ToyReview
+                toy={toy}
+                loggedinUser={loggedinUser}
+            />
+
+            <ToyChat
                 toy={toy}
                 loggedinUser={loggedinUser}
             />
